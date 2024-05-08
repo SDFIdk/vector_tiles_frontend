@@ -4,11 +4,10 @@
 # Dependency directories
 node_modules/
 
-# Generated files
-dist/
-public/
-!public/index.html
-
 # Config
 config.js
 
+# Generated files
+dist/
+public/*
+!public/index.html

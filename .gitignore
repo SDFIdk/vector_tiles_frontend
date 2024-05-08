@@ -1,0 +1,11 @@
+# macOS system files
+.DS_Store
+
+# Dependency directories
+node_modules/
+
+# Generated files
+dist/
+
+# Config
+config.js

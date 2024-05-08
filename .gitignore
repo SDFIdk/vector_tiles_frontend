@@ -6,6 +6,9 @@ node_modules/
 
 # Generated files
 dist/
+public/
+!public/index.html
 
 # Config
 config.js
+

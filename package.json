@@ -1,0 +1,40 @@
+{
+    "name": "vector-tiles-frontend",
+    "version": "0.1.0",
+    "description": "Webapplikation til at vise vector tiles med forskellige styles.",
+    "main": "./public/index.html",
+    "type": "module",
+    "scripts": {
+      "dev": "export NODE_ENV=development && cp config.js public/config.js || : && node esbuild.js",
+      "build": "export NODE_ENV=production && node esbuild.js"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/SDFIdk/vector_tiles_frontend.git"
+    },
+    "keywords": [
+      "vector tiles",
+      "SDFI"
+    ],
+    "author": {
+      "name": "Styrelsen for Dataforsyning og Infrastruktur",
+      "email": "support@sdfi.dk",
+      "url": "https://sdfi.dk/"
+    },
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/SDFIdk/vector_tiles_frontend/issues"
+    },
+    "homepage": "https://github.com/SDFIdk/vector_tiles_frontend#readme",
+    "dependencies": {
+      "@dataforsyningen/designsystem": "^6.0.0",
+      "ol": "^9.1.0",
+      "proj4": "^2.11.0",
+      "ol-mapbox-style": "^12.3.2"
+    },
+    "devDependencies": {
+      "esbuild": "^0.20.2",
+      "esbuild-sass-plugin": "^3.2.0"
+    }
+  }
+  

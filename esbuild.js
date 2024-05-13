@@ -1,6 +1,7 @@
 import esbuild from 'esbuild'
 import { sassPlugin } from 'esbuild-sass-plugin'
 
+const outdir = 'public'
 const entry_points = {
   main: 'src/index.js',
   style: 'src/index.css'
@@ -10,7 +11,7 @@ if (process.env.NODE_ENV === 'production') {
   // Production build
   esbuild.build({
     entryPoints: entry_points,
-    outdir: 'dist',
+    outdir: outdir,
     bundle: true,
     minify: true,
     metafile: true,
@@ -36,7 +37,7 @@ if (process.env.NODE_ENV === 'production') {
   // Development mode watches for file changes and rebuilds
   esbuild.context({
     entryPoints: entry_points,
-    outdir: 'public',
+    outdir: outdir,
     bundle: true,
     splitting: true,
     format: 'esm',
@@ -50,7 +51,7 @@ if (process.env.NODE_ENV === 'production') {
   })
   .then((result) => {
     result.serve({
-      servedir: 'public',
+      servedir: outdir,
     }).then(({ host, port }) => {
       console.log('Serving at localhost:' + port)
     })

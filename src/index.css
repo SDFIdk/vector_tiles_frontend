@@ -1,2 +1,27 @@
 /* CSS imports*/
-@import "@dataforsyningen/designsystem/assets/designsystem.css";
+@import '@dataforsyningen/designsystem/index.scss';
+
+/* Styling Openlayers */
+.ol-zoom {
+  bottom: 2rem;
+  right: 1rem;
+  position: absolute;
+}
+
+.ol-zoom-in, .ol-zoom-out {
+  margin: 0.25rem 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.15rem 0.3rem hsl(0, 0%, 50%, 0.5);
+}
+
+.ol-rotate {
+  position: absolute;
+  bottom: 8rem;
+  right: 1rem;
+}
+
+.ol-rotate-reset {
+  box-shadow: 0 0.15rem 0.3rem hsl(0, 0%, 50%, 0.5);
+}

@@ -1,14 +1,17 @@
-import Map from 'ol/Map.js'
-import View from 'ol/View.js'
+import Map from 'ol/Map'
+import View from 'ol/View'
 import MVT from 'ol/format/MVT'
-import VectorTileLayer from 'ol/layer/VectorTile.js'
-import VectorTileSource from 'ol/source/VectorTile.js'
+import VectorTileLayer from 'ol/layer/VectorTile'
+import VectorTileSource from 'ol/source/VectorTile'
 import { get as getProjection } from 'ol/proj'
 import { register } from 'ol/proj/proj4'
 import proj4 from 'proj4/dist/proj4'
 import { applyStyle } from 'ol-mapbox-style'
 
 import { skaermkortStyle } from './styles'
+import { MapMenu } from './components/menu'
+
+customElements.define('map-menu', MapMenu)
 
 const layergroup = 'skaermkort_vector_tiles'
 const srs = 'EPSG:25832'

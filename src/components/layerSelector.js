@@ -15,7 +15,7 @@ export class MapLayerSelector extends HTMLElement {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      padding: 0.5rem 1rem;
+      padding: 1rem;
     }
     .style {
       cursor: pointer;

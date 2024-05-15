@@ -6,7 +6,7 @@ import VectorTileSource from 'ol/source/VectorTile'
 import { get as getProjection } from 'ol/proj'
 import { register } from 'ol/proj/proj4'
 import proj4 from 'proj4/dist/proj4'
-import { applyStyle } from 'ol-mapbox-style'
+import { applyStyle, stylefunction } from 'ol-mapbox-style'
 
 import { STYLE_FILES } from './constants'
 import { MapMenu } from './components/menu'
@@ -50,6 +50,15 @@ const map = new Map({
 })
 
 applyStyle(vectorLayer, STYLE_FILES[0].style)
+
+/* Use style file without using the source in it.
+  Since we probably don't want to include the token in the stylefile.
+const layerIds = []
+STYLE_FILES[0].style.layers.forEach(layer => {
+  layerIds.push(layer.id)
+})
+stylefunction(vectorLayer, STYLE_FILES[0].style, layerIds)
+*/
 
 document.addEventListener('vt:change-style', event => {
   if (event.detail.style) applyStyle(vectorLayer, event.detail.style)

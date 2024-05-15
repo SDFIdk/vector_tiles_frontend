@@ -11,3 +11,4 @@ config.js
 dist/
 public/*
 !public/index.html
+!public/img/

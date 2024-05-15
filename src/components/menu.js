@@ -115,7 +115,7 @@ export class MapMenu extends HTMLElement {
       if (menuElement.childElementCount > 1) { // if another tab is open, close that.
         menuElement.removeChild(menuElement.lastElementChild)
         for (let i = 0; i < menuTopElement.children.length; i++) {
-          menuTopElement[i].classList.remove(selectedClass)
+          menuTopElement.children[i].classList.remove(selectedClass)
         }
       }
       // Add the new tab

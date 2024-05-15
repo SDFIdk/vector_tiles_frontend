@@ -23,6 +23,9 @@ export class MapLayerSelector extends HTMLElement {
     .style > h6 {
       margin: 0.5rem 0 0 0;
     }
+    .style.selected > h6 {
+      color: var(--aktion)
+    }
     .style > img {
       width: 8rem;
       min-width: 8rem;
@@ -30,6 +33,9 @@ export class MapLayerSelector extends HTMLElement {
       border-radius: .5rem; 
       background-color: var(--bg1);
       object-fit: cover;
+    }
+    .style.selected > img {
+      outline: 4px solid var(--aktion);
     }
   `
   template = /* html */`
@@ -52,18 +58,27 @@ export class MapLayerSelector extends HTMLElement {
     container.className = 'map-menu-bottom'
     container.innerHTML = this.template
     const contentElement = container.querySelector('.content')
+    const selectedClass = 'selected'
     
-    STYLE_FILES.forEach(style => {
+    STYLE_FILES.forEach((style, index) => {
       const wrapperElement = document.createElement('section')
       const imgElement = document.createElement('img')
       const titleElement = document.createElement('h6')
       wrapperElement.classList.add('style')
+      if (!index) wrapperElement.classList.add(selectedClass)
       imgElement.src = 'img/' + style.title + '.png'
       titleElement.innerHTML = style.title
       wrapperElement.appendChild(imgElement)
       wrapperElement.appendChild(titleElement)
       wrapperElement.addEventListener('click', () => {
-        console.log('emit event to switch style')
+        if ([...wrapperElement.classList].includes(selectedClass)) return
+        this.dispatchEvent(new CustomEvent('vt:change-style', { 
+          detail: style, bubbles: true, composed: true 
+        }))
+        for (let i = 0; i < contentElement.children.length; i++) {
+          contentElement.children[i].classList.remove(selectedClass)
+        }
+        wrapperElement.classList.add(selectedClass)
       })
       contentElement.appendChild(wrapperElement)
     })

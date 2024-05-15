@@ -8,7 +8,7 @@ import { register } from 'ol/proj/proj4'
 import proj4 from 'proj4/dist/proj4'
 import { applyStyle } from 'ol-mapbox-style'
 
-import { skaermkortStyle } from './styles'
+import { STYLE_FILES } from './constants'
 import { MapMenu } from './components/menu'
 
 customElements.define('map-menu', MapMenu)
@@ -49,4 +49,8 @@ const map = new Map({
   }),
 })
 
-applyStyle(vectorLayer, skaermkortStyle)
+applyStyle(vectorLayer, STYLE_FILES[0].style)
+
+document.addEventListener('vt:change-style', event => {
+  if (event.detail.style) applyStyle(vectorLayer, event.detail.style)
+})

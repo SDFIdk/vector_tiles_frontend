@@ -2,6 +2,7 @@ import { STYLE_FILES } from '../constants'
 
 export class MapLayerSelector extends HTMLElement {
 
+  selectedClass = 'selected'
   styles = /* css */`
     .header {
       width: 100%;
@@ -78,35 +79,12 @@ export class MapLayerSelector extends HTMLElement {
     container.innerHTML = this.template
     const stylesElement = container.querySelector('.styles-container')
     const uploadElement = container.querySelector('.styles-upload')
-    const selectedClass = 'selected'
     
     // Create the buttons for switching styles
     STYLE_FILES.forEach((style, index) => {
-      const wrapperElement = document.createElement('section')
-      const imgElement = document.createElement('img')
-      const titleElement = document.createElement('h6')
-      wrapperElement.classList.add('style')
-      if (!index) wrapperElement.classList.add(selectedClass)
-      imgElement.src = 'img/' + style.title + '.png'
-      titleElement.innerHTML = style.title
-      wrapperElement.appendChild(imgElement)
-      wrapperElement.appendChild(titleElement)
-      // Add the event listener to switch style
-      wrapperElement.addEventListener('click', () => {
-        if ([...wrapperElement.classList].includes(selectedClass)) return
-        for (let i = 0; i < stylesElement.children.length; i++) {
-          stylesElement.children[i].classList.remove(selectedClass)
-        }
-        wrapperElement.classList.add(selectedClass)
-        // Use timeout hack to allow highlight of selection to update before updating the map.
-        // Otherwise it does not update until the new style has also rendered.
-        setTimeout(() => {
-          this.dispatchEvent(new CustomEvent('vt:change-style', { 
-            detail: style, bubbles: true, composed: true 
-          }))
-        }, 1)
-      })
-      stylesElement.appendChild(wrapperElement)
+      const styleElement = this.createStyleElement(style, stylesElement)
+      if (!index) styleElement.classList.add(this.selectedClass)
+      stylesElement.appendChild(styleElement)
     })
 
     // Create a drop zone for uploading your own styles
@@ -116,6 +94,7 @@ export class MapLayerSelector extends HTMLElement {
     dropElement.addEventListener('drop', event => {
       event.preventDefault()
       dropElement.removeAttribute('drop-active')
+      
     })
     dropElement.addEventListener('dragover', event => {
       event.preventDefault()
@@ -135,4 +114,33 @@ export class MapLayerSelector extends HTMLElement {
   connectedCallback() {
     this.createDOM()
   }
+
+  // Create a style element
+  createStyleElement(style, stylesElement) {
+    const wrapperElement = document.createElement('section')
+    const imgElement = document.createElement('img')
+    const titleElement = document.createElement('h6')
+    wrapperElement.classList.add('style')
+    imgElement.src = 'img/' + style.title + '.png'
+    titleElement.innerHTML = style.title
+    wrapperElement.appendChild(imgElement)
+    wrapperElement.appendChild(titleElement)
+    // Add the event listener to switch style
+    wrapperElement.addEventListener('click', () => {
+      if ([...wrapperElement.classList].includes(this.selectedClass)) return
+      for (let i = 0; i < stylesElement.children.length; i++) {
+        stylesElement.children[i].classList.remove(this.selectedClass)
+      }
+      wrapperElement.classList.add(this.selectedClass)
+      // Use timeout hack to allow highlight of selection to update before updating the map.
+      // Otherwise it does not update until the new style has also rendered.
+      setTimeout(() => {
+        this.dispatchEvent(new CustomEvent('vt:change-style', { 
+          detail: style, bubbles: true, composed: true 
+        }))
+      }, 1)
+    })
+    return wrapperElement
+  }
+
 }

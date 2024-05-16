@@ -14,7 +14,7 @@ export class MapMenu extends HTMLElement {
       top: 1.5rem;
       left: 5vw;
       max-width: calc(min(90vw, 50rem));
-      max-height: calc(min(90vh, 50rem));
+      max-height: calc(100vh - 4rem);
       border-radius: 2.25rem;
       background-color: rgba(62, 221, 198, 0.33);
       padding: .25rem;

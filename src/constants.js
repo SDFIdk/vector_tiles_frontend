@@ -2,7 +2,7 @@ import { skaermkortStyle, skaermkortDaempetStyle, skaermkortGraaStyle, skaermkor
 
 export const STYLE_FILES = [
   {
-    title: 'Skærmkortet',
+    title: 'Klassisk',
     style: skaermkortStyle
   },
   {
@@ -14,7 +14,7 @@ export const STYLE_FILES = [
     style: skaermkortGraaStyle
   },
   {
-    title: 'Dark Mode',
+    title: 'Mørkt',
     style: skaermkortDarkModeStyle
   }
 ]

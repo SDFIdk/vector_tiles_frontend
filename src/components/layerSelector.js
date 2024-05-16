@@ -1,8 +1,10 @@
 import { STYLE_FILES } from '../constants'
 
+const selectedClass = 'selected'
+const maxTitleLength = 11
+
 export class MapLayerSelector extends HTMLElement {
 
-  selectedClass = 'selected'
   styles = /* css */`
     .header {
       width: 100%;
@@ -28,17 +30,23 @@ export class MapLayerSelector extends HTMLElement {
       margin: 0.5rem 0 0 0;
     }
     .style.selected > h6 {
-      color: var(--aktion)
+      color: var(--aktion);
     }
-    .style > img {
+    .style > img, .style > article {
       width: 8rem;
       min-width: 8rem;
       height: 5rem;
-      border-radius: .5rem; 
+      border-radius: .5rem;
       background-color: var(--bg1);
       object-fit: cover;
     }
-    .style.selected > img {
+    .style > article, .drop-zone {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .style.selected > img, .style.selected > article {
       outline: 4px solid var(--aktion);
     }
     .drop-zone {
@@ -47,10 +55,6 @@ export class MapLayerSelector extends HTMLElement {
       padding: 1rem;
       border-radius: .5rem;
       background-color: var(--bg1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
     }
     .drop-zone[drop-active=true] {
       outline: dotted var(--aktion);
@@ -74,6 +78,7 @@ export class MapLayerSelector extends HTMLElement {
   }
 
   createDOM() {
+    this.styles = STYLE_FILES
     const container = document.createElement('section')
     container.className = 'map-menu-bottom'
     container.innerHTML = this.template
@@ -81,9 +86,9 @@ export class MapLayerSelector extends HTMLElement {
     const uploadElement = container.querySelector('.styles-upload')
     
     // Create the buttons for switching styles
-    STYLE_FILES.forEach((style, index) => {
-      const styleElement = this.createStyleElement(style, stylesElement)
-      if (!index) styleElement.classList.add(this.selectedClass)
+    this.styles.forEach((style, index) => {
+      const styleElement = this.createStyleElement(style, 'img/' + style.title + '.png', stylesElement)
+      if (!index) styleElement.classList.add(selectedClass)
       stylesElement.appendChild(styleElement)
     })
 
@@ -94,7 +99,23 @@ export class MapLayerSelector extends HTMLElement {
     dropElement.addEventListener('drop', event => {
       event.preventDefault()
       dropElement.removeAttribute('drop-active')
-      
+      const fileList = event.dataTransfer.files
+      if (fileList.length !== 1) return // only single files allowed
+      const file = fileList[0]
+      const fileName = file.name.slice(0, -5)
+      if (file.type !== 'application/json') return // only json files allowed
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        const jsonFile = JSON.parse(e.target.result)
+        // Add new style element to the list
+        const styleElement = this.createStyleElement({
+          title: (fileName.length > maxTitleLength) ? fileName.slice(0, maxTitleLength-1) + '&hellip;' : str,
+          style: jsonFile
+        }, '', stylesElement)
+        stylesElement.appendChild(styleElement)
+        styleElement.click()
+      }
+      reader.readAsText(file)
     })
     dropElement.addEventListener('dragover', event => {
       event.preventDefault()
@@ -107,7 +128,7 @@ export class MapLayerSelector extends HTMLElement {
     dropText.innerHTML = 'Træk og slip din egen style fil her for at tilføje den til kortet.'
     dropElement.appendChild(dropText)
     uploadElement.appendChild(dropElement)
-
+    
     this.appendChild(container)
   }
 
@@ -116,22 +137,30 @@ export class MapLayerSelector extends HTMLElement {
   }
 
   // Create a style element
-  createStyleElement(style, stylesElement) {
+  createStyleElement(style, img, stylesElement) {
     const wrapperElement = document.createElement('section')
-    const imgElement = document.createElement('img')
     const titleElement = document.createElement('h6')
     wrapperElement.classList.add('style')
-    imgElement.src = 'img/' + style.title + '.png'
+    if (img) {
+      const imgElement = document.createElement('img')
+      imgElement.src = img
+      wrapperElement.appendChild(imgElement)
+    } else {
+      const imgElement = document.createElement('article')
+      const imgTextElement = document.createElement('p')
+      imgTextElement.innerHTML = 'Bruger defineret'
+      imgElement.appendChild(imgTextElement)
+      wrapperElement.appendChild(imgElement)
+    }
     titleElement.innerHTML = style.title
-    wrapperElement.appendChild(imgElement)
     wrapperElement.appendChild(titleElement)
     // Add the event listener to switch style
     wrapperElement.addEventListener('click', () => {
-      if ([...wrapperElement.classList].includes(this.selectedClass)) return
+      if ([...wrapperElement.classList].includes(selectedClass)) return
       for (let i = 0; i < stylesElement.children.length; i++) {
-        stylesElement.children[i].classList.remove(this.selectedClass)
+        stylesElement.children[i].classList.remove(selectedClass)
       }
-      wrapperElement.classList.add(this.selectedClass)
+      wrapperElement.classList.add(selectedClass)
       // Use timeout hack to allow highlight of selection to update before updating the map.
       // Otherwise it does not update until the new style has also rendered.
       setTimeout(() => {

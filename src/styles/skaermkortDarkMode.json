@@ -5,7 +5,7 @@
     "sources": {
         "vector-source": {
             "type": "vector",
-			"tiles": ["https://api.dataforsyningen.dk/wmts/skaermkort_vector_tiles_labs/v1?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&LAYER=skaermkort_vector_tiles&STYLE=&TILEMATRIX=EPSG:25832:{z}&TILEMATRIXSET=EPSG:25832&FORMAT=application/vnd.mapbox-vector-tile&TILECOL={x}&TILEROW={y}&token=40fa2e624b2a89d63473eec1ccb9700c"],
+			"tiles": ["https://api.dataforsyningen.dk/wmts/skaermkort_vector_tiles_labs/v1?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&LAYER=skaermkort_vector_tiles&STYLE=&TILEMATRIX=EPSG:25832:{z}&TILEMATRIXSET=EPSG:25832&FORMAT=application/vnd.mapbox-vector-tile&TILECOL={x}&TILEROW={y}"],
             "maxZoom": 20,
             "minZoom": 0
         }

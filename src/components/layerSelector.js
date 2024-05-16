@@ -60,6 +60,7 @@ export class MapLayerSelector extends HTMLElement {
     const contentElement = container.querySelector('.content')
     const selectedClass = 'selected'
     
+    // Create the buttons for switching styles
     STYLE_FILES.forEach((style, index) => {
       const wrapperElement = document.createElement('section')
       const imgElement = document.createElement('img')
@@ -70,15 +71,20 @@ export class MapLayerSelector extends HTMLElement {
       titleElement.innerHTML = style.title
       wrapperElement.appendChild(imgElement)
       wrapperElement.appendChild(titleElement)
+      // Add the event listener to switch style
       wrapperElement.addEventListener('click', () => {
         if ([...wrapperElement.classList].includes(selectedClass)) return
-        this.dispatchEvent(new CustomEvent('vt:change-style', { 
-          detail: style, bubbles: true, composed: true 
-        }))
         for (let i = 0; i < contentElement.children.length; i++) {
           contentElement.children[i].classList.remove(selectedClass)
         }
         wrapperElement.classList.add(selectedClass)
+        // Use timeout hack to allow highlight of selection to update before updating the map.
+        // Otherwise it does not update until the new style has also rendered.
+        setTimeout(() => {
+          this.dispatchEvent(new CustomEvent('vt:change-style', { 
+            detail: style, bubbles: true, composed: true 
+          }))
+        }, 1)
       })
       contentElement.appendChild(wrapperElement)
     })

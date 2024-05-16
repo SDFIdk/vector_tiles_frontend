@@ -1,4 +1,4 @@
-import { skaermkortStyle, skaermkortDaempetStyle, skaermkortGraaStyle } from './styles'
+import { skaermkortStyle, skaermkortDaempetStyle, skaermkortGraaStyle, skaermkortDarkModeStyle } from './styles'
 
 export const STYLE_FILES = [
   {
@@ -14,7 +14,7 @@ export const STYLE_FILES = [
     style: skaermkortGraaStyle
   },
   {
-    title: 'Skærmkortet',
-    style: skaermkortStyle
+    title: 'Dark Mode',
+    style: skaermkortDarkModeStyle
   }
 ]

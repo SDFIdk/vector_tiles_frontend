@@ -20,29 +20,24 @@ export class MapMenu extends HTMLElement {
       padding: .25rem;
       z-index: 2;
     }
-
     .map-menu {
       border-radius: 2rem;
       border: 1px solid var(--border-color);
       background-color: var(--background-color);
-      max-height: calc(min(90vh, 50rem) - 0.5rem);
+      max-height: calc(100vh - 4.5rem);
       overflow: hidden;
     }
-
     .map-menu-top {
       display: flex;
       padding: .5rem;
     }
-
     .ds-logo {
       width: 10rem;
     }
-
     .icon-wrapper {
       position: relative;
       height: 3rem;
     }
-
     .selected > .icon-arrow {
       position: absolute;
       left: 1rem;
@@ -53,11 +48,9 @@ export class MapMenu extends HTMLElement {
       width: .75rem;
       height: .75rem;
     }
-
     .selected > svg {
       background-color: var(--aktion);
     }
-
     svg {
       border-radius: 3rem;
       width: 3rem;

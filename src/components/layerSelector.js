@@ -14,6 +14,10 @@ export class MapLayerSelector extends HTMLElement {
     .header > h5 {
       margin: 0;
     }
+    .content{
+      overflow-x: auto;
+      max-height: calc(100vh - 12rem);
+    }
     .styles-container {
       display: flex;
       flex-wrap: wrap;
@@ -32,7 +36,7 @@ export class MapLayerSelector extends HTMLElement {
     .style.selected > h6 {
       color: var(--aktion);
     }
-    .style > img, .style > article {
+    .style > img, .style > section {
       width: 8rem;
       min-width: 8rem;
       height: 5rem;
@@ -40,13 +44,13 @@ export class MapLayerSelector extends HTMLElement {
       background-color: var(--bg1);
       object-fit: cover;
     }
-    .style > article, .drop-zone {
+    .style > section, .drop-zone {
       display: flex;
       justify-content: center;
       align-items: center;
       text-align: center;
     }
-    .style.selected > img, .style.selected > article {
+    .style.selected > img, .style.selected > section {
       outline: 4px solid var(--aktion);
     }
     .drop-zone {
@@ -67,9 +71,11 @@ export class MapLayerSelector extends HTMLElement {
     <article class="header">
       <h5>Vælg styling</h5>
     </article>
-    <article class="styles-container">
-    </article>
-    <article class="styles-upload">
+    <article class="content">
+      <section class="styles-container">
+      </section>
+      <section class="styles-upload">
+      </section>
     </article>
   `
 
@@ -93,7 +99,7 @@ export class MapLayerSelector extends HTMLElement {
     })
 
     // Create a drop zone for uploading your own styles
-    const dropElement = document.createElement('section')
+    const dropElement = document.createElement('article')
     const dropText = document.createElement('p')
     dropElement.classList.add('drop-zone')
     dropElement.addEventListener('drop', event => {
@@ -138,7 +144,7 @@ export class MapLayerSelector extends HTMLElement {
 
   // Create a style element
   createStyleElement(style, img, stylesElement) {
-    const wrapperElement = document.createElement('section')
+    const wrapperElement = document.createElement('article')
     const titleElement = document.createElement('h6')
     wrapperElement.classList.add('style')
     if (img) {
@@ -146,7 +152,7 @@ export class MapLayerSelector extends HTMLElement {
       imgElement.src = img
       wrapperElement.appendChild(imgElement)
     } else {
-      const imgElement = document.createElement('article')
+      const imgElement = document.createElement('section')
       const imgTextElement = document.createElement('p')
       imgTextElement.innerHTML = 'Bruger defineret'
       imgElement.appendChild(imgTextElement)

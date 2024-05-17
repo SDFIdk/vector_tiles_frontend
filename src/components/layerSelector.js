@@ -92,7 +92,7 @@ export class MapLayerSelector extends HTMLElement {
     
     // Create the buttons for switching styles
     STYLE_FILES.forEach((style, index) => {
-      const styleElement = this.createStyleElement(style, 'img/' + style.img + '.png', stylesElement)
+      const styleElement = this.createStyleElement(style, style.img, stylesElement)
       if (!index) styleElement.classList.add(selectedClass)
       stylesElement.appendChild(styleElement)
     })

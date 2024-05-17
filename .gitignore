@@ -12,3 +12,4 @@ dist/
 public/*
 !public/index.html
 !public/img/
+!public/styles/

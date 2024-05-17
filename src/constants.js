@@ -1,29 +1,22 @@
-import {
-  skaermkortKlassiskStyle,
-  skaermkortDaempetStyle,
-  skaermkortGraaStyle,
-  skaermkortMoerktStyle
-} from './styles'
-
 export const STYLE_FILES = [
   {
     title: 'Klassisk', // The title displayed in the styling selector
-    img: 'klassisk', // The file name of the image to be diplayed in the styling selector
-    style: skaermkortKlassiskStyle
+    img: 'img/klassisk.png', // File location of the image to be diplayed in the styling selector
+    style: 'styles/klassisk.json' // File location of the style file
   },
   {
     title: 'Dæmpet',
-    img: 'daempet',
-    style: skaermkortDaempetStyle
+    img: 'img/daempet.png',
+    style: 'styles/daempet.json'
   },
   {
     title: 'Grå',
-    img: 'graa',
-    style: skaermkortGraaStyle
+    img: 'img/graa.png',
+    style: 'styles/graa.json'
   },
   {
     title: 'Mørkt',
-    img: 'moerkt',
-    style: skaermkortMoerktStyle
+    img: 'img/moerkt.png',
+    style: 'styles/moerkt.json'
   }
 ]

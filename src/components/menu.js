@@ -37,6 +37,8 @@ export class MapMenu extends HTMLElement {
     .icon-wrapper {
       position: relative;
       height: 3rem;
+      border-radius: 3rem;
+      overflow: hidden;
     }
     .selected > .icon-arrow {
       position: absolute;
@@ -52,7 +54,6 @@ export class MapMenu extends HTMLElement {
       background-color: var(--aktion);
     }
     svg {
-      border-radius: 3rem;
       width: 3rem;
       height: 3rem;
       cursor: pointer;

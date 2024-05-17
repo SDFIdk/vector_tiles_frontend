@@ -25,19 +25,16 @@ register(proj4)
 const projection = getProjection('EPSG:25832')
 projection.setExtent(extent)
 
-// Create the vector Layer
-const vectorLayer = new VectorTileLayer({
-  declutter: true,
-  source: new VectorTileSource({
-    tileSize: 256,
-    format: format,
-    crossOrigin: 'anonymous',
-    projection: projection
-  })
+// Create the vector Source
+const vectorSource = new VectorTileSource({
+  tileSize: 256,
+  format: format,
+  crossOrigin: 'anonymous',
+  projection: projection
 })
 
 // Custom setTileLoadFunction to add a header with a token
-vectorLayer.getSource().setTileLoadFunction((tile, src) => {
+vectorSource.setTileLoadFunction((tile, src) => {
   tile.setLoader((ext, res, proj) => {
     const client = new XMLHttpRequest()
     client.open('GET', src)
@@ -59,22 +56,50 @@ vectorLayer.getSource().setTileLoadFunction((tile, src) => {
   })
 })
 
-// Add the default style
-applyStyle(vectorLayer, STYLE_FILES[0].style)
+// Creates and adds a new layer to the map
+const createLayer = (style) => {
+  const vectorLayer = new VectorTileLayer({
+    id: style.id,
+    visible: false,
+    declutter: true,
+    source: vectorSource
+  })
+  applyStyle(vectorLayer, style.style)
+  return vectorLayer
+}
 
-// Update the style when it's changed in the menu
-document.addEventListener('vt:change-style', event => {
-  if (event.detail.style) applyStyle(vectorLayer, event.detail.style)
+// Add the default layers
+const defaultLayers = []
+STYLE_FILES.forEach(style => {
+  defaultLayers.push(createLayer(style))
 })
+// Make the first one visible by default
+defaultLayers[0].setVisible(true)
 
 // Create the ol map
 const map = new Map({
-  layers: [vectorLayer],
+  layers: defaultLayers,
   target: 'map',
   view: new View({
     extent,
     center,
     zoom,
     projection: projection,
-  }),
+  })
+})
+
+// Update the style when it's changed in the menu
+document.addEventListener('vt:change-style', event => {
+  const detail = event.detail
+  if (!detail.id || !detail.style) return
+  let selectedLayer = map.getLayers().getArray().find(layer => {
+    return layer.get('id') === detail.id
+  })
+  if (!selectedLayer) {
+    selectedLayer = createLayer(detail)
+    map.addLayer(selectedLayer)
+  }
+  map.getLayers().forEach(layer => {
+    layer.setVisible(layer.get('id') === detail.id)
+  })
 })

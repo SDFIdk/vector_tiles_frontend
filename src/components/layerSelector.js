@@ -138,6 +138,7 @@ export class MapLayerSelector extends HTMLElement {
         const jsonFile = JSON.parse(e.target.result)
         // Add new style element to the list
         const styleElement = this.createStyleElement({
+          id: Math.random().toString(16).slice(2),
           title: (fileName.length > maxTitleLength) ? fileName.slice(0, maxTitleLength-1) + '&hellip;' : str,
           style: jsonFile
         }, '', stylesElement)
@@ -172,13 +173,11 @@ export class MapLayerSelector extends HTMLElement {
         stylesElement.children[i].classList.remove(selectedClass)
       }
       wrapperElement.classList.add(selectedClass)
-      // Use timeout hack to allow highlight of selection to update before updating the map.
-      // Otherwise it does not update until the new style has also rendered.
-      setTimeout(() => {
-        this.dispatchEvent(new CustomEvent('vt:change-style', { 
-          detail: style, bubbles: true, composed: true 
-        }))
-      }, 1)
+      this.dispatchEvent(new CustomEvent('vt:change-style', { 
+        detail: style,
+        bubbles: true,
+        composed: true
+      }))
     })
     return wrapperElement
   }

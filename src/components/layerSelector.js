@@ -84,7 +84,6 @@ export class MapLayerSelector extends HTMLElement {
   }
 
   createDOM() {
-    this.styles = STYLE_FILES
     const container = document.createElement('section')
     container.className = 'map-menu-bottom'
     container.innerHTML = this.template
@@ -92,7 +91,7 @@ export class MapLayerSelector extends HTMLElement {
     const uploadElement = container.querySelector('.styles-upload')
     
     // Create the buttons for switching styles
-    this.styles.forEach((style, index) => {
+    STYLE_FILES.forEach((style, index) => {
       const styleElement = this.createStyleElement(style, 'img/' + style.img + '.png', stylesElement)
       if (!index) styleElement.classList.add(selectedClass)
       stylesElement.appendChild(styleElement)
@@ -105,23 +104,7 @@ export class MapLayerSelector extends HTMLElement {
     dropElement.addEventListener('drop', event => {
       event.preventDefault()
       dropElement.removeAttribute('drop-active')
-      const fileList = event.dataTransfer.files
-      if (fileList.length !== 1) return // only single files allowed
-      const file = fileList[0]
-      const fileName = file.name.slice(0, -5)
-      if (file.type !== 'application/json') return // only json files allowed
-      const reader = new FileReader()
-      reader.onload = (e) => {
-        const jsonFile = JSON.parse(e.target.result)
-        // Add new style element to the list
-        const styleElement = this.createStyleElement({
-          title: (fileName.length > maxTitleLength) ? fileName.slice(0, maxTitleLength-1) + '&hellip;' : str,
-          style: jsonFile
-        }, '', stylesElement)
-        stylesElement.appendChild(styleElement)
-        styleElement.click()
-      }
-      reader.readAsText(file)
+      this.handleDrop(event)
     })
     dropElement.addEventListener('dragover', event => {
       event.preventDefault()
@@ -140,6 +123,28 @@ export class MapLayerSelector extends HTMLElement {
 
   connectedCallback() {
     this.createDOM()
+  }
+
+  handleDrop(event) {
+    const stylesElement = this.querySelector('.styles-container')
+    const fileList = event.dataTransfer.files
+      if (fileList.length !== 1) return // only single files allowed
+      const file = fileList[0]
+      const fileName = file.name.slice(0, -5)
+      const fileType = file.type
+      if (fileType !== 'application/json') return // only json files allowed
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        const jsonFile = JSON.parse(e.target.result)
+        // Add new style element to the list
+        const styleElement = this.createStyleElement({
+          title: (fileName.length > maxTitleLength) ? fileName.slice(0, maxTitleLength-1) + '&hellip;' : str,
+          style: jsonFile
+        }, '', stylesElement)
+        stylesElement.appendChild(styleElement)
+        styleElement.click()
+      }
+      reader.readAsText(file)
   }
 
   // Create a style element

@@ -1,9 +1,14 @@
-import { skaermkortKlassiskStyle, skaermkortDaempetStyle, skaermkortGraaStyle, skaermkortMoerktStyle } from './styles'
+import {
+  skaermkortKlassiskStyle,
+  skaermkortDaempetStyle,
+  skaermkortGraaStyle,
+  skaermkortMoerktStyle
+} from './styles'
 
 export const STYLE_FILES = [
   {
-    title: 'Klassisk',
-    img: 'klassisk',
+    title: 'Klassisk', // The title displayed in the styling selector
+    img: 'klassisk', // The file name of the image to be diplayed in the styling selector
     style: skaermkortKlassiskStyle
   },
   {

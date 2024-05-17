@@ -3,18 +3,22 @@ import { skaermkortKlassiskStyle, skaermkortDaempetStyle, skaermkortGraaStyle, s
 export const STYLE_FILES = [
   {
     title: 'Klassisk',
+    img: 'klassisk',
     style: skaermkortKlassiskStyle
   },
   {
     title: 'Dæmpet',
+    img: 'daempet',
     style: skaermkortDaempetStyle
   },
   {
     title: 'Grå',
+    img: 'graa',
     style: skaermkortGraaStyle
   },
   {
     title: 'Mørkt',
+    img: 'moerkt',
     style: skaermkortMoerktStyle
   }
 ]

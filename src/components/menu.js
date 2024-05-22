@@ -32,7 +32,7 @@ export class MapMenu extends HTMLElement {
       padding: .5rem;
     }
     .ds-logo {
-      width: 10rem;
+      width: 17rem;
     }
     .icon-wrapper {
       position: relative;
@@ -67,7 +67,7 @@ export class MapMenu extends HTMLElement {
       <section class="map-menu-top">
         <p class="ds-logo small">
           <ds-logo></ds-logo>
-          <strong>Vector Tiles</strong>
+          <strong>Vector Tiles - Skærmkort</strong>
           <span>SDFI</span>
         </p>
         <article class="icon-wrapper" id="layer-selector-button">

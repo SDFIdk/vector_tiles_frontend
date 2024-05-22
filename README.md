@@ -3,6 +3,7 @@
 `vector_tiles_frontend` is an application for displaying vector styles with custom styles.
 
 - [Instructions for installation](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/docs/tutorials/installing.md)
+- [Link to stylefiles](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/public/styles)
 
 ## Adding a new style
 
@@ -13,6 +14,6 @@
   {
     title: 'Klassisk', // The title displayed in the styling selector
     img: 'img/klassisk.png', // File location of the image to be diplayed in the styling selector
-    style: 'styles/klassisk.json' // File location of the style file
+    style: 'styles/klassisk.json' // File location of the stylefile
   }
 ```

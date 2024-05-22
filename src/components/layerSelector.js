@@ -42,6 +42,7 @@ export class MapLayerSelector extends HTMLElement {
       height: 5rem;
       border-radius: .5rem;
       background-color: var(--bg1);
+      outline: 1px solid var(--bg3);
       object-fit: cover;
     }
     .style > section, .drop-zone {

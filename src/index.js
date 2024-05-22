@@ -6,7 +6,7 @@ import VectorTileSource from 'ol/source/VectorTile'
 import { get as getProjection } from 'ol/proj'
 import { register } from 'ol/proj/proj4'
 import proj4 from 'proj4/dist/proj4'
-import { applyStyle } from 'ol-mapbox-style'
+import { applyStyle, applyBackground } from 'ol-mapbox-style'
 
 import { STYLE_FILES } from './constants'
 import { MapMenu } from './components/menu'
@@ -59,14 +59,6 @@ vectorLayer.getSource().setTileLoadFunction((tile, src) => {
   })
 })
 
-// Add the default style
-applyStyle(vectorLayer, STYLE_FILES[0].style)
-
-// Update the style when it's changed in the menu
-document.addEventListener('vt:change-style', event => {
-  if (event.detail.style) applyStyle(vectorLayer, event.detail.style)
-})
-
 // Create the ol map
 const map = new Map({
   layers: [vectorLayer],
@@ -77,4 +69,16 @@ const map = new Map({
     zoom,
     projection: projection,
   }),
+})
+
+// Add the default style
+applyStyle(vectorLayer, STYLE_FILES[0].style)
+applyBackground(map, STYLE_FILES[0].style)
+
+// Update the style when it's changed in the menu
+document.addEventListener('vt:change-style', event => {
+  if (event.detail.style) {
+    applyStyle(vectorLayer, event.detail.style)
+    applyBackground(map, event.detail.style)
+  }
 })

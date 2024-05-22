@@ -26,6 +26,8 @@ export class MapLayerSelector extends HTMLElement {
     }
     .styles-upload {
       padding: 0 1rem 1rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
     }
     .style {
       cursor: pointer;
@@ -60,6 +62,10 @@ export class MapLayerSelector extends HTMLElement {
       padding: 1rem;
       border-radius: .5rem;
       background-color: var(--bg1);
+    }
+    .info {
+      padding: 1rem;
+      max-width: 20rem;
     }
     .drop-zone[drop-active=true] {
       outline: dotted var(--aktion);
@@ -118,6 +124,14 @@ export class MapLayerSelector extends HTMLElement {
     dropText.innerHTML = 'Træk og slip din egen style fil her for at tilføje den til kortet.'
     dropElement.appendChild(dropText)
     uploadElement.appendChild(dropElement)
+
+    // Create an info element
+    const infoElement = document.createElement('article')
+    const infoText = document.createElement('p')
+    infoElement.classList.add('info')
+    infoText.innerHTML = 'Se dokumentation, stylefiles og kode eksempel på <a target="_blank" href="https://github.com/SDFIdk/vector_tiles_frontend">Github</a>.'
+    infoElement.appendChild(infoText)
+    uploadElement.appendChild(infoElement)
     
     this.appendChild(container)
   }

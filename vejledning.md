@@ -1,29 +1,30 @@
 # Vejledning til brug af Vector Tiles skærmkort på SDFI LABS 
 Vector Tiles udgaven af skærmkortet kan tilgåes via [LABS](https://dataforsyningen.dk/labs/4933) eller direkte igennem [kortvisningen](https://labs.dataforsyningen.dk/skaermkort_vector_tiles). 
 Vector Tiles skærmkort udstilles i 4 forskellige styles, det klassiske skærmkort, det dæmpet skærmkort, det grå skærmkort og i en ny udgave; det mørke skærmkort. Style filerne for disse 4 kort er tilgængelige under [styles](https://github.com/SDFIdk/vector_tiles_frontend/tree/main/public/styles), og det er tiltænkt at brugeren kan hente disse ned, ændre i dem, og til sidst trække dem ind i [kortvisningen](https://labs.dataforsyningen.dk/skaermkort_vector_tiles) og få vist sit helt eget kort.
-Herunder følger en kort beskrivelse af datagrundlag og datamodellen for Vector Tiles skærmkort samt en kort vejledning til hvordan du selv kan ændre i style filen og få vist din egen udgave af skærmkortet direkte i browseren. 
+Herunder følger en kort beskrivelse datamodellen for Vector Tiles skærmkort samt en kort vejledning til hvordan du selv kan ændre i style filen og få vist din egen udgave af skærmkortet direkte i browseren. 
 
 
-[Datagrundlag](#datagrundlag)
+[Datamodel](#datamodel)
 
 [Generelt om style filerne](#stylefiles)
 
 [Eksempel 1 -Dæmpet kort med farverige skove, søer og vandløb.](#eksempel1)
 
 
-## Datagrundlag <a name="datagrundlag"></a>
+## Datamodel <a name="datamodel"></a>
 Nedenfor beskrives de objekttyper der er tilgængelige og hvilke der er brugt i de prædefinerede skærmkort. KL (Klassisk), DP+G+M (dæmpet, grå og mørkt). Derudover er der også data tilgængeligt som ikke optræder i nogen af kortene som de ser ud i dag. Fx ’plads’.
 
-Data er GeoDanmark data, som er selekteret for hvert zoom, Eks. Bygninger vil kun kunne medtages i de inderste levels/zoom. 
+Data stammer fra GeoDanmark og XXX . Data er selekteret for hvert zoom, Eks. Bygninger vil kun kunne medtages i de inderste levels/zoom. 
 
 > [!NOTE]
 > Datasættet er pt. statisk med data hentet i april 2024. Når Vector Tiles idrifsættes på dataforyningen vil data blive ajourført løbende.
 
-##Indhold:
+
+Objekttypen er den der i style filen kan kaldes via sourcetype. 
 
 > ## bebygget
 >
-> Dette lag viser flere forskellige bebyggelsestyper alle fra GeoDanmark 
+> Dette lag viser flere forskellige bebyggelsestyper alle fra GeoDanmark. Geometri typen er polygon
 
 ### objekttype:
 - begravelsesområde
@@ -39,6 +40,25 @@ Data er GeoDanmark data, som er selekteret for hvert zoom, Eks. Bygninger vil ku
 - bykerne
 - plads
 - rekreativområde
+
+> ## greanser
+>
+> Dette lag indeholder forskellige grænser. Geomeyti typen er linje
+
+### objekttype:
+- havn
+  - anløbsbro
+  - kyst
+  - sø
+  - vandløb
+- kyst
+- **eøz**: Den ekslusive økonomisk zone, XXX
+
+> ## industri
+>
+> Dette lag indeholder industrielle områder. Geometritypen er polygon
+
+### objekttype: 
 
 ### Generalisering af data 
 Som det er lige nu findes der ikke nogen generaliseret data i datamodellen. Derfor adskiller Vector Tiles skærmkortet sig en del fra raster skærmkortet når man fx zoomer ud. er der mange veje synlige. 

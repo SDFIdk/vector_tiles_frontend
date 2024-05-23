@@ -14,17 +14,17 @@ Herunder følger en kort beskrivelse datamodellen for Vector Tiles skærmkort sa
 ## Datamodel <a name="datamodel"></a>
 Nedenfor beskrives de objekttyper der er tilgængelige og hvilke der er brugt i de prædefinerede skærmkort. KL (Klassisk), DP+G+M (dæmpet, grå og mørkt). Derudover er der også data tilgængeligt som ikke optræder i nogen af kortene som de ser ud i dag. Fx ’plads’.
 
-Data stammer fra GeoDanmark og XXX . Data er selekteret for hvert zoom, Eks. Bygninger vil kun kunne medtages i de inderste levels/zoom. 
+Data stammer fra GeoDanmark, Danmarks Administrative Geografiske Inddeling (DAGI), Stednavne XX. Hvis ikke andet er opgivet i listen nedenfor stammer data fra GeoDanmark. Data er selekteret for hvert zoom, Eks. Bygninger vil kun kunne medtages i de inderste levels/zoom. 
 
 > [!NOTE]
 > Datasættet er pt. statisk med data hentet i april 2024. Når Vector Tiles idrifsættes på dataforyningen vil data blive ajourført løbende.
 
 
-Objekttypen er den der i style filen kan kaldes via sourcetype. 
+<!-- Objekttypen er den der i style filen kan kaldes via sourcetype. -->
 
 > ## bebygget
 >
-> Dette lag viser flere forskellige bebyggelsestyper alle fra GeoDanmark. Geometri typen er polygon
+> Dette lag viser flere forskellige bebyggelsestyper. Geometri typen er polygon
 
 ### objekttype:
 - begravelsesområde
@@ -38,7 +38,7 @@ Objekttypen er den der i style filen kan kaldes via sourcetype.
   - ikke tildelt 
   - tank/silo
 - bykerne
-- plads
+- plads (bruges ikke)
 - rekreativområde
 
 > ## greanser
@@ -52,13 +52,67 @@ Objekttypen er den der i style filen kan kaldes via sourcetype.
   - sø
   - vandløb
 - kyst
-- **eøz**: Den ekslusive økonomisk zone, XXX
+- **eøz**: Den ekslusive økonomisk zone (DAGI). (vises kun i KL)
 
 > ## industri
 >
-> Dette lag indeholder industrielle områder. Geometritypen er polygon
+> Dette lag indeholder industrielle områder. Samtlige lag vises kun i KL. Geometritypen er polygon
 
 ### objekttype: 
+- erhverv
+- gartneri
+- råstofområde
+- teknisk anlæg
+- teknisk areal
+  - affaldsanlæg
+  - energiforsyningsanlæg
+  - genbrugsplads
+  - ikke tildelt
+  - lufthavn
+  - materielgård
+  - militært anlæg
+  - parkeringsanlæg
+  - sportsanlæg
+  - togstation/rangeranlæg
+  - ukendt
+  - vandrensningsanlæg
+  - vandværk
+  - vindmøllepark
+
+> ## infrastruktur
+>
+> Dette lag indeholder objekter om forskellige intrastruktur fra lufthavne. Geometritypen er polygon
+
+### objekttype: 
+- lufthavn
+  - helipad
+  - plads
+  - start_landing
+  - taxivej
+
+> ## jernbane
+>
+> Dette lag indeholder objekter om alle typer af jernbaner. Geometritypen er linje.
+
+- ingen tog
+  - gennemgående spor
+  - hovedspor
+  - sidespor (bruges ikke)
+- letbane
+  - gennemgående spor
+  - hovedspor
+  - sidespor (bruges ikke)
+  - øvrige togvejsspor
+- metro
+  - gennemgående spor
+  - hovedspor
+  - sidespor (bruges ikke)
+  - øvrige togvejsspor
+- s-tog
+  - gennemgående spor
+  - hovedspor
+  - sidespor (bruges ikke)
+  - øvrige togvejsspor
 
 ### Generalisering af data 
 Som det er lige nu findes der ikke nogen generaliseret data i datamodellen. Derfor adskiller Vector Tiles skærmkortet sig en del fra raster skærmkortet når man fx zoomer ud. er der mange veje synlige. 
@@ -88,7 +142,13 @@ Opbygning er således
         },
 ```
 
- "id":  skal være unikt 
+"id": skal være unikt 
+
+_"source-layer:"_ skal pege på en af objekttyperne listede ovenfor
+
+_"minzoom:"_ indikere det mindste zoom hvor laget optræder 
+
+_"maxzoom"´:_ indikere det største zoom hvor laget optræder 
 
 ## Eksempler
 på hvordan du kan lave dit eget kort

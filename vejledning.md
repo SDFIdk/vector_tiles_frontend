@@ -8,8 +8,6 @@ Herunder følger en kort beskrivelse af datagrundlag og datamodellen for Vector 
 
 [Generelt om style filerne](#stylefiles)
 
-[Eksempler på hvordan du kan lave dit eget kort](eksempler)
-
 [Eksempel 1 -Dæmpet kort med farverige skove, søer og vandløb.](#eksempel1)
 
 
@@ -28,19 +26,19 @@ Data er GeoDanmark data, som er selekteret for hvert zoom, Eks. Bygninger vil ku
 > Dette lag viser flere forskellige bebyggelsestyper alle fra GeoDanmark 
 
 ### objekttype:
-- _begravelsesområde_
-- _by_
-  - **indbyggertal**
-- _bygning_ 
-  - **andet** 
-  - **bygning** 
-  - **drivhus** 
-  - **husbåd** 
-  - **ikke tildelt** 
-  - **tank/silo**
-- _bykerne_
-- _plads_
-- _rekreativområde_
+- begravelsesområde
+- by
+  - indbyggertal
+- bygning 
+  - andet 
+  - bygning 
+  - drivhus 
+  - husbåd 
+  - ikke tildelt 
+  - tank/silo
+- bykerne
+- plads
+- rekreativområde
 
 ### Generalisering af data 
 Som det er lige nu findes der ikke nogen generaliseret data i datamodellen. Derfor adskiller Vector Tiles skærmkortet sig en del fra raster skærmkortet når man fx zoomer ud. er der mange veje synlige. 
@@ -72,6 +70,13 @@ Opbygning er således
 
  "id":  skal være unikt 
 
-##Eksempler på hvordan du kan lave dit eget kort <a name="eksempler"></a>
+## Eksempler
+på hvordan du kan lave dit eget kort
 
-###Eksempel 1 -Dæmpet kort med farverige skove, søer og vandløb. <a name="eksempel1"></a>
+### Eksempel 1 -Dæmpet kort med farverige skove, søer og vandløb. <a name="eksempel1"></a>
+
+Med udgangspunkt i det **dæmpet skærmkort**, ønskes et udtryk hvor skove, søer og vandløb alle fremhæves med markante farver. Derfor gøres følgende: 
+
+Laget med skove søges frem i filen og farvekoden ændres fra #EAFAE1, til eksempelvis #5be80c. 
+
+

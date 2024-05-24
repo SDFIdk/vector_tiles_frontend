@@ -22,11 +22,24 @@ Data stammer fra GeoDanmark, Danmarks Administrative Geografiske Inddeling (DAGI
 
 <!-- Objekttypen er den der i style filen kan kaldes via sourcetype. -->
 
+Datamodellen er bygget op med en række sourcelayers hvori der ligger en række forskellige (objekt-)typer. Hver type kan have både subtyper og subsubtyper.
+
+> ## sourcelayer
+>
+
+- **type**
+  - subtype
+    - subsubtype
+- **type**
+
+
+Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype beskrevet. 
+
+
 > ## bebygget
 >
 > Dette lag viser flere forskellige bebyggelsestyper. Geometri typen er polygon
 
-### objekttype:
 - **begravelsesområde**
 - **by**
   - indbyggertal
@@ -45,7 +58,6 @@ Data stammer fra GeoDanmark, Danmarks Administrative Geografiske Inddeling (DAGI
 >
 > Dette lag indeholder forskellige grænser. Geomeyti typen er linje
 
-### objekttype:
 - **havn**
   - anløbsbro
   - kyst
@@ -58,7 +70,6 @@ Data stammer fra GeoDanmark, Danmarks Administrative Geografiske Inddeling (DAGI
 >
 > Dette lag indeholder industrielle områder. Samtlige lag vises kun i KL. Geometritypen er polygon
 
-### objekttype: 
 - **erhverv**
 - **gartneri**
 - **råstofområde**
@@ -83,7 +94,6 @@ Data stammer fra GeoDanmark, Danmarks Administrative Geografiske Inddeling (DAGI
 >
 > Dette lag indeholder objekter om forskellige intrastruktur fra lufthavne. Geometritypen er polygon
 
-### objekttype: 
 - **lufthavn**
   - helipad
   - plads
@@ -94,7 +104,6 @@ Data stammer fra GeoDanmark, Danmarks Administrative Geografiske Inddeling (DAGI
 >
 > Dette lag indeholder objekter om alle typer af jernbaner. Geometritypen er linje.
 
-### objekttype: 
 - **ingen tog**
   - gennemgående spor
   - hovedspor
@@ -114,6 +123,14 @@ Data stammer fra GeoDanmark, Danmarks Administrative Geografiske Inddeling (DAGI
   - hovedspor
   - sidespor (bruges ikke)
   - øvrige togvejsspor
+
+  
+> ## natur
+>
+> Dette lag indeholder objekter om forskellige naturtyper. Geometritypen er polygon.
+
+- 
+
 
 ### Generalisering af data 
 Som det er lige nu, findes der ikke noget generaliseret data i datamodellen. Derfor adskiller Vector Tiles skærmkortet sig en del fra raster skærmkortet, fx når man zoomer ud er der mange veje synlige. 

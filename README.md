@@ -4,6 +4,7 @@
 
 - [Instructions for installation](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/docs/tutorials/installing.md)
 - [Link to stylefiles](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/public/styles)
+- [Guide to Vector Tiles skærmkort](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/vejledning.md)
 
 ## Adding a new style
 

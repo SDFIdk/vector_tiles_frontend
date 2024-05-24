@@ -124,12 +124,64 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
   - sidespor (bruges ikke)
   - øvrige togvejsspor
 
+
+> ## punkter
+>
+
+- **togstation**
+
+  
   
 > ## natur
 >
-> Dette lag indeholder objekter om forskellige naturtyper. Geometritypen er polygon.
+> Dette lag indeholder objekter om forskellige naturtyper, samt afgrænsninger af landeområder. Geometritypen er polygon.
 
-- 
+- **hede**
+- **kratbevoksning**
+- **land**
+- **sandklit**
+- **skov**
+- **udland**
+
+> ## vand
+>
+> Dette lag indeholder objekter om forskellige vandflader. Geometritypen er polygon.
+
+- **basin**
+  - andet
+  - ikke tildelt
+  - overløbsbassin
+  - regnvandsbassin
+  - rensningsanlæg
+  - svømmebassin
+  - ukendt
+- **sø**
+  - fiskedam
+  - sø
+- vandløbsflade [^1]
+- hav
+
+> ## vandloeb
+>
+> Dette lag indeholder objekter om forskellige vandloebslinjer. Geometritypen er linje.
+
+- **0-2.5**
+  - almindelig
+- **12**
+  - almindelig  
+- **2.5-12**
+  - almindelig
+- **ikke tildelt**
+  - almindelig
+- **ukendt**
+  - almindelig
+  - gennem sø
+  - rørlagt
+ 
+
+  
+
+[^1]:Laget vandløbsflader, er et datasæt fremstillet vandløbslinjer fra Geodanmark. Laget er IKKE tilgængeligt via GeoDanmark  
 
 
 ### Generalisering af data 

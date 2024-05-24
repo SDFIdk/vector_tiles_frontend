@@ -27,31 +27,31 @@ Data stammer fra GeoDanmark, Danmarks Administrative Geografiske Inddeling (DAGI
 > Dette lag viser flere forskellige bebyggelsestyper. Geometri typen er polygon
 
 ### objekttype:
-- begravelsesområde
-- by
+- **begravelsesområde**
+- **by**
   - indbyggertal
-- bygning 
+- **bygning** 
   - andet 
   - bygning 
   - drivhus 
   - husbåd 
   - ikke tildelt 
   - tank/silo
-- bykerne
-- plads (bruges ikke)
-- rekreativområde
+- **bykerne**
+- **plads** (bruges ikke)
+- **rekreativområde**
 
 > ## greanser
 >
 > Dette lag indeholder forskellige grænser. Geomeyti typen er linje
 
 ### objekttype:
-- havn
+- **havn**
   - anløbsbro
   - kyst
   - sø
   - vandløb
-- kyst
+- **kyst**
 - **eøz**: Den ekslusive økonomisk zone (DAGI). (vises kun i KL)
 
 > ## industri
@@ -59,11 +59,11 @@ Data stammer fra GeoDanmark, Danmarks Administrative Geografiske Inddeling (DAGI
 > Dette lag indeholder industrielle områder. Samtlige lag vises kun i KL. Geometritypen er polygon
 
 ### objekttype: 
-- erhverv
-- gartneri
-- råstofområde
-- teknisk anlæg
-- teknisk areal
+- **erhverv**
+- **gartneri**
+- **råstofområde**
+- **teknisk anlæg**
+- **teknisk areal**
   - affaldsanlæg
   - energiforsyningsanlæg
   - genbrugsplads
@@ -84,7 +84,7 @@ Data stammer fra GeoDanmark, Danmarks Administrative Geografiske Inddeling (DAGI
 > Dette lag indeholder objekter om forskellige intrastruktur fra lufthavne. Geometritypen er polygon
 
 ### objekttype: 
-- lufthavn
+- **lufthavn**
   - helipad
   - plads
   - start_landing
@@ -94,28 +94,29 @@ Data stammer fra GeoDanmark, Danmarks Administrative Geografiske Inddeling (DAGI
 >
 > Dette lag indeholder objekter om alle typer af jernbaner. Geometritypen er linje.
 
-- ingen tog
+### objekttype: 
+- **ingen tog**
   - gennemgående spor
   - hovedspor
   - sidespor (bruges ikke)
-- letbane
-  - gennemgående spor
-  - hovedspor
-  - sidespor (bruges ikke)
-  - øvrige togvejsspor
-- metro
+- **letbane**
   - gennemgående spor
   - hovedspor
   - sidespor (bruges ikke)
   - øvrige togvejsspor
-- s-tog
+- **metro**
+  - gennemgående spor
+  - hovedspor
+  - sidespor (bruges ikke)
+  - øvrige togvejsspor
+- **s-tog**
   - gennemgående spor
   - hovedspor
   - sidespor (bruges ikke)
   - øvrige togvejsspor
 
 ### Generalisering af data 
-Som det er lige nu findes der ikke nogen generaliseret data i datamodellen. Derfor adskiller Vector Tiles skærmkortet sig en del fra raster skærmkortet når man fx zoomer ud. er der mange veje synlige. 
+Som det er lige nu, findes der ikke noget generaliseret data i datamodellen. Derfor adskiller Vector Tiles skærmkortet sig en del fra raster skærmkortet, fx når man zoomer ud er der mange veje synlige. 
 Generaliseret data vil blive tilføjet omkring Q4 2024. 
 
 ## Generelt om style filerne <a name="stylefiles"></a>
@@ -123,7 +124,7 @@ Style filen er bygget op, så det der ligger øverst bliver tegnet først og de 
 Teksterne har typen symbol og bliver altid visuelt lagt øverst uanset, hvor man placerer dem i stylefilen.
 Farverne er defineret i HEX men kan nemt ændres til RGB.      "fill-color": "#e6f3fc"   =   "fill-color": "RGB(230, 243, 252)"
 
-Skalaer er i levels, hvor level 0 er verden og level 20 er brønddæksel. 
+Skalaer er i levels, hvor man populært kan sige at level 0 er verden og level 20 er et brønddæksel. 
 
 Opbygning er således 
 
@@ -142,21 +143,34 @@ Opbygning er således
         },
 ```
 
-"id": skal være unikt 
+```"id"``` skal være unikt 
 
-_"source-layer:"_ skal pege på en af objekttyperne listede ovenfor
+```"source-layer"``` skal pege på en af objekttyperne listede i [datamodellen](#datamodel)
 
-_"minzoom:"_ indikere det mindste zoom hvor laget optræder 
+```"minzoom"``` indikere det mindste zoom hvor laget optræder 
 
-_"maxzoom"´:_ indikere det største zoom hvor laget optræder 
+```"maxzoom"´``` indikere det største zoom hvor laget optræder 
+
+```"type"``` geometritype; polygon, line, point
+
+```"filter"``` filter til at udvælge type og subtype XXX
+
+```"paint"``` visualisering (farve, størrelse osv.) Farverne er defineret i HEX men kan nemt ændres til RGB. 
+
+"fill-color": "#e6f3fc"   =   "fill-color": "RGB(230, 243, 252)"
+
 
 ## Eksempler
-på hvordan du kan lave dit eget kort
+Her under beskrives 3 eksempler på konkrete måder hvorpå brugeren selv kan lave om i style filerne, for på den måde at lave sit eget kort. 
+Udover de konkrete eksempler nævnt her, har brugeren også selv mulighed for at tilføje ydereligere data, som er markeret i datamodedllen med _bruges ikke_. 
 
 ### Eksempel 1 -Dæmpet kort med farverige skove, søer og vandløb. <a name="eksempel1"></a>
 
 Med udgangspunkt i det **dæmpet skærmkort**, ønskes et udtryk hvor skove, søer og vandløb alle fremhæves med markante farver. Derfor gøres følgende: 
 
 Laget med skove søges frem i filen og farvekoden ændres fra #EAFAE1, til eksempelvis #5be80c. 
+
+![billede](https://github.com/SDFIdk/vector_tiles_frontend/assets/168088613/ba8903a7-4e56-41e8-99e5-116525d039a8)
+
 
 

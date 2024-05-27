@@ -1,7 +1,7 @@
 # Vejledning til brug af Vector Tiles skærmkort på SDFI LABS 
 Vector Tiles udgaven af skærmkortet kan tilgåes via [LABS](https://dataforsyningen.dk/labs/4933) eller direkte igennem [kortvisningen](https://labs.dataforsyningen.dk/skaermkort_vector_tiles). 
-Vector Tiles skærmkort udstilles i 4 forskellige styles, det klassiske skærmkort, det dæmpet skærmkort, det grå skærmkort og i en ny udgave; det mørke skærmkort. Style filerne for disse 4 kort er tilgængelige under [styles](https://github.com/SDFIdk/vector_tiles_frontend/tree/main/public/styles), og det er tiltænkt at brugeren kan hente disse ned, ændre i dem, og til sidst trække dem ind i [kortvisningen](https://labs.dataforsyningen.dk/skaermkort_vector_tiles) og få vist sit helt eget kort.
-Herunder følger en kort beskrivelse af datamodellen for Vector Tiles skærmkort samt en kort vejledning til hvordan du selv kan ændre i style filen, og få vist din egen udgave af skærmkortet, direkte i browseren. 
+Vector Tiles skærmkort udstilles i 4 forskellige styles, det klassiske skærmkort, det dæmpet skærmkort, det grå skærmkort og i en ny udgave; det mørke skærmkort. Stylefilerne for disse 4 kort er tilgængelige under [styles](https://github.com/SDFIdk/vector_tiles_frontend/tree/main/public/styles), og det er tiltænkt at brugeren kan hente disse ned, ændre i dem, og til sidst trække dem ind i [kortvisningen](https://labs.dataforsyningen.dk/skaermkort_vector_tiles) og få vist sit helt eget kort.
+Herunder følger en kort beskrivelse af datamodellen for Vector Tiles skærmkort samt en kort vejledning til hvordan du selv kan ændre i stylefilen, og få vist din egen udgave af skærmkortet, direkte i browseren. 
 
 
 [Datamodel](#datamodel)
@@ -18,7 +18,7 @@ Herunder følger en kort beskrivelse af datamodellen for Vector Tiles skærmkort
   - [Tekst punkt](#tekstp)
   - [Tekst linje](#tekstl)
 
-[Generelt om style filerne](#stylefiles)
+[Generelt om stylefilerne](#stylefiles)
 
 [Eksempel 1 -Dæmpet kort med farverige skove, søer og vandløb](#eksempel1)
 
@@ -280,12 +280,12 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 Som det er lige nu, findes der ikke noget generaliseret data i datamodellen. Derfor adskiller Vector Tiles skærmkortet sig en del fra raster skærmkortet, fx når man zoomer ud er der mange veje synlige. 
 Generaliseret data vil blive tilføjet omkring Q4 2024. 
 
-## Generelt om style filerne <a name="stylefiles"></a>
-Style filen er bygget op, så det der ligger øverst bliver tegnet først og de efterfølgende objekttyper lægger sig oven på. Derfor vil rækkefølgen oftest være arealer øverst, dernæst linjer og til sidst punkter.
+## Generelt om stylefilerne <a name="stylefiles"></a>
+Stylefilen er bygget op, så det der ligger øverst bliver tegnet først og de efterfølgende objekttyper lægger sig oven på. Derfor vil rækkefølgen oftest være arealer øverst, dernæst linjer og til sidst punkter.
 Teksterne har typen symbol og bliver altid visuelt lagt øverst uanset, hvor man placerer dem i stylefilen.
 Farverne er defineret i HEX men kan nemt ændres til RGB.      "fill-color": "#e6f3fc"   =   "fill-color": "RGB(230, 243, 252)"
 
-Skalaer er i levels, hvor man populært kan sige at level 0 er verden og level 20 på bygningss niveau. 
+Skalaer er i levels, hvor man populært kan sige at level 0 er verden og level 20 på bygningsniveau. 
 
 Opbygning er således 
 
@@ -322,7 +322,7 @@ Opbygning er således
 
 
 ## Eksempler
-Her under beskrives 3 eksempler på konkrete måder hvorpå brugeren selv kan lave om i style filerne, for på den måde at lave sit eget kort. 
+Herunder beskrives 3 eksempler på konkrete måder hvorpå brugeren selv kan lave om i stylefilerne, for på den måde at lave sit eget kort. 
 Udover de konkrete eksempler nævnt her, har brugeren også selv mulighed for at tilføje ydereligere data, som er markeret i datamodedllen med _bruges ikke_.
 
 
@@ -387,7 +387,7 @@ Som det næste søges der efter ’sø’. Der kommer i alt tre resultater frem:
 
 Til sidst søges der på ’vandløb’. Her kan ses det at der er flere forskellige lag der definere style for vandløb, bl.a. ’vandloeb’, ’vandloeb_o12’ (vandløb der er over 12 meter i bredden) og ’vandloeb_rørlagt’. Alle disse tre har den samme farve kode, og den ændres således fra #BFE8F0 til #1e90ff. 
 De sidste to lag der kan søges frem er ’vand_vandløbsflade’ og vand_vandløbsflade_outline. Herunder vælges at vand_vandløbsflade ændres fra #D4E6F0 til #17ceed (lige som for søerne) 
-Når disse ændringer er gemt, trækkes json filen direkte ind i browser under knappen ’Træk og slip din egen style fil her for at tilføje den til kortet’ og så dukker dette kort frem i browseren: 
+Når disse ændringer er gemt, trækkes json filen direkte ind i browser under knappen ’Træk og slip din egen stylefil her for at tilføje den til kortet’ og så dukker dette kort frem i browseren: 
 
 ![billede](https://github.com/SDFIdk/vector_tiles_frontend/assets/168088613/ba8903a7-4e56-41e8-99e5-116525d039a8)
 
@@ -395,8 +395,8 @@ Når disse ændringer er gemt, trækkes json filen direkte ind i browser under k
 
 ### Eksempel 2 -Kort uden stednavne. <a name="eksempel2"></a>
 
-Med udgangspunkt i style filen for det **grå skærmkort** ønskes der at lave et kort i gråtoner, men uden vejnavne, stednavne eller andre former for tekster. 
-Når man kigger style filen igennem for det grå skærmkort ses det at der fra linje ```704``` og frem til linje ```1033``` udelukkende er tekst data. Disse linjer slettes derfor. Det sidste komma skal også slettes. Det sidste lag i filen er således punkter_togstation, og ser sådan her ud:
+Med udgangspunkt i stylefilen for det **grå skærmkort** ønskes der at lave et kort i gråtoner, men uden vejnavne, stednavne eller andre former for tekster. 
+Når man kigger stylefilen igennem for det grå skærmkort ses det at der fra linje ```704``` og frem til linje ```1033``` udelukkende er tekst data. Disse linjer slettes derfor. Det sidste komma skal også slettes. Det sidste lag i filen er således punkter_togstation, og ser sådan her ud:
 ```
 688	    {
 689            "id": "punkter_togstation",
@@ -420,10 +420,10 @@ Når man kigger style filen igennem for det grå skærmkort ses det at der fra l
 708    }
 709  }
 ```
-Når denne style files trækkes ind i kortvisningen ser det således således ud: 
+Når denne stylefile trækkes ind i kortvisningen ser det således således ud: 
 
 ![billede](https://github.com/SDFIdk/vector_tiles_frontend/assets/168088613/0a1372ff-665d-4ebd-ba3b-1ac6f5067fb7)
 
 
 ### Eksempel 3 - Kun visning af veje. <a name="eksempel3"></a>
-Med udgangspunkt i style filen for det det **klassiske skærmkort**.    
+Med udgangspunkt i stylefilen for det det **klassiske skærmkort**.    

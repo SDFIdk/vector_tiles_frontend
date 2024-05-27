@@ -270,7 +270,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 
 > ## tekst_linje <b name="tekstl"></b>
 >
-> Dette lag indeholder tekster fra linjer, fra Danske Stednavne. (For info om vejnavne se [veje](#veje))
+> Dette lag indeholder tekster på linjer, fra Danske Stednavne. (For info om vejnavne se [veje](#veje))
 
 - **vandløb**
 

@@ -285,7 +285,7 @@ Style filen er bygget op, så det der ligger øverst bliver tegnet først og de 
 Teksterne har typen symbol og bliver altid visuelt lagt øverst uanset, hvor man placerer dem i stylefilen.
 Farverne er defineret i HEX men kan nemt ændres til RGB.      "fill-color": "#e6f3fc"   =   "fill-color": "RGB(230, 243, 252)"
 
-Skalaer er i levels, hvor man populært kan sige at level 0 er verden og level 20 er et brønddæksel. 
+Skalaer er i levels, hvor man populært kan sige at level 0 er verden og level 20 på bygningss niveau. 
 
 Opbygning er således 
 

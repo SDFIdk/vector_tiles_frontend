@@ -26,7 +26,7 @@ Herunder følger en kort beskrivelse datamodellen for Vector Tiles skærmkort sa
 
 
 ## Datamodel <a name="datamodel"></a>
-Nedenfor beskrives de objekttyper der er tilgængelige og hvilke der er brugt i de prædefinerede skærmkort. KL (Klassisk), DP+G+M (dæmpet, grå og mørkt). Derudover er der også data tilgængeligt som ikke optræder i nogen af kortene som de ser ud i dag. Fx ’plads’.
+Nedenfor beskrives de objekttyper der er tilgængelige og hvilke der er brugt i de prædefinerede skærmkort. KL (Klassisk), DP+G+M (dæmpet, grå og mørkt). Derudover er der også data tilgængeligt som ikke optræder i nogen af kortene som de ser ud i dag. Fx ’plads’, disse er market med _bruges ikke_.
 
 Data stammer fra GeoDanmark, Danmarks Administrative Geografiske Inddeling (DAGI), Danke Stednavne og Danmarks Adresseregister (DAR). Hvis ikke andet er opgivet i listen nedenfor stammer data fra GeoDanmark. Data er selekteret for hvert zoom, Eks. Bygninger vil kun kunne medtages i de inderste levels/zoom. 
 
@@ -223,9 +223,11 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 > ## tekst_punkt <b name="tekstp"></b>
 >
 > Dette lag indeholder tekster fra punkter, alle fra Danske Stednavne.
+> Samtlige subtyper, på nær by - indbyggetal og standsningsted - tog, har subsubtypen: areal. 
 
 - **bebyggelse**
   - by
+    - indbygger antal
   - bydel
   - industriområde
   - kolonihave

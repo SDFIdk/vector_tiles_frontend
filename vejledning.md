@@ -8,7 +8,7 @@ Herunder følger en kort beskrivelse af datamodellen for Vector Tiles skærmkort
   - [Bebygget](#bebygget)
   - [Grænser](#graenser)
   - [Industri](#industri)
-  - [Infrastrutur](#infra)
+  - [Infrastruktur](#infra)
   - [Jernbane](#jernbane)
   - [Natur](#natur)
   - [Punkter](#punkter)

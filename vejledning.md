@@ -52,7 +52,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 
 > ## bebygget <b name="bebygget"></b>
 >
-> Dette lag viser flere forskellige bebyggelsestyper. Geometri typen er polygon
+> Dette lag viser flere forskellige bebyggelsestyper. Geometritypen er polygon
 
 - **begravelsesområde**
 - **by**
@@ -70,7 +70,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 
 > ## graenser <b name="graenser"></b>
 >
-> Dette lag indeholder forskellige grænser. Geometri typen er linje
+> Dette lag indeholder forskellige grænser. Geometritypen er linje
 
 - **havn**
   - anløbsbro

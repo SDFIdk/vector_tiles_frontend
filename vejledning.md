@@ -6,7 +6,7 @@ Herunder følger en kort beskrivelse datamodellen for Vector Tiles skærmkort sa
 
 [Datamodel](#datamodel)
   - [Bebygget](#bebygget)
-  - [Grænser](#greanser)
+  - [Grænser](#graenser)
   - [Industri](#industri)
   - [Infrastrutur](#infra)
   - [Jernbane](#jernbane)
@@ -68,7 +68,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 - **plads** (bruges ikke)
 - **rekreativområde**
 
-> ## greanser <b name="greanser"></b>
+> ## graenser <b name="graenser"></b>
 >
 > Dette lag indeholder forskellige grænser. Geomeyti typen er linje
 

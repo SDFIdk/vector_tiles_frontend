@@ -11,7 +11,7 @@ Herunder følger en kort beskrivelse af datamodellen for Vector Tiles skærmkort
   - [Infrastruktur](#infra)
   - [Jernbane](#jernbane)
   - [Natur](#natur)
-  - [Punkter](#punkter)
+  - [Punkter (togstationer)](#punkter)
   - [Vand](#vand)
   - [Vandløb](#vandloeb)
   - [Veje og vejnavne](#veje)

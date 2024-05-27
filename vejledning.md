@@ -229,7 +229,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 
 - **bebyggelse**
   - by
-    - indbygger antal
+  - indbygger antal
   - bydel
   - industriområde
   - kolonihave

@@ -5,6 +5,17 @@ Herunder følger en kort beskrivelse datamodellen for Vector Tiles skærmkort sa
 
 
 [Datamodel](#datamodel)
+  - [Bebygget](#bebygget)
+  - [Grænser](#greanser)
+  - [Industri](#industri)
+  - [Infrastrutur](#infra)
+  - [Jernbane](#jernbane)
+  - [Natur](#natur)
+  - [Punkter](#punkter)
+  - [Vand](#vand)
+  - [Vandløb](#vandloeb)
+  - [Veje](#veje)
+  - [Tekst punkt](#tekst)
 
 [Generelt om style filerne](#stylefiles)
 
@@ -36,7 +47,7 @@ Datamodellen er bygget op med en række sourcelayers hvori der ligger en række 
 Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype beskrevet. 
 
 
-> ## bebygget
+> ## bebygget <b name="bebygget"></b>
 >
 > Dette lag viser flere forskellige bebyggelsestyper. Geometri typen er polygon
 
@@ -54,7 +65,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 - **plads** (bruges ikke)
 - **rekreativområde**
 
-> ## greanser
+> ## greanser <b name="greanser"></b>
 >
 > Dette lag indeholder forskellige grænser. Geomeyti typen er linje
 
@@ -66,7 +77,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 - **kyst**
 - **eøz**: Den ekslusive økonomisk zone (DAGI). (vises kun i KL)
 
-> ## industri
+> ## industri <b name="industri"></b>
 >
 > Dette lag indeholder industrielle områder. Samtlige lag vises kun i KL. Geometritypen er polygon
 
@@ -90,7 +101,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
   - vandværk
   - vindmøllepark
 
-> ## infrastruktur
+> ## infrastruktur <b name="infra"></b>
 >
 > Dette lag indeholder objekter om forskellige intrastruktur fra lufthavne. Geometritypen er polygon
 
@@ -100,7 +111,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
   - start_landing
   - taxivej
 
-> ## jernbane
+> ## jernbane <b name="jerbane"></b>
 >
 > Dette lag indeholder objekter om alle typer af jernbaner. Geometritypen er linje.
 
@@ -125,14 +136,14 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
   - øvrige togvejsspor
 
 
-> ## punkter
+> ## punkter <b name="punkter"></b>
 >
 
 - **togstation**
 
   
   
-> ## natur
+> ## natur <b name="natur"></b>
 >
 > Dette lag indeholder objekter om forskellige naturtyper, samt afgrænsninger af landeområder. Geometritypen er polygon.
 
@@ -143,7 +154,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 - **skov**
 - **udland**
 
-> ## vand
+> ## vand <b name="vand"></b>
 >
 > Dette lag indeholder objekter om forskellige vandflader. Geometritypen er polygon.
 
@@ -161,7 +172,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 - vandløbsflade [^1]
 - hav
 
-> ## vandloeb
+> ## vandloeb <b name="vandloeb"></b>
 >
 > Dette lag indeholder objekter om forskellige vandloebslinjer. Geometritypen er linje.
 
@@ -178,7 +189,12 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
   - gennem sø
   - rørlagt
  
+> ## veje <b name="veje"></b>
+>
+> Dette lag indholder veje. OBS: 
+ 
 
+> ## tekst_punkt <b name="tekst"></b>
   
 
 [^1]:Laget vandløbsflader, er et datasæt fremstillet vandløbslinjer fra Geodanmark. Laget er IKKE tilgængeligt via GeoDanmark  

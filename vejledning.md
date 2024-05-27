@@ -20,7 +20,7 @@ Herunder følger en kort beskrivelse af datamodellen for Vector Tiles skærmkort
 
 [Generelt om style filerne](#stylefiles)
 
-[Eksempel 1 -Dæmpet kort med farverige skove, søer og vandløb.](#eksempel1)
+[Eksempel 1 -Dæmpet kort med farverige skove, søer og vandløb](#eksempel1)
 
 [Eksempel 2 - Kort uden stednavne](#eksempel2)
 

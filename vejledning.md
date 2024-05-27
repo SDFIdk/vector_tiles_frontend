@@ -32,7 +32,7 @@ Nedenfor beskrives de objekttyper der er tilgængelige og hvilke der er brugt i 
 Data stammer fra GeoDanmark, Danmarks Administrative Geografiske Inddeling (DAGI), Danke Stednavne og Danmarks Adresseregister (DAR). Hvis ikke andet er opgivet i listen nedenfor stammer data fra GeoDanmark. Data er selekteret for hvert zoom, Eks. Bygninger vil kun kunne medtages i de inderste levels/zoom. 
 
 > [!NOTE]
-> Datasættet er pt. statisk med data hentet i april 2024. Når Vector Tiles idrifsættes på dataforyningen vil data blive ajourført løbende.
+> Datasættet er pt. statisk med data hentet i april 2024. Når Vector Tiles idriftsættes på dataforsyningen vil data blive ajourført løbende.
 
 
 
@@ -70,7 +70,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 
 > ## graenser <b name="graenser"></b>
 >
-> Dette lag indeholder forskellige grænser. Geomeyti typen er linje
+> Dette lag indeholder forskellige grænser. Geometri typen er linje
 
 - **havn**
   - anløbsbro
@@ -78,7 +78,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
   - sø
   - vandløb
 - **kyst**
-- **eøz**: Den ekslusive økonomisk zone (DAGI). (vises kun i KL)
+- **eøz**: Den ekslusive økonomisk zone (DAGI).
 
 > ## industri <b name="industri"></b>
 >

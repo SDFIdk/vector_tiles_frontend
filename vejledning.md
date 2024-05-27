@@ -1,7 +1,7 @@
 # Vejledning til brug af Vector Tiles skærmkort på SDFI LABS 
 Vector Tiles udgaven af skærmkortet kan tilgåes via [LABS](https://dataforsyningen.dk/labs/4933) eller direkte igennem [kortvisningen](https://labs.dataforsyningen.dk/skaermkort_vector_tiles). 
 Vector Tiles skærmkort udstilles i 4 forskellige styles, det klassiske skærmkort, det dæmpet skærmkort, det grå skærmkort og i en ny udgave; det mørke skærmkort. Style filerne for disse 4 kort er tilgængelige under [styles](https://github.com/SDFIdk/vector_tiles_frontend/tree/main/public/styles), og det er tiltænkt at brugeren kan hente disse ned, ændre i dem, og til sidst trække dem ind i [kortvisningen](https://labs.dataforsyningen.dk/skaermkort_vector_tiles) og få vist sit helt eget kort.
-Herunder følger en kort beskrivelse datamodellen for Vector Tiles skærmkort samt en kort vejledning til hvordan du selv kan ændre i style filen og få vist din egen udgave af skærmkortet direkte i browseren. 
+Herunder følger en kort beskrivelse af datamodellen for Vector Tiles skærmkort samt en kort vejledning til hvordan du selv kan ændre i style filen, og få vist din egen udgave af skærmkortet, direkte i browseren. 
 
 
 [Datamodel](#datamodel)

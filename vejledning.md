@@ -24,6 +24,7 @@ Herunder følger en kort beskrivelse datamodellen for Vector Tiles skærmkort sa
 
 [Eksempel 2 - Kort uden stednavne](#eksempel2)
 
+[Eksempel 3 - Kun visning af veje](#eksempel3)
 
 ## Datamodel <a name="datamodel"></a>
 Nedenfor beskrives de objekttyper der er tilgængelige og hvilke der er brugt i de prædefinerede skærmkort. KL (Klassisk), DP+G+M (dæmpet, grå og mørkt). Derudover er der også data tilgængeligt som ikke optræder i nogen af kortene som de ser ud i dag. Fx ’plads’, disse er market med _bruges ikke_.
@@ -223,6 +224,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 > ## tekst_punkt <b name="tekstp"></b>
 >
 > Dette lag indeholder tekster fra punkter, alle fra Danske Stednavne.
+> 
 > Samtlige subtyper, på nær by - indbyggetal og standsningsted - tog, har subsubtypen: areal. 
 
 - **bebyggelse**
@@ -422,3 +424,6 @@ Når denne style files trækkes ind i kortvisningen ser det således således ud
 
 ![billede](https://github.com/SDFIdk/vector_tiles_frontend/assets/168088613/0a1372ff-665d-4ebd-ba3b-1ac6f5067fb7)
 
+
+### Eksempel 3 - Kun visning af veje. <a name="eksempel3"></a>
+Med udgangspunkt i style filen for det det **klassiske skærmkort**.    

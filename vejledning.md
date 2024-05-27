@@ -198,7 +198,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
  
 > ## veje <b name="veje"></b>
 >
-> Dette lag indholder vejemidter fra GeoDanmark. Inddelingen af motortrafik-, motor- primær-, sekundær- og tertiærvej er lavet på baggrund af de to attributter vejkategori og trafikart fra GeoDanmark. 
+> Dette lag indholder vejmidter fra GeoDanmark. Inddelingen af motortrafik-, motor- primær-, sekundær- og tertiærvej er lavet på baggrund af de to attributter vejkategori og trafikart fra GeoDanmark. 
 > Vejnavne er koblet til dette datasæt, via vejkode. Vejnavne kommer fra DAR. Geometritypen er linje.
 
 - **anden vej**

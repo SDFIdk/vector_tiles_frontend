@@ -15,7 +15,8 @@ Herunder følger en kort beskrivelse datamodellen for Vector Tiles skærmkort sa
   - [Vand](#vand)
   - [Vandløb](#vandloeb)
   - [Veje](#veje)
-  - [Tekst punkt](#tekst)
+  - [Tekst punkt](#tekstp)
+  - [Tekst linje](#tekstl)
 
 [Generelt om style filerne](#stylefiles)
 
@@ -111,7 +112,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
   - start_landing
   - taxivej
 
-> ## jernbane <b name="jerbane"></b>
+> ## jernbane <b name="jernbane"></b>
 >
 > Dette lag indeholder objekter om alle typer af jernbaner. Geometritypen er linje.
 
@@ -148,10 +149,11 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 > Dette lag indeholder objekter om forskellige naturtyper, samt afgrænsninger af landeområder. Geometritypen er polygon.
 
 - **hede**
-- **kratbevoksning**
+- **kratbevoksning** (bruges ikke)
 - **land**
 - **sandklit**
 - **skov**
+- **vådområde** (bruges ikke)
 - **udland**
 
 > ## vand <b name="vand"></b>
@@ -159,18 +161,21 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 > Dette lag indeholder objekter om forskellige vandflader. Geometritypen er polygon.
 
 - **basin**
-  - andet
-  - ikke tildelt
-  - overløbsbassin
-  - regnvandsbassin
-  - rensningsanlæg
-  - svømmebassin
-  - ukendt
+  - andet (bruges ikke)
+  - ikke tildelt (bruges ikke)
+  - overløbsbassin (bruges ikke)
+  - regnvandsbassin (bruges ikke)
+  - rensningsanlæg (bruges ikke)
+  - svømmebassin (bruges ikke)
+  - ukendt (bruges ikke)
 - **sø**
   - fiskedam
   - sø
 - vandløbsflade [^1]
 - hav
+
+
+[^1]:Laget vandløbsflader, er et datasæt fremstillet vandløbslinjer fra Geodanmark. Laget er IKKE tilgængeligt via GeoDanmark  
 
 > ## vandloeb <b name="vandloeb"></b>
 >
@@ -186,19 +191,80 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
   - almindelig
 - **ukendt**
   - almindelig
-  - gennem sø
+  - gennem sø (bruges ikke)
   - rørlagt
  
 > ## veje <b name="veje"></b>
 >
-> Dette lag indholder veje. OBS: 
- 
+> Dette lag indholder vejemidter fra GeoDanmark. Inddelingen i vejkategorier er lavet på baggrund af den gamle datamodel for vejmidter i GeoDanmark XXX ??? Geometritypen er linje. 
 
-> ## tekst_punkt <b name="tekst"></b>
-  
+- **anden vej**
+- **motortrafikvej**
+  - rundkørsel
+  - til og frakørsel
+  - 
+- **motorvej**
+  - til og frakørsel
+  - 
+- **primærvej**
+  - rundkørsel
+  - til og frakørsel
+  - 
+- **sekundærvej**
+  - rundkørsel
+  - 
+- **sti**
+- **tertiærvej**
+  - rundkørsel
+  - 
 
-[^1]:Laget vandløbsflader, er et datasæt fremstillet vandløbslinjer fra Geodanmark. Laget er IKKE tilgængeligt via GeoDanmark  
+> ## tekst_punkt <b name="tekstp"></b>
+>
+> Dette lag indeholder tekster fra punkter, alle fra Danske Stednavne.
 
+- **bebyggelse**
+  - by
+  - bydel
+  - industriområde
+  - kolonihave
+  - sommerhusområde
+  - sommerhusdelområde 
+- **begravelsesplads**
+- **bygning**
+  - anden bygning
+  - gård
+  - herregård
+  - hospital
+  - hus
+  - slot
+- **landskabsform**
+  - ø
+  - øgruppe
+- **lufthavn**
+  - mindre lufthavn
+  - større lufthavn
+- **naturareal**
+  - hede
+  - parkanlæg
+  - sandklit
+  - skovplantage
+  - strand
+- **seværdighed**
+  - anden seværdighed
+  - arboret
+  - blomsterpark
+  - botaniskhave
+  - dyrepark
+  - forlystelsespark
+  - frilandsmuseum
+  - zoologisk have
+- **sø**
+- **standsningssted**
+  - tog
+
+> ## tekst_linje <b name="tekstl"></b>
+>
+> Dette lag indeholder tekster fra linjer, fra Danske Stednavne. (For info om vejnavne se [veje](#veje))
 
 ### Generalisering af data 
 Som det er lige nu, findes der ikke noget generaliseret data i datamodellen. Derfor adskiller Vector Tiles skærmkortet sig en del fra raster skærmkortet, fx når man zoomer ud er der mange veje synlige. 

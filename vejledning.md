@@ -24,7 +24,6 @@ Herunder følger en kort beskrivelse af datamodellen for Vector Tiles skærmkort
 
 [Eksempel 2 - Kort uden stednavne](#eksempel2)
 
-[Eksempel 3 - Kun visning af veje](#eksempel3)
 
 ## Datamodel <a name="datamodel"></a>
 Nedenfor beskrives de objekttyper der er tilgængelige og hvilke der er brugt i de prædefinerede skærmkort. Derudover er der også data tilgængeligt som ikke optræder i nogen af kortene som de ser ud i dag. Fx ’plads’, disse er market med _bruges ikke_.
@@ -422,5 +421,3 @@ Når denne stylefile trækkes ind i kortvisningen ser det således således ud:
 ![billede](https://github.com/SDFIdk/vector_tiles_frontend/assets/168088613/0a1372ff-665d-4ebd-ba3b-1ac6f5067fb7)
 
 
-### Eksempel 3 - Kun visning af veje. <a name="eksempel3"></a>
-Med udgangspunkt i stylefilen for det det **klassiske skærmkort**.    

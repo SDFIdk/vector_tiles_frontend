@@ -41,7 +41,7 @@
             },
             "source": "vector-source"
         },
-		{
+	{
             "id": "bebygget_by",
             "source-layer": "bebygget",
 			"minzoom": 7,
@@ -54,7 +54,7 @@
             },
             "source": "vector-source"
         },
-		{
+	{
             "id": "bebygget_bykerne",
             "source-layer": "bebygget",
 			"minzoom": 13,
@@ -65,7 +65,7 @@
             },
             "source": "vector-source"
         },
-		{
+	{
             "id": "bebygget_højbebyggelse",
             "source-layer": "bebygget",
 			"minzoom": 13,
@@ -76,7 +76,7 @@
             },
             "source": "vector-source"
         },
-		{
+	{
             "id": "bebygget_lavbebyggelse",
             "source-layer": "bebygget",
 			"minzoom": 13,
@@ -97,7 +97,7 @@
             },
             "source": "vector-source"
         },
-		{
+	{
             "id": "infrastruktur_startbane",
             "source-layer": "infrastruktur",
             "type": "line",
@@ -108,7 +108,7 @@
             },
             "source": "vector-source"
         },
- 		{
+ 	{
             "id": "graenser_havn",
             "source-layer": "graenser",
             "type": "line",
@@ -119,7 +119,7 @@
             },
             "source": "vector-source"
         },
-		{
+	{
             "id": "graenser_kyst",
             "source-layer": "graenser",
             "type": "line",
@@ -130,7 +130,7 @@
             },
             "source": "vector-source"
         },
-		{
+	{
             "id": "vand_vandløbsflade",
             "source-layer": "vand",
 			"minzoom": 13,
@@ -142,7 +142,7 @@
             },
             "source": "vector-source"
         },
-		{
+	{
             "id": "vand_vandløbsflade_outline",
             "source-layer": "vand",
 			"minzoom": 13,
@@ -155,7 +155,7 @@
             },
             "source": "vector-source"
         },
-		{
+	{
             "id": "vandloeb",
             "source-layer": "vandloeb",
             "type": "line",

@@ -338,7 +338,7 @@ Laget med skov søges frem i style filen og farvekoden ændres fra #EAFAE1, til 
 98            "source": "vector-source"
 99        },
 ```
-Som det næste søges der efter ’sø’. Der kommer i alt tre resultater frem: vand_sø, vand_sø_outline og vand_sø >50000. Det kan ses at der vises forskellige lag af søer i forskellige skaler, derfor ændres farvekoden fra #D4E6F0 til eksempelvis #17ceed for laget vand_sø og vand_sø >50000.
+Som det næste søges der efter ’sø’. Der kommer i alt tre resultater frem: ```vand_sø```, ```vand_sø_outline``` og ```vand_sø >50000```. Det kan ses at der vises forskellige lag af søer i forskellige skaler, derfor ændres farvekoden fra #D4E6F0 til eksempelvis #17ceed for laget ```vand_sø``` og ```vand_sø >50000```.
 
 ```
 193		{
@@ -352,7 +352,7 @@ Som det næste søges der efter ’sø’. Der kommer i alt tre resultater frem:
 201                "fill-color": "#17ceed"
 202            },
 203            "source": "vector-source"
-204        },
+204   },
 205		{
 206            "id": "vand_sø_outline",
 207            "source-layer": "vand",
@@ -365,7 +365,7 @@ Som det næste søges der efter ’sø’. Der kommer i alt tre resultater frem:
 214				"line-width": 0.8
 215            },
 216            "source": "vector-source"
-217        },
+217   },
 218		{
 219            "id": "vand_sø_>50000",
 220            "source-layer": "vand",
@@ -377,11 +377,11 @@ Som det næste søges der efter ’sø’. Der kommer i alt tre resultater frem:
 226                "fill-color": "#17ceed"
 227            },
 228            "source": "vector-source"
-229        },
+229   },
 ```
 
-Til sidst søges der på ’vandløb’. Her kan ses det at der er flere forskellige lag der definere style for vandløb, bl.a. ’vandloeb’, ’vandloeb_o12’ (vandløb der er over 12 meter i bredden) og ’vandloeb_rørlagt’. Alle disse tre har den samme farve kode, og den ændres således fra #BFE8F0 til #1e90ff. 
-De sidste to lag der kan søges frem er ’vand_vandløbsflade’ og vand_vandløbsflade_outline. Herunder vælges at vand_vandløbsflade ændres fra #D4E6F0 til #17ceed (lige som for søerne) 
+Til sidst søges der på ’vandløb’. Her kan ses det at der er flere forskellige lag der definere style for vandløb, bl.a. ```vandloeb```, ```vandloeb_o12``` (vandløb der er over 12 meter i bredden) og ```vandloeb_rørlagt```. Alle disse tre har den samme farve kode, og den ændres således fra #BFE8F0 til #1e90ff. 
+De sidste to lag der kan søges frem er ```vand_vandløbsflade``` og ```vand_vandløbsflade_outline```. Herunder vælges at ```vand_vandløbsflade``` ændres fra #D4E6F0 til #17ceed (lige som for søerne) 
 Når disse ændringer er gemt, trækkes json filen direkte ind i browser under knappen ’Træk og slip din egen stylefil her for at tilføje den til kortet’ og så dukker dette kort frem i browseren: 
 
 ![billede](https://github.com/SDFIdk/vector_tiles_frontend/assets/168088613/ba8903a7-4e56-41e8-99e5-116525d039a8)

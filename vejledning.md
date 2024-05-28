@@ -308,11 +308,11 @@ Opbygning er således
 
 ```"maxzoom"´``` indikere det største zoom hvor laget optræder 
 
-```"type"``` geometritype; polygon, line, point
+```"type"``` geometritype; polygon, line, point m.m.
 
 ```"filter"``` filter til at udvælge type og subtype XXX
 
-```"paint"``` visualisering (farve, størrelse osv.) Farverne er defineret i HEX men kan nemt ændres til RGB. 
+```"paint"``` visualisering (farve, størrelse osv.) Farverne er defineret i HEX, men kan nemt ændres til RGB. 
 
 "fill-color": "#e6f3fc"   =   "fill-color": "RGB(230, 243, 252)"
 

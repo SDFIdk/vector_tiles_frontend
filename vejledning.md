@@ -279,7 +279,6 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 ## Generelt om stylefilerne <a name="stylefiles"></a>
 Stylefilen er bygget op, så det der ligger øverst bliver tegnet først og de efterfølgende objekttyper lægger sig oven på. Derfor vil rækkefølgen oftest være arealer øverst, dernæst linjer og til sidst punkter.
 Teksterne har typen symbol og bliver altid visuelt lagt øverst uanset, hvor man placerer dem i stylefilen.
-Farverne er defineret i HEX men kan nemt ændres til RGB.      "fill-color": "#e6f3fc"   =   "fill-color": "RGB(230, 243, 252)"
 
 Skalaer er i levels, hvor man populært kan sige at level 0 er verden og level 20 på bygningsniveau. 
 
@@ -314,7 +313,7 @@ Opbygning er således
 
 ```"paint"``` visualisering (farve, størrelse osv.) Farverne er defineret i HEX, men kan nemt ændres til RGB. 
 
-"fill-color": "#e6f3fc"   =   "fill-color": "RGB(230, 243, 252)"
+```"fill-color": "#e6f3fc"```   eller   ```"fill-color": "RGB(230, 243, 252)"```
 
 
 ## Eksempler

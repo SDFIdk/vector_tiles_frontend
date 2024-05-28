@@ -27,9 +27,9 @@ Herunder følger en kort beskrivelse af datamodellen for Vector Tiles skærmkort
 [Eksempel 3 - Kun visning af veje](#eksempel3)
 
 ## Datamodel <a name="datamodel"></a>
-Nedenfor beskrives de objekttyper der er tilgængelige og hvilke der er brugt i de prædefinerede skærmkort. KL (Klassisk), DP+G+M (dæmpet, grå og mørkt). Derudover er der også data tilgængeligt som ikke optræder i nogen af kortene som de ser ud i dag. Fx ’plads’, disse er market med _bruges ikke_.
+Nedenfor beskrives de objekttyper der er tilgængelige og hvilke der er brugt i de prædefinerede skærmkort. Derudover er der også data tilgængeligt som ikke optræder i nogen af kortene som de ser ud i dag. Fx ’plads’, disse er market med _bruges ikke_.
 
-Data stammer fra GeoDanmark Vektor, Danmarks Administrative Geografiske Inddeling (DAGI), Danske Stednavne og Danmarks Adresseregister (DAR). Hvis ikke andet er opgivet i listen nedenfor stammer data fra GeoDanmark Vektor. Data er selekteret for hvert zoom, Eks. Bygninger vil kun kunne medtages i de inderste levels/zoom. 
+Data stammer fra GeoDanmark Vektor, Danmarks Administrative Geografiske Inddeling (DAGI), Danske Stednavne og Danmarks Adresseregister (DAR). Hvis ikke andet er opgivet i listen nedenfor stammer data fra GeoDanmark Vektor. Data er selekteret for hvert zoom, Eks. Bygninger vil kun kunne medtages i de inderste levels/zoom. Datamodellen omfatter ikke generaliseret data, hvilket bl.a. kan ses ved at der i de yderste zoomniveau fortsat vises mange veje. 
 
 > [!NOTE]
 > Datasættet er pt. statisk med data hentet i april 2024. Når Vector Tiles idriftsættes på dataforsyningen vil data blive ajourført løbende.
@@ -276,9 +276,6 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 
   
 
-### Generalisering af data 
-Som det er lige nu, findes der ikke noget generaliseret data i datamodellen. Derfor adskiller Vector Tiles skærmkortet sig en del fra raster skærmkortet, fx når man zoomer ud er der mange veje synlige. 
-Generaliseret data vil blive tilføjet omkring Q4 2024. 
 
 ## Generelt om stylefilerne <a name="stylefiles"></a>
 Stylefilen er bygget op, så det der ligger øverst bliver tegnet først og de efterfølgende objekttyper lægger sig oven på. Derfor vil rækkefølgen oftest være arealer øverst, dernæst linjer og til sidst punkter.

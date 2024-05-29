@@ -1,4 +1,4 @@
-# Installing and building locally
+# Installing and building mapviewer locally
 
 To install and build `vector_tiles_frontend` locally, run these commands:
 

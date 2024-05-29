@@ -2,7 +2,7 @@
 
 `vector_tiles_frontend` is an application for displaying vector styles with custom styles.
 
-- [Instructions for installation](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/docs/tutorials/installing.md)
+- [Instructions for installing mapviewer](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/docs/tutorials/installing.md)
 - [Instructions for adding a new style to the website](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/docs/tutorials/addStyle.md)
 - [Link to stylefiles](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/public/styles)
 - [Guide to Vector Tiles skærmkort (in Danish)](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/vejledning.md)

@@ -153,7 +153,7 @@ export class MapLayerSelector extends HTMLElement {
         const jsonFile = JSON.parse(e.target.result)
         // Add new style element to the list
         const styleElement = this.createStyleElement({
-          title: (fileName.length > maxTitleLength) ? fileName.slice(0, maxTitleLength-1) + '&hellip;' : str,
+          title: (fileName.length > maxTitleLength) ? fileName.slice(0, maxTitleLength-1) + '&hellip;' : fileName,
           style: jsonFile
         }, '', stylesElement)
         stylesElement.appendChild(styleElement)

@@ -17,6 +17,7 @@ const srs = 'EPSG:25832'
 const extent = [120000, 5900000, 1000000, 6500000]
 const center = [590000, 6205000]
 const zoom = 7
+const maxZoom = 15
 const format = new MVT()
 
 // Create the projection
@@ -44,16 +45,23 @@ vectorLayer.getSource().setTileLoadFunction((tile, src) => {
     client.responseType = 'arraybuffer'
     client.setRequestHeader('token', config.API_TOKEN)
     client.onload = () => {
-      const source = client.response
-      tile.onLoad.bind(tile)(
-        (
-          format.readFeatures(source, {
-            extent: ext,
-            featureProjection: proj,
-          })
-        ),
-        format.readProjection(source)
-      )
+      try {
+        const source = client.response
+        tile.onLoad.bind(tile)(
+          (
+            format.readFeatures(source, {
+              extent: ext,
+              featureProjection: proj,
+            })
+          ),
+          format.readProjection(source)
+        )
+      } catch {
+        tile.onError.bind(tile)()
+      }
+    }
+    client.onerror = () => {
+      tile.onError.bind(tile)()
     }
     client.send()
   })
@@ -67,7 +75,8 @@ const map = new Map({
     extent,
     center,
     zoom,
-    projection: projection,
+    projection,
+    maxZoom
   }),
 })
 

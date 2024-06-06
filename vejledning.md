@@ -317,7 +317,7 @@ Opbygning er således
 
 
 ## Eksempler
-Herunder beskrives 3 eksempler på konkrete måder hvorpå brugeren selv kan lave om i stylefilerne, for på den måde at lave sit eget kort. 
+Herunder beskrives 2 eksempler på konkrete måder hvorpå brugeren selv kan lave om i stylefilerne, for på den måde at lave sit eget kort. 
 Udover de konkrete eksempler nævnt her, har brugeren også selv mulighed for at tilføje ydereligere data, som er markeret i datamodedllen med _bruges ikke_.
 
 

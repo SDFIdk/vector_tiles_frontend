@@ -86,6 +86,7 @@ applyBackground(map, STYLE_FILES[0].style)
 
 // Update the style when it's changed in the menu
 document.addEventListener('vt:change-style', event => {
+  console.log('got style', event.detail.style)
   if (event.detail.style) {
     applyStyle(vectorLayer, event.detail.style)
     applyBackground(map, event.detail.style)

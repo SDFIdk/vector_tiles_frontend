@@ -63,19 +63,21 @@ export class MapMenu extends HTMLElement {
     <style>
       ${ this.styles }
     </style>
-    <article class="map-menu">
-      <section class="map-menu-top">
-        <p class="ds-logo small">
-          <ds-logo></ds-logo>
-          <strong>Vector Tiles - Skærmkort</strong>
-          <span>SDFI</span>
-        </p>
-        <article class="icon-wrapper" id="layer-selector-button">
-          ${stackIcon}
-          <div class="icon-arrow"></div>
-        </article>
-      </section>
-    </article>
+    <section class="map-menu-border">
+      <article class="map-menu">
+        <section class="map-menu-top">
+          <p class="ds-logo small">
+            <ds-logo></ds-logo>
+            <strong>Vector Tiles - Skærmkort</strong>
+            <span>SDFI</span>
+          </p>
+          <article class="icon-wrapper" id="layer-selector-button">
+            ${stackIcon}
+            <div class="icon-arrow"></div>
+          </article>
+        </section>
+      </article>
+    </section>
   `
 
   constructor() {
@@ -83,10 +85,7 @@ export class MapMenu extends HTMLElement {
   }
 
   createDOM() {
-    const container = document.createElement('section')
-    container.className = 'map-menu-border'
-    container.innerHTML = this.template
-    this.append(container)
+    this.innerHTML = this.template
   }
 
   connectedCallback() {
@@ -112,7 +111,7 @@ export class MapMenu extends HTMLElement {
           menuTopElement.children[i].classList.remove(selectedClass)
         }
       }
-      // Add the new tab
+      // Add the new tabs
       menuElement.appendChild(document.createElement(tabName))
       buttonElement.classList.add(selectedClass)
     }

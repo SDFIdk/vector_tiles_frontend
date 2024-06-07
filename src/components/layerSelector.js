@@ -1,7 +1,10 @@
 import { STYLE_FILES } from '../constants'
+import { StyleEditor } from './style-editor/styleEditor.js'
 
 const selectedClass = 'selected'
 const maxTitleLength = 11
+
+customElements.define('style-editor', StyleEditor)
 
 export class MapLayerSelector extends HTMLElement {
 
@@ -84,6 +87,7 @@ export class MapLayerSelector extends HTMLElement {
       <section class="styles-upload">
       </section>
     </article>
+    <style-editor data-target="map"></style-editor>
   `
 
   constructor() {

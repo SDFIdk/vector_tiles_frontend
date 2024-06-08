@@ -51,9 +51,10 @@ export class StyleEditor extends HTMLElement {
     // Modify style color for the target ID
     const layerType = this.style.layers[layerIndex].type
     this.style.layers[layerIndex].paint[`${ layerType }-color`] = event.target.value
-    
+
+    // Dispatch style JSON in event
     this.dispatchEvent(new CustomEvent('vt:change-style', { 
-      detail: {style: this.style}, bubbles: true, composed: true
+      detail: {style: JSON.stringify(this.style)}, bubbles: true, composed: true
     }))
   }
 }

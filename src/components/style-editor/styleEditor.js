@@ -4,9 +4,12 @@ import { ColorSwatch } from './colorSwatch.js'
 customElements.define('color-swatch', ColorSwatch)
 
 export class StyleEditor extends HTMLElement {
+
+  style
   
   constructor() {
     super()
+    this.style = style
   }
 
   connectedCallback() {
@@ -33,18 +36,24 @@ export class StyleEditor extends HTMLElement {
 
   renderSwatches() {
     let markup = ''
-    style.layers.forEach((layer) => {
+    this.style.layers.forEach((layer) => {
       const color = layer.type === 'fill' ? layer.paint['fill-color'] : layer.paint['line-color']
-      console.log(color)
       markup += `<color-swatch data-label="${ layer.id }" data-color="${ color }" ></color-swatch>`
     })
     return markup
   }
 
   changeColorHandler(event) {
-    console.log(event.target.value)
+    
+    // Identify changed layer
+    const layerIndex = this.style.layers.findIndex((layer) => layer.id === event.target.id)
+
+    // Modify style color for the target ID
+    const layerType = this.style.layers[layerIndex].type
+    this.style.layers[layerIndex].paint[`${ layerType }-color`] = event.target.value
+    
     this.dispatchEvent(new CustomEvent('vt:change-style', { 
-      detail: {style: style}, bubbles: true, composed: true
+      detail: {style: this.style}, bubbles: true, composed: true
     }))
   }
 }

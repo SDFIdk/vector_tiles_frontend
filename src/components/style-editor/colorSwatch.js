@@ -1,13 +1,10 @@
 export class ColorSwatch extends HTMLElement {
 
-  componentId
-
   constructor() {
     super()
   }
 
   connectedCallback() {
-    this.componentId = `swatch${ Math.floor(Math.random() * 100000) }`
     this.innerHTML = `
       <style>
         .swatch-wrapper {
@@ -15,8 +12,8 @@ export class ColorSwatch extends HTMLElement {
         }
       </style>
       <div class="swatch-wrapper">
-        <label for="${ this.componentId }">${ this.dataset.label }</label>
-        <input id="${ this.componentId }" type="color" value="${ this.dataset.color }">
+        <label for="${ this.dataset.label }">${ this.dataset.label }</label>
+        <input id="${ this.dataset.label }" type="color" value="${ this.dataset.color }">
       </div>
     `
   }

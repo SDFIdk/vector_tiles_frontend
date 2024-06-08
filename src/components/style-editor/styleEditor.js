@@ -22,6 +22,20 @@ export class StyleEditor extends HTMLElement {
           height: calc(100vh - 40rem);
           overflow: auto;
         }
+        .swatch-wrapper {
+          margin: 0.5rem 0;
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          gap: var(--space);
+        }
+        .swatch-wrapper label::first-letter {
+          text-transform: capitalize;
+        }
+        .swatch-wrapper input {
+          padding: 0;
+          border-radius: var(--space-sm);
+        }
       </style>
       <hr>
       <article class="style-editor">

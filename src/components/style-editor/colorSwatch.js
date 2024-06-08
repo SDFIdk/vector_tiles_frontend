@@ -6,15 +6,15 @@ export class ColorSwatch extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-      <style>
-        .swatch-wrapper {
-          margin: 0.5rem 0;
-        }
-      </style>
       <div class="swatch-wrapper">
-        <label for="${ this.dataset.label }">${ this.dataset.label }</label>
         <input id="${ this.dataset.label }" type="color" value="${ this.dataset.color }">
+        <label for="${ this.dataset.label }">${ this.formatLabelName(this.dataset.label) }</label>
       </div>
     `
+  }
+
+
+  formatLabelName(id) {
+    return id.split('_').join(' ')
   }
 }

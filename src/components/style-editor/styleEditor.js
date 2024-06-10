@@ -6,6 +6,31 @@ customElements.define('color-swatch', ColorSwatch)
 export class StyleEditor extends HTMLElement {
 
   style
+  styles = /* css */`
+    .style-editor {
+      padding: var(--space);
+      border-top: 1px solid var(--border-color)
+    }
+    .swatches {
+      height: calc(100vh - 35rem);
+      overflow: auto;
+    }
+    .swatch-wrapper {
+      margin: 0.5rem 0;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      gap: var(--space);
+    }
+    .swatch-wrapper label::first-letter {
+      text-transform: capitalize;
+    }
+    .swatch-wrapper input {
+      padding: 0;
+      border-radius: var(--space-sm);
+      overflow: hidden;
+    }
+  `
   
   constructor() {
     super()
@@ -13,33 +38,12 @@ export class StyleEditor extends HTMLElement {
   }
 
   connectedCallback() {
-    this.innerHTML = `
+    this.innerHTML = /* html */`
       <style>
-        .style-editor {
-          padding: var(--space);
-        }
-        .swatches {
-          height: calc(100vh - 40rem);
-          overflow: auto;
-        }
-        .swatch-wrapper {
-          margin: 0.5rem 0;
-          display: flex;
-          flex-flow: row nowrap;
-          align-items: center;
-          gap: var(--space);
-        }
-        .swatch-wrapper label::first-letter {
-          text-transform: capitalize;
-        }
-        .swatch-wrapper input {
-          padding: 0;
-          border-radius: var(--space-sm);
-        }
+        ${ this.styles }
       </style>
-      <hr>
       <article class="style-editor">
-        <h2>Vælg farver</h2>
+        <h3>Vælg farver</h3>
         <div class="swatches">
         ${ this.renderSwatches() }
         </div>

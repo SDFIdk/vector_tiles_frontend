@@ -36,6 +36,7 @@ const vectorLayer = new VectorTileLayer({
     projection: projection
   })
 })
+const resolutions = vectorLayer.getSource().getTileGrid().getResolutions()
 
 // Custom setTileLoadFunction to add a header with a token
 vectorLayer.getSource().setTileLoadFunction((tile, src) => {
@@ -81,13 +82,13 @@ const map = new Map({
 })
 
 // Add the default style
-applyStyle(vectorLayer, STYLE_FILES[0].style)
-applyBackground(map, STYLE_FILES[0].style)
+applyStyle(vectorLayer, STYLE_FILES[0].style, { resolutions })
+applyBackground(map, STYLE_FILES[0].style, { resolutions })
 
 // Update the style when it's changed in the menu
 document.addEventListener('vt:change-style', event => {
   if (event.detail.style) {
-    applyStyle(vectorLayer, event.detail.style)
-    applyBackground(map, event.detail.style)
+    applyStyle(vectorLayer, event.detail.style, { resolutions })
+    applyBackground(map, event.detail.style, { resolutions })
   }
 })

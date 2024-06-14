@@ -33,9 +33,11 @@ const vectorLayer = new VectorTileLayer({
     tileSize: 256,
     format: format,
     crossOrigin: 'anonymous',
-    projection: projection
+    projection: projection,
+    url: config.API_VECTOR_TILES_BASEURL + '?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&LAYER=skaermkort_vector_tiles&STYLE=&TILEMATRIX=EPSG:25832:{z}&TILEMATRIXSET=EPSG:25832&FORMAT=application/vnd.mapbox-vector-tile&TILECOL={x}&TILEROW={y}'
   })
 })
+const resolutions = vectorLayer.getSource().getTileGrid().getResolutions()
 
 // Custom setTileLoadFunction to add a header with a token
 vectorLayer.getSource().setTileLoadFunction((tile, src) => {
@@ -81,13 +83,13 @@ const map = new Map({
 })
 
 // Add the default style
-applyStyle(vectorLayer, STYLE_FILES[0].style)
-applyBackground(map, STYLE_FILES[0].style)
+applyStyle(vectorLayer, STYLE_FILES[0].style, { resolutions, updateSource: false })
+applyBackground(map, STYLE_FILES[0].style, { resolutions, updateSource: false })
 
 // Update the style when it's changed in the menu
 document.addEventListener('vt:change-style', event => {
   if (event.detail.style) {
-    applyStyle(vectorLayer, event.detail.style)
-    applyBackground(map, event.detail.style)
+    applyStyle(vectorLayer, event.detail.style, { resolutions, updateSource: false })
+    applyBackground(map, event.detail.style, { resolutions, updateSource: false })
   }
 })

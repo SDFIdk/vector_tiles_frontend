@@ -93,3 +93,18 @@ document.addEventListener('vt:change-style', event => {
     applyBackground(map, event.detail.style, { resolutions, updateSource: false })
   }
 })
+
+// Show zoom level
+const showZoom = (zoom) => {
+  const zoomtext = "Zoomlevel: " + Math.round(currZoom * 100) / 100
+  document.getElementById("zoom-level").innerHTML = zoomtext
+}
+let currZoom = map.getView().getZoom()
+showZoom(currZoom)
+map.on('moveend', function(e) {
+    const newZoom = map.getView().getZoom()
+    if (currZoom !== newZoom) {
+      currZoom = newZoom
+      showZoom(newZoom)
+    }
+})

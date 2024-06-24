@@ -1,0 +1,1556 @@
+{
+  "version": 8,
+  "name": "name",
+  "glyphs": "{fontstack}{range}",
+  "sprite": "https://labs.dataforsyningen.dk/skaermkort_vector_tiles/sprites/rdr",
+  "sources": {
+    "vector-source": {
+      "type": "vector",
+      "tiles": [
+        "https://api.dataforsyningen.dk/wmts/skaermkort_vector_tiles_labs/v1?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&LAYER=skaermkort_vector_tiles&STYLE=&TILEMATRIX=EPSG:25832:{z}&TILEMATRIXSET=EPSG:25832&FORMAT=application/vnd.mapbox-vector-tile&TILECOL={x}&TILEROW={y}"
+      ],
+      "maxZoom": 20,
+      "minZoom": 0
+    }
+  },
+  "metadata": {
+    "maputnik:renderer": "ol"
+  },
+  "layers": [
+    {
+      "id": "vand-hav",
+      "source-layer": "vand",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "hav"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#908a7d"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "vand-hav-outline",
+      "source-layer": "vand",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "hav"
+        ]
+      ],
+      "paint": {
+        "line-color": "#4f493c",
+        "line-width": 0.5
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "graenser-kyst-outline-0-10",
+      "source-layer": "graenser",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "kyst"
+        ]
+      ],
+      "layout": {
+          "line-join": "round",
+          "line-cap": "round"
+      },
+      "paint": {
+        "line-color": "rgba(78, 70, 68, 0.4)",
+        "line-width": 10
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "natur-land",
+      "source-layer": "natur",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "land"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#e7d2b0"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "natur-land-outline",
+      "source-layer": "natur",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "land"
+        ]
+      ],
+      "paint": {
+        "line-color": "#b6a17f",
+        "line-width": 0.5
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "natur-kratbevoksning",
+      "source-layer": "natur",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "kratbevoksning"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#c7c689"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "natur-kratbevoksning-outline",
+      "source-layer": "natur",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "kratbevoksning"
+        ]
+      ],
+      "paint": {
+        "line-color": "#868548",
+        "line-width": 0.5
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "natur-sandklit",
+      "source-layer": "natur",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "sandklit"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#dec29d"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "natur-sandklit-outline",
+      "source-layer": "natur",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "sandklit"
+        ]
+      ],
+      "paint": {
+        "line-color": "#9d815c",
+        "line-width": 0.5
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "natur-udland-outline",
+      "source-layer": "natur",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "udland"
+        ]
+      ],
+      "layout": {
+          "line-cap": "round",
+          "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#da9b7c",
+        "line-width": 40
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "natur-udland",
+      "source-layer": "natur",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "udland"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#eaab7c",
+        "fill-outline-color": "#000000"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "natur-vådområde",
+      "source-layer": "natur",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "vådområde"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#9e9985"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "natur-vådområde-outline",
+      "source-layer": "natur",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "vådområde"
+        ]
+      ],
+      "paint": {
+        "line-color": "#4f493c",
+        "line-width": 0.5
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "bebygget-by",
+      "source-layer": "bebygget",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "by"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#dec29d"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "bebygget-by-outline",
+      "source-layer": "bebygget",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "by"
+        ]
+      ],
+      "paint": {
+        "line-color": "#9d815c",
+        "line-width": 0.5
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "bebygget-bykerne",
+      "source-layer": "bebygget",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "bykerne"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#dec29d"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "bebygget-bykerne-outline",
+      "source-layer": "bebygget",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "bykerne"
+        ]
+      ],
+      "paint": {
+        "line-color": "#9d815c",
+        "line-width": 0.5
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "bebygget-plads",
+      "source-layer": "bebygget",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "plads"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#dec29d"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "bebygget-plads-outline",
+      "source-layer": "bebygget",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "plads"
+        ]
+      ],
+      "paint": {
+        "line-color": "#9d815c",
+        "line-width": 0.5
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "industri-outline2",
+      "source-layer": "industri",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "erhverv"
+        ]
+      ],
+      "layout": {
+          "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#ba7b5c",
+        "line-width": 50
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "industri-outline",
+      "source-layer": "industri",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "erhverv"
+        ]
+      ],
+      "layout": {
+          "line-cap": "round",
+          "line-join": "round"
+      },
+      "paint": {
+        "line-color": "#da9b7c",
+        "line-width": 40
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "industri",
+      "source-layer": "industri",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "erhverv"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#da9b7c"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "infrastruktur-lufthavn",
+      "source-layer": "infrastruktur",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "lufthavn"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#454339"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "infrastruktur-lufthavn-outline",
+      "source-layer": "infrastruktur",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "lufthavn"
+        ]
+      ],
+      "paint": {
+        "line-color": "#040200",
+        "line-width": 0.5
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "bebygget-bygning",
+      "source-layer": "bebygget",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "bygning"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#c5ac8e"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "bebygget-bygning-outline",
+      "source-layer": "bebygget",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "bygning"
+        ]
+      ],
+      "paint": {
+        "line-color": "#846b4d",
+        "line-width": 0.5
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "vandloeb",
+      "source-layer": "vandloeb",
+      "type": "line",
+      "minzoom": 15,
+      "maxzoom": 20,
+      "paint": {
+        "line-color": "#908a7d",
+        "line-width": 2
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "vandloeb-12-",
+      "source-layer": "vandloeb",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "12-"
+        ]
+      ],
+      "paint": {
+        "line-color": "#908a7d",
+        "line-width": 2
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "vand-sø",
+      "source-layer": "vand",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "sø"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#908a7d"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "vand-sø-outline",
+      "source-layer": "vand",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "sø"
+        ]
+      ],
+      "paint": {
+        "line-color": "#4f493c",
+        "line-width": 0.5
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "vand-bassin",
+      "source-layer": "vand",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "bassin"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#908a7d"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "vand-bassin-outline",
+      "source-layer": "vand",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "bassin"
+        ]
+      ],
+      "paint": {
+        "line-color": "#4f493c",
+        "line-width": 0.5
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "vand-vandløbsflade",
+      "source-layer": "vand",
+      "type": "fill",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "vandløbsflade"
+        ]
+      ],
+      "paint": {
+        "fill-color": "#908a7d"
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "vand-vandløbsflade-outline",
+      "source-layer": "vand",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "vandløbsflade"
+        ]
+      ],
+      "paint": {
+        "line-color": "#4f493c",
+        "line-width": 0.5
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "graenser-havn",
+      "source-layer": "graenser",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "havn"
+        ]
+      ],
+      "paint": {
+        "line-color": "#4e4644",
+        "line-width": 2
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "graenser-kyst",
+      "source-layer": "graenser",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "kyst"
+        ]
+      ],
+      "paint": {
+        "line-color": "#4e4644",
+        "line-width": 2
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "veje-sti",
+      "source-layer": "veje",
+      "type": "line",
+      "minzoom": 12,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "sti"
+        ]
+      ],
+      "paint": {
+        "line-color": "#9a9581",
+        "line-width": 1,
+        "line-dasharray": [2,2]
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "veje-anden vej",
+      "source-layer": "veje",
+      "type": "line",
+      "minzoom": 12,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "anden vej"
+        ]
+      ],
+      "paint": {
+        "line-color": "#9a9581",
+        "line-width": 1.5,
+        "line-dasharray": [3,1]
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "veje-tertiærvej",
+      "source-layer": "veje",
+      "type": "line",
+      "minzoom": 12,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "tertiærvej"
+        ]
+      ],
+      "paint": {
+        "line-color": "#9a9581",
+        "line-width": 2,
+        "line-dasharray": [5,1]
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "veje-sekundærvej",
+      "source-layer": "veje",
+      "type": "line",
+      "minzoom": 12,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "sekundærvej"
+        ]
+      ],
+      "paint": {
+        "line-color": "#454339",
+        "line-width": 2
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "veje-primærvej",
+      "source-layer": "veje",
+      "type": "line",
+      "minzoom": 10,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "primærvej"
+        ]
+      ],
+      "paint": {
+        "line-color": "#454339",
+        "line-width": 3
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "veje-motortrafikvej",
+      "source-layer": "veje",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "motortrafikvej"
+        ]
+      ],
+      "paint": {
+        "line-color": "#c88d72",
+        "line-width": 4
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "veje-motorvej",
+      "source-layer": "veje",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "motorvej"
+        ]
+      ],
+      "paint": {
+        "line-color": "#9b7060",
+        "line-width": 6
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "jernbane-ingen tog",
+      "source-layer": "jernbane",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "ingen tog"
+        ]
+      ],
+      "paint": {
+        "line-color": "#050603",
+        "line-width": 4,
+        "line-dasharray": [4,1,1,1,1,1]
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "jernbane-letbane",
+      "source-layer": "jernbane",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "letbane"
+        ]
+      ],
+      "paint": {
+        "line-color": "#050603",
+        "line-width": 4,
+        "line-dasharray": [4,1,1,1,1,1]
+
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "jernbane-metro",
+      "source-layer": "jernbane",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "metro"
+        ]
+      ],
+      "paint": {
+        "line-color": "#050603",
+        "line-width": 4,
+        "line-dasharray": [4,1,1,1,1,1]
+
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "jernbane-øvrige tog",
+      "source-layer": "jernbane",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "øvrige tog"
+        ]
+      ],
+      "paint": {
+        "line-color": "#050603",
+        "line-width": 4,
+        "line-dasharray": [4,1,1,1,1,1]
+
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "jernbane-s-tog",
+      "source-layer": "jernbane",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "s-tog"
+        ]
+      ],
+      "paint": {
+        "line-color": "#050603",
+        "line-width": 4,
+        "line-dasharray": [4,1,1,1,1,1]
+
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "graenser-eøz",
+      "source-layer": "graenser",
+      "type": "line",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "eøz"
+        ]
+      ],
+      "paint": {
+        "line-color": "#825344",
+        "line-width": 2
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "punkter-togstation",
+      "source-layer": "punkter",
+      "type": "symbol",
+      "minzoom": 11,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [ "==", "type", "togstation" ]
+      ],
+      "layout": {
+          "icon-image": "station",
+          "icon-size": 1.5,
+          "icon-offset": [1,1],
+          "icon-padding": 10,
+          "icon-allow-overlap": true,
+          "symbol-spacing": 20
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-bygning-mindre lufthavn",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 5,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [ "==", "type", "lufthavn" ],
+        [ "==", "subtype", "mindre lufthavn" ]
+      ],
+      "layout": {
+          "icon-image": "mindre lufthavn",
+          "icon-size": 1.5,
+          "icon-offset": [0,1],
+          "icon-padding": 5,
+          "icon-allow-overlap": true,
+          "symbol-spacing": 20
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-bygning-større lufthavn",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 3,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [ "==", "type", "lufthavn" ],
+        [ "==", "subtype", "større lufthavn" ]
+      ],
+      "layout": {
+          "icon-image": "større lufthavn",
+          "icon-size": 1.5,
+          "icon-offset": [0,1],
+          "icon-padding": 5,
+          "icon-allow-overlap": true,
+          "symbol-spacing": 20
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-bygning-slot",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [ "==", "type", "bygning" ],
+        [ "==", "subtype", "slot" ]
+      ],
+      "layout": {
+          "icon-image": "slot",
+          "icon-size": 1.5,
+          "icon-offset": [1,1],
+          "icon-padding": 5,
+          "icon-allow-overlap": true,
+          "symbol-spacing": 20
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-bygning-hospital",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [ "==", "type", "bygning" ],
+        [ "==", "subtype", "hospital" ]
+      ],
+      "layout": {
+          "icon-image": "hospital",
+          "icon-size": 1.5,
+          "icon-offset": [1,1],
+          "icon-padding": 5,
+          "icon-allow-overlap": true,
+          "symbol-spacing": 20
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-bygning-herregård",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [ "==", "type", "bygning" ],
+        [ "==", "subtype", "herregård" ]
+      ],
+      "layout": {
+          "icon-image": "herregård",
+          "icon-size": 1.5,
+          "icon-offset": [1,1],
+          "icon-padding": 5,
+          "icon-allow-overlap": true,
+          "symbol-spacing": 20
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-bygning-gård-lille",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [ "==", "type", "bygning" ],
+        [ "==", "subtype", "gård" ],
+        [ "<", "subsubtype", 1500 ],
+        [ ">", "subsubtype", 700 ]
+      ],
+      "layout": {
+          "icon-image": "gård-lille",
+          "icon-size": 1.5,
+          "icon-offset": [1,1],
+          "icon-padding": 5,
+          "icon-allow-overlap": true,
+          "symbol-spacing": 20
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-bygning-gård",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [ "==", "type", "bygning" ],
+        [ "==", "subtype", "gård" ],
+        [ ">", "subsubtype", 1500 ]
+      ],
+      "layout": {
+          "icon-image": "gård",
+          "icon-size": 1.5,
+          "icon-offset": [1,1],
+          "icon-padding": 5,
+          "icon-allow-overlap": true,
+          "symbol-spacing": 20
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-bygning",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "bygning"
+        ]
+      ],
+      "layout": {
+        "text-field": "{navn}",
+        "text-font": [
+          "League Script Bold",
+          "League Script",
+          "League Script Bold"
+        ],
+        "text-size": 30,
+        "text-anchor": "center",
+        "text-offset": [0, 1.5],
+        "text-padding": 50,
+        "text-allow-overlap": false,
+        "text-ignore-placement": false
+      },
+      "paint": {
+        "text-color": "#96815f",
+        "text-halo-color": "#dec29d",
+        "text-halo-width": 3
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-landskabsform-5m",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 0,
+      "maxzoom": 10,
+      "filter": [
+        "all",
+        [ "==", "type", "landskabsform" ],
+        [ "==", "subtype", "ø" ],
+        [ ">", "subsubtype", 500000000 ]
+      ],
+      "layout": {
+        "text-field": "{navn}",
+        "text-font": [
+          "Volkhov Bold",
+          "Volkhov",
+          "Volkhov Bold"
+        ],
+        "text-size": 50,
+        "text-transform": "uppercase",
+        "text-rotate": 30,
+        "text-anchor": "center",
+        "text-padding": 50,
+        "text-allow-overlap": true,
+        "text-ignore-placement": false,
+        "text-letter-spacing": 1
+      },
+      "paint": {
+        "text-color": "rgba(74, 67, 65, 0.9)",
+        "text-halo-color": "#86847a",
+        "text-halo-width": 2
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-landskabsform-100k",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 9,
+      "maxzoom": 14,
+      "filter": [
+        "all",
+        [ "==", "type", "landskabsform" ],
+        [ "==", "subtype", "ø" ],
+        [ "<", "subsubtype", 500000000 ],
+        [ ">", "subsubtype", 100000 ]
+      ],
+      "layout": {
+        "text-field": "{navn}",
+        "text-font": [
+          "Volkhov Bold",
+          "Volkhov",
+          "Volkhov Bold"
+        ],
+        "text-size": 20,
+        "text-transform": "uppercase",
+        "text-rotate": 30,
+        "text-anchor": "center",
+        "text-padding": 50,
+        "text-allow-overlap": true,
+        "text-ignore-placement": false,
+        "text-letter-spacing": 1
+      },
+      "paint": {
+        "text-color": "rgba(74, 67, 65, 0.9)",
+        "text-halo-color": "#86847a",
+        "text-halo-width": 2
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-seværdighed",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "seværdighed"
+        ]
+      ],
+      "layout": {
+        "text-field": "{navn}",
+        "text-font": [
+          "Caveat"
+        ],
+        "text-size": 25,
+        "text-transform": "lowercase",
+        "text-anchor": "center",
+        "text-offset": [0, 2],
+        "text-padding": 50,
+        "text-allow-overlap": false,
+        "text-ignore-placement": false
+      },
+      "paint": {
+        "text-color": "#96815f",
+        "text-halo-color": "rgba(222, 194, 157, 0.7)",
+        "text-halo-width": 3
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-sø",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "sø"
+        ]
+      ],
+      "layout": {
+        "text-field": "{navn}",
+        "text-font": [
+          "Abril Fatface Italic",
+          "Abril Fatface",
+          "Abril Fatface Italic"
+        ],
+        "text-size": 25,
+        "text-anchor": "center",
+        "text-transform": "none",
+        "text-padding": 50,
+        "text-allow-overlap": false,
+        "text-ignore-placement": false,
+        "text-rotate": 1
+      },
+      "paint": {
+        "text-color": "#4f493c",
+        "text-halo-color": "#908a7d",
+        "text-halo-width": 1
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-standsningssted",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 5,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [
+          "==",
+          "type",
+          "standsningssted"
+        ]
+      ],
+      "layout": {
+        "text-field": "{navn}",
+        "text-font": [
+          "Paytone One"
+        ],
+        "text-size": 15,
+        "text-transform": "uppercase",
+        "text-anchor": "center",
+        "text-offset": [0, -2],
+        "text-padding": 5,
+        "text-allow-overlap": true,
+        "text-ignore-placement": false
+      },
+      "paint": {
+        "text-color": "#4a4341",
+        "text-halo-color": "rgba(237, 216, 182, 0.6)",
+        "text-halo-width": 2
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-bebyggelse<1000",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 13,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [ "==", "type", "bebyggelse" ],
+        [ "==", "subtype", "by" ],
+        [ "<=", "subsubtype", 1000 ]
+      ],
+      "layout": {
+        "text-field": "{navn}",
+        "text-font": [
+          "Alex Brush"
+        ],
+        "text-size": 30,
+        "text-anchor": "center",
+        "text-transform": "none",
+        "text-offset": [0, -1],
+        "text-padding": 1,
+        "text-allow-overlap": false,
+        "text-ignore-placement": false,
+        "text-letter-spacing": 0.15
+      },
+      "paint": {
+        "text-color": "#6a6361",
+        "text-halo-color": "rgba(237, 216, 182, 0.7)",
+        "text-halo-width": 2
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-bebyggelse>1000",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 12,
+      "maxzoom": 15,
+      "filter": [
+        "all",
+        [ "==", "type", "bebyggelse" ],
+        [ "==", "subtype", "by" ],
+        [ ">", "subsubtype", 1000 ],
+        [ "<", "subsubtype", 5000 ]
+      ],
+      "layout": {
+        "text-field": "{navn}",
+        "text-font": [
+          "Alex Brush Bold",
+          "Alex Brush",
+          "Alex Brush Bold"
+        ],
+        "text-size": 35,
+        "text-anchor": "center",
+        "text-transform": "none",
+        "text-offset": [0, -2],
+        "text-padding": 5,
+        "text-allow-overlap": false,
+        "text-ignore-placement": false,
+        "text-letter-spacing": 0.15
+      },
+      "paint": {
+        "text-color": "#6a6361",
+        "text-halo-color": "rgba(237, 216, 182, 0.7)",
+        "text-halo-width": 2
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-bebyggelse>5000",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 10,
+      "maxzoom": 13,
+      "filter": [
+        "all",
+        [ "==", "type", "bebyggelse" ],
+        [ "==", "subtype", "by" ],
+        [ ">", "subsubtype", 5000 ],
+        [ "<", "subsubtype", 25000 ]
+      ],
+      "layout": {
+        "text-field": "{navn}",
+        "text-font": [
+          "Paytone One"
+        ],
+        "text-size": 15,
+        "text-anchor": "center",
+        "text-transform": "uppercase",
+        "text-offset": [-3, 0],
+        "text-padding": 10,
+        "text-allow-overlap": false,
+        "text-ignore-placement": false,
+        "text-letter-spacing": 0.15
+      },
+      "paint": {
+        "text-color": "#4a4341",
+        "text-halo-color": "rgba(237, 216, 182, 0.7)",
+        "text-halo-width": 2
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-bebyggelse>25000",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 0,
+      "maxzoom": 20,
+      "filter": [
+        "all",
+        [ "==", "type", "bebyggelse" ],
+        [ "==", "subtype", "by" ],
+        [ ">", "subsubtype", 25000 ],
+        [ "<", "subsubtype", 150000 ]
+      ],
+      "layout": {
+        "text-field": "{navn}",
+        "text-font": [
+          "Paytone One"
+        ],
+        "text-size": 15,
+        "text-anchor": "center",
+        "text-transform": "uppercase",
+        "text-offset": [-3, 0],
+        "text-padding": 5,
+        "text-allow-overlap": false,
+        "text-ignore-placement": false,
+        "text-letter-spacing": 0.2
+      },
+      "paint": {
+        "text-color": "#4a4341",
+        "text-halo-color": "rgba(237, 216, 182, 0.7)",
+        "text-halo-width": 2
+      },
+      "source": "vector-source"
+    },
+    {
+      "id": "tekst_punkt-bebyggelse-stor",
+      "source-layer": "tekst_punkt",
+      "type": "symbol",
+      "minzoom": 0,
+      "maxzoom": 12,
+      "filter": [
+        "all",
+        [ "==", "type", "bebyggelse" ],
+        [ "==", "subtype", "by" ],
+        [ ">", "subsubtype", 150000 ]
+      ],
+      "layout": {
+        "text-field": "{navn}",
+        "text-font": [
+          "Paytone One"
+        ],
+        "text-size": 22,
+        "text-anchor": "center",
+        "text-transform": "uppercase",
+        "text-offset": [-4, 0],
+        "text-padding": 5,
+        "text-allow-overlap": true,
+        "text-ignore-placement": false,
+        "text-letter-spacing": 0.4
+      },
+      "paint": {
+        "text-color": "#4a4341",
+        "text-halo-color": "rgba(237, 216, 182, 0.7)",
+        "text-halo-width": 4
+      },
+      "source": "vector-source"
+    }
+  ]
+}

@@ -83,14 +83,14 @@ const map = new Map({
 })
 
 // Add the default style
-applyStyle(vectorLayer, STYLE_FILES[0].style)
-applyBackground(map, STYLE_FILES[0].style)
+applyStyle(vectorLayer, STYLE_FILES[0].style, { resolutions, updateSource: false })
+applyBackground(map, STYLE_FILES[0].style, { resolutions, updateSource: false })
 
 // Update the style when it's changed in the menu
 document.addEventListener('vt:change-style', event => {
   if (event.detail.style) {
-    applyStyle(vectorLayer, event.detail.style)
-    applyBackground(map, event.detail.style)
+    applyStyle(vectorLayer, event.detail.style, { resolutions, updateSource: false })
+    applyBackground(map, event.detail.style, { resolutions, updateSource: false })
   }
 })
 

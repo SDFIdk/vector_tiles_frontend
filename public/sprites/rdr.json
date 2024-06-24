@@ -4,7 +4,7 @@
         "height": 30,
         "x": 256,
         "y": 64,
-        "pixelRatio": 2,
+        "pixelRatio": 1,
         "visible": true
     },
     "hospital": {
@@ -12,7 +12,7 @@
         "height": 30,
         "x": 480,
         "y": 352,
-        "pixelRatio": 2,
+        "pixelRatio": 1,
         "visible": true
     },
     "gård": {
@@ -20,7 +20,7 @@
         "height": 30,
         "x": 256,
         "y": 192,
-        "pixelRatio": 2,
+        "pixelRatio": 1,
         "visible": true
     },
     "gård-lille": {
@@ -28,7 +28,7 @@
         "height": 30,
         "x": 96,
         "y": 96,
-        "pixelRatio": 2,
+        "pixelRatio": 1,
         "visible": true
     },
     "herregård": {
@@ -36,7 +36,7 @@
         "height": 30,
         "x": 32,
         "y": 96,
-        "pixelRatio": 2,
+        "pixelRatio": 1,
         "visible": true
     },
     "mindre lufthavn": {
@@ -44,7 +44,7 @@
         "height": 30,
         "x": 256,
         "y": 448,
-        "pixelRatio": 2,
+        "pixelRatio": 1,
         "visible": true
     },
     "større lufthavn": {
@@ -52,7 +52,7 @@
         "height": 30,
         "x": 448,
         "y": 448,
-        "pixelRatio": 2,
+        "pixelRatio": 1,
         "visible": true
     },
     "slot": {
@@ -60,7 +60,7 @@
         "height": 30,
         "x": 320,
         "y": 384,
-        "pixelRatio": 2,
+        "pixelRatio": 1,
         "visible": true
     }
 }

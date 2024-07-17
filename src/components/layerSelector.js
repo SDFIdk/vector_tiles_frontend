@@ -1,7 +1,10 @@
 import { STYLE_FILES } from '../constants'
+import { StyleEditor } from './style-editor/styleEditor.js'
 
 const selectedClass = 'selected'
 const maxTitleLength = 11
+
+customElements.define('style-editor', StyleEditor)
 
 export class MapLayerSelector extends HTMLElement {
 
@@ -9,6 +12,7 @@ export class MapLayerSelector extends HTMLElement {
     .header {
       width: 100%;
       background-color: var(--bg1);
+      border: 1px solid var(--border-color);
       padding: 0.5rem 1rem;
     }
     .header > h5 {
@@ -28,6 +32,7 @@ export class MapLayerSelector extends HTMLElement {
       padding: 0 1rem 1rem 1rem;
       display: flex;
       flex-wrap: wrap;
+      gap: 1rem;
     }
     .style {
       cursor: pointer;
@@ -44,7 +49,7 @@ export class MapLayerSelector extends HTMLElement {
       height: 5rem;
       border-radius: .5rem;
       background-color: var(--bg1);
-      outline: 1px solid var(--bg3);
+      outline: 1px solid var(--border-color);
       object-fit: cover;
     }
     .style > section, .drop-zone {
@@ -60,11 +65,13 @@ export class MapLayerSelector extends HTMLElement {
       width: 13rem;
       height: 8rem;
       padding: 1rem;
+      border: 1px solid var(--border-color);
       border-radius: .5rem;
       background-color: var(--bg1);
+      
     }
     .info {
-      padding: 1rem;
+      padding: 1rem 1rem 1rem 0;
       max-width: 20rem;
     }
     .drop-zone[drop-active=true] {
@@ -83,6 +90,7 @@ export class MapLayerSelector extends HTMLElement {
       </section>
       <section class="styles-upload">
       </section>
+      <style-editor data-target="map"></style-editor>
     </article>
   `
 

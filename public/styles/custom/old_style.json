@@ -6,7 +6,7 @@
         "vector-source": {
             "type": "vector",
             "tiles": ["https://api.dataforsyningen.dk/wmts/skaermkort_vector_tiles_labs/v1?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&LAYER=skaermkort_vector_tiles&STYLE=&TILEMATRIX=EPSG:25832:{z}&TILEMATRIXSET=EPSG:25832&FORMAT=application/vnd.mapbox-vector-tile&TILECOL={x}&TILEROW={y}"],
-            "maxZoom": 20,
+            "maxZoom": 16,
             "minZoom": 0
         }
     },
@@ -44,8 +44,8 @@
         {
             "id": "bebygget__by",
             "source-layer": "bebygget",
-            "minzoom": 7,
-            "maxzoom": 13,
+            "minzoom": 3,
+            "maxzoom": 9,
             "type": "fill",
             "filter": ["all", ["==", "type", "by"]],
             "layout": {"visibility": "visible"},
@@ -57,7 +57,7 @@
         {
             "id": "bebygget_bykerne",
             "source-layer": "bebygget",
-            "minzoom": 13,
+            "minzoom": 9,
             "type": "fill",
             "filter": ["all", ["==", "type", "bykerne"]],
             "paint": {
@@ -68,7 +68,7 @@
         {
             "id": "bebygget_højbebyggelse",
             "source-layer": "bebygget",
-            "minzoom": 13,
+            "minzoom": 9,
             "type": "fill",
             "filter": ["all", ["==", "type", "højbebyggelse"]],
             "paint": {
@@ -79,7 +79,7 @@
         {
             "id": "bebygget_lavbebyggelse",
             "source-layer": "bebygget",
-            "minzoom": 13,
+            "minzoom": 9,
             "type": "fill",
             "filter": ["all", ["==", "type", "lavbebyggelse"]],
             "paint": {
@@ -142,8 +142,8 @@
         {
             "id": "vand_vandløbsflade",
             "source-layer": "vand",
-            "minzoom": 13,
-            "maxzoom": 20,
+            "minzoom": 9,
+            "maxzoom": 16,
             "type": "fill",
             "filter": ["all", ["==", "type", "vandløbsflade"]],
             "paint": {
@@ -154,8 +154,8 @@
         {
             "id": "vand_vandløbsflade_outline",
             "source-layer": "vand",
-            "minzoom": 13,
-            "maxzoom": 20,
+            "minzoom": 9,
+            "maxzoom": 16,
             "type": "line",
              "filter": ["all", ["==", "type", "vandløbsflade"]],
             "paint": {
@@ -189,7 +189,7 @@
         {
             "id": "vandloeb_rørlagt",
             "source-layer": "vandloeb",
-            "minzoom": 13,
+            "minzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "subtype", "rørlagt"]],
             "paint": {
@@ -202,8 +202,8 @@
         {
             "id": "vand_sø",
             "source-layer": "vand",
-            "minzoom": 13,
-            "maxzoom": 20,
+            "minzoom": 9,
+            "maxzoom": 16,
             "type": "fill",
              "filter": ["all", ["==", "type", "sø"]],
             "paint": {
@@ -214,8 +214,8 @@
         {
             "id": "vand_sø_outline",
             "source-layer": "vand",
-            "minzoom": 13,
-            "maxzoom": 20,
+            "minzoom": 9,
+            "maxzoom": 16,
             "type": "line",
              "filter": ["all", ["==", "type", "sø"]],
             "paint": {
@@ -227,8 +227,8 @@
         {
             "id": "vand_sø_>50000",
             "source-layer": "vand",
-            "minzoom": 7,
-            "maxzoom": 13,
+            "minzoom": 3,
+            "maxzoom": 9,
             "type": "fill",
              "filter": ["all", ["==", "type", "sø"]],
             "paint": {
@@ -239,7 +239,7 @@
         {
             "id": "bebygget_bygning",
             "source-layer": "bebygget",
-            "minzoom": 15,
+            "minzoom": 11,
             "type": "fill",
             "filter": ["all", ["==", "type", "bygning"]],
             "paint": {
@@ -251,8 +251,8 @@
         {
             "id": "veje_motortrafikvej_outline",
             "source-layer": "veje",
-            "minzoom" : 13,
-            "maxzoom": 14,
+            "minzoom" : 9,
+            "maxzoom": 10,
             "type": "line",
             "filter": ["all", ["==", "type", "motortrafikvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -265,7 +265,7 @@
         {
             "id": "veje_motortrafikvej_outline_dark",
             "source-layer": "veje",
-            "minzoom": 14,
+            "minzoom": 10,
             "type": "line",
             "filter": ["all", ["==", "type", "motortrafikvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -278,8 +278,8 @@
         {
             "id": "veje_motorvej_outline",
             "source-layer": "veje",
-            "minzoom" : 13,
-            "maxzoom": 14,
+            "minzoom" : 9,
+            "maxzoom": 10,
             "type": "line",
             "filter": ["all", ["==", "type", "motorvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -292,7 +292,7 @@
         {
             "id": "veje_motorvej_outline_dark",
             "source-layer": "veje",
-            "minzoom": 14,
+            "minzoom": 10,
             "type": "line",
             "filter": ["all", ["==", "type", "motorvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -305,8 +305,8 @@
         {
             "id": "veje_primær_outline",
             "source-layer": "veje",
-            "minzoom" : 13,
-            "maxzoom": 14,
+            "minzoom" : 9,
+            "maxzoom": 10,
             "type": "line",
             "filter": ["all", ["==", "type", "primærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -319,7 +319,7 @@
         {
             "id": "veje_primær_outline_dark",
             "source-layer": "veje",
-            "minzoom" : 14,
+            "minzoom" : 10,
             "type": "line",
             "filter": ["all", ["==", "type", "primærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -332,8 +332,8 @@
         {
             "id": "veje_sekundær_outline",
             "source-layer": "veje",
-            "minzoom" : 13,
-            "maxzoom": 14,
+            "minzoom" : 9,
+            "maxzoom": 10,
             "type": "line",
             "filter": ["all", ["==", "type", "sekundærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -346,7 +346,7 @@
         {
             "id": "veje_sekundær_outline_dark",
             "source-layer": "veje",
-            "minzoom" : 14,
+            "minzoom" : 10,
             "type": "line",
             "filter": ["all", ["==", "type", "sekundærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -359,8 +359,8 @@
         {
             "id": "veje_tertiær_outline",
             "source-layer": "veje",
-            "minzoom" : 13,
-            "maxzoom": 14,
+            "minzoom" : 9,
+            "maxzoom": 10,
             "type": "line",
             "filter": ["all", ["==", "type", "tertiærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -373,7 +373,7 @@
         {
             "id": "veje_tertiær_outline_dark",
             "source-layer": "veje",
-            "minzoom" : 14,
+            "minzoom" : 10,
             "type": "line",
             "filter": ["all", ["==", "type", "tertiærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -386,8 +386,8 @@
         {
             "id": "veje_anden_vej_outline",
             "source-layer": "veje",
-            "minzoom" : 13,
-            "maxzoom": 14,
+            "minzoom" : 9,
+            "maxzoom": 10,
             "type": "line",
             "filter": ["all", ["==", "type", "anden vej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -400,7 +400,7 @@
         {
             "id": "veje_anden_vej_outline_dark",
             "source-layer": "veje",
-            "minzoom" : 14,
+            "minzoom" : 10,
             "type": "line",
             "filter": ["all", ["==", "type", "anden vej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -424,7 +424,7 @@
         {
             "id": "veje_tilfrakørsel_outline",
             "source-layer": "veje",
-            "minzoom": 13,
+            "minzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "subtype", "til og frakørsel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -437,7 +437,7 @@
         {
             "id": "veje_tilfrakørselvej",
             "source-layer": "veje",
-            "minzoom": 13,
+            "minzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "subtype", "til og frakørsel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -450,7 +450,7 @@
         {
             "id": "veje_tilfrakørselvej_zoom13",
             "source-layer": "veje",
-            "maxzoom": 13,
+            "maxzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "subtype", "til og frakørsel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -463,7 +463,7 @@
         {
             "id": "veje_anden_vej",
             "source-layer": "veje",
-            "minzoom": 13,
+            "minzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "anden vej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -476,7 +476,7 @@
         {
             "id": "veje_anden_vej_>zoom13",
             "source-layer": "veje",
-            "maxzoom": 13,
+            "maxzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "anden vej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -489,7 +489,7 @@
         {
             "id": "veje_tertiær",
             "source-layer": "veje",
-            "minzoom": 13,
+            "minzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "tertiærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -502,7 +502,7 @@
         {
             "id": "veje_tertiær_>zoom13",
             "source-layer": "veje",
-            "maxzoom": 13,
+            "maxzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "tertiærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -515,7 +515,7 @@
         {
             "id": "veje_sekundær",
             "source-layer": "veje",
-            "minzoom": 13,
+            "minzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "sekundærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -528,7 +528,7 @@
         {
             "id": "veje_sekundær_>zoom13",
             "source-layer": "veje",
-            "maxzoom": 13,
+            "maxzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "sekundærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -541,7 +541,7 @@
         {
             "id": "veje_primær",
             "source-layer": "veje",
-            "minzoom": 13,
+            "minzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "primærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -554,7 +554,7 @@
         {
             "id": "veje_primær_>zoom13",
             "source-layer": "veje",
-            "maxzoom": 13,
+            "maxzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "primærvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -567,7 +567,7 @@
         {
             "id": "veje_motortrafikvej",
             "source-layer": "veje",
-            "minzoom": 13,
+            "minzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "motortrafikvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -580,7 +580,7 @@
         {
             "id": "veje_motortrafikvej_>zoom13",
             "source-layer": "veje",
-            "maxzoom": 13,
+            "maxzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "motortrafikvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -593,7 +593,7 @@
         {
             "id": "veje_motorvej",
             "source-layer": "veje",
-            "minzoom": 13,
+            "minzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "motorvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -606,7 +606,7 @@
         {
             "id": "veje_motorvej_>zoom13",
             "source-layer": "veje",
-            "maxzoom": 13,
+            "maxzoom": 9,
             "type": "line",
             "filter": ["all", ["==", "type", "motorvej"],["!=", "subtype", "til og frakørsel"],["!=", "niveau", "tunnel"]],
             "layout": {"line-cap": "butt", "visibility": "visible"},
@@ -632,7 +632,7 @@
         {
             "id": "jernbane",
             "source-layer": "jernbane",
-            "minzoom" : 13,
+            "minzoom" : 9,
             "type": "line",
             "filter": [
                 "all",
@@ -649,7 +649,7 @@
             "id": "jernbane_inline",
             "source-layer": "jernbane",
             "type": "line",
-            "minzoom" : 13,
+            "minzoom" : 9,
             "filter": [
                 "all",
                 ["!=", "niveau", "tunnel"],
@@ -665,7 +665,7 @@
         {
             "id": "jernbane_>zoom13",
             "source-layer": "jernbane",
-            "maxzoom" : 13,
+            "maxzoom" : 9,
             "type": "line",
             "filter": [
                 "all",
@@ -697,7 +697,7 @@
         {
             "id": "vejnavne",
             "source-layer": "veje",
-            "minzoom" : 15,
+            "minzoom" : 11,
             "type": "symbol",
             "filter": ["all", ["!=", "type", "sti"], ["!=", "subtype", "til og frakørsel"], ["!=", "subtype", "rundkørsel"]],
             "layout": {
@@ -722,8 +722,8 @@
         {
             "id": "tekst_punkt_by<100",
             "source-layer": "tekst_punkt",
-            "minzoom" : 12,
-            "maxzoom" : 15,
+            "minzoom" : 8,
+            "maxzoom" : 11,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], ["<=", "subsubtype", 100]],
             "layout": {
@@ -746,8 +746,8 @@
         {
             "id": "tekst_punkt_by<500",
             "source-layer": "tekst_punkt",
-            "minzoom" : 10,
-            "maxzoom" : 15,
+            "minzoom" : 6,
+            "maxzoom" : 11,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 100], ["<=", "subsubtype", 500]],
             "layout": {
@@ -770,8 +770,8 @@
         {
             "id": "tekst_punkt_by<1000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 10,
-            "maxzoom" : 15,
+            "minzoom" : 6,
+            "maxzoom" : 11,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 500], ["<=", "subsubtype", 1000]],
             "layout": {
@@ -794,8 +794,8 @@
         {
             "id": "tekst_punkt_by<5000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 9,
-            "maxzoom" : 15,
+            "minzoom" : 5,
+            "maxzoom" : 11,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 1000], ["<=", "subsubtype", 5000]],
             "layout": {
@@ -818,8 +818,8 @@
         {
             "id": "tekst_punkt_by<10000",
             "source-layer": "tekst_punkt",
-            "minzoom" : 8.5,
-            "maxzoom" : 14,
+            "minzoom" : 4.5,
+            "maxzoom" : 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 5000], ["<=", "subsubtype", 10000]],
             "layout": {
@@ -842,7 +842,7 @@
         {
             "id": "tekst_punkt_by<25000",
             "source-layer": "tekst_punkt",
-            "maxzoom" : 14,
+            "maxzoom" : 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 10000], ["<=", "subsubtype", 25000]],
             "layout": {
@@ -865,7 +865,7 @@
         {
             "id": "tekst_punkt_by<50000",
             "source-layer": "tekst_punkt",
-            "maxzoom" : 14,
+            "maxzoom" : 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 25000], ["<=", "subsubtype", 50000]],
             "layout": {
@@ -888,7 +888,7 @@
         {
             "id": "tekst_punkt_by<100000",
             "source-layer": "tekst_punkt",
-            "maxzoom" : 14,
+            "maxzoom" : 10,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 50000], ["<=", "subsubtype", 100000]],
             "layout": {
@@ -911,7 +911,7 @@
         {
             "id": "tekst_punkt_by<300000",
             "source-layer": "tekst_punkt",
-            "maxzoom" : 13,
+            "maxzoom" : 9,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 100000], ["<=", "subsubtype", 300000]],
             "layout": {
@@ -934,7 +934,7 @@
         {
             "id": "tekst_punkt_by>300000",
             "source-layer": "tekst_punkt",
-            "maxzoom" : 15,
+            "maxzoom" : 11,
             "type": "symbol",
             "filter": ["all", ["==", "subtype", "by"], [">=", "subsubtype", 300000]],
             "layout": {

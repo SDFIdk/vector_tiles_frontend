@@ -9,7 +9,7 @@
       "tiles": [
         "https://api.dataforsyningen.dk/wmts/skaermkort_vector_tiles_labs/v1?REQUEST=GetTile&SERVICE=WMTS&VERSION=1.0.0&LAYER=skaermkort_vector_tiles&STYLE=&TILEMATRIX=EPSG:25832:{z}&TILEMATRIXSET=EPSG:25832&FORMAT=application/vnd.mapbox-vector-tile&TILECOL={x}&TILEROW={y}"
       ],
-      "maxZoom": 20,
+      "maxZoom": 16,
       "minZoom": 0
     }
   },
@@ -22,7 +22,7 @@
       "source-layer": "vand",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -41,7 +41,7 @@
       "source-layer": "vand",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -61,7 +61,7 @@
       "source-layer": "graenser",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -85,7 +85,7 @@
       "source-layer": "natur",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -104,7 +104,7 @@
       "source-layer": "natur",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -124,7 +124,7 @@
       "source-layer": "natur",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -143,7 +143,7 @@
       "source-layer": "natur",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -163,7 +163,7 @@
       "source-layer": "natur",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -182,7 +182,7 @@
       "source-layer": "natur",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -202,7 +202,7 @@
       "source-layer": "natur",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -226,7 +226,7 @@
       "source-layer": "natur",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -246,7 +246,7 @@
       "source-layer": "natur",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -265,7 +265,7 @@
       "source-layer": "natur",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -285,7 +285,7 @@
       "source-layer": "bebygget",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -304,7 +304,7 @@
       "source-layer": "bebygget",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -324,7 +324,7 @@
       "source-layer": "bebygget",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -343,7 +343,7 @@
       "source-layer": "bebygget",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -363,7 +363,7 @@
       "source-layer": "bebygget",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -382,7 +382,7 @@
       "source-layer": "bebygget",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -402,7 +402,7 @@
       "source-layer": "industri",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -425,7 +425,7 @@
       "source-layer": "industri",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -449,7 +449,7 @@
       "source-layer": "industri",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -468,7 +468,7 @@
       "source-layer": "infrastruktur",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -487,7 +487,7 @@
       "source-layer": "infrastruktur",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -507,7 +507,7 @@
       "source-layer": "bebygget",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -526,7 +526,7 @@
       "source-layer": "bebygget",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -545,8 +545,8 @@
       "id": "vandloeb",
       "source-layer": "vandloeb",
       "type": "line",
-      "minzoom": 15,
-      "maxzoom": 20,
+      "minzoom": 11,
+      "maxzoom": 16,
       "paint": {
         "line-color": "#908a7d",
         "line-width": 2
@@ -558,7 +558,7 @@
       "source-layer": "vandloeb",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -578,7 +578,7 @@
       "source-layer": "vand",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -597,7 +597,7 @@
       "source-layer": "vand",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -617,7 +617,7 @@
       "source-layer": "vand",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -636,7 +636,7 @@
       "source-layer": "vand",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -656,7 +656,7 @@
       "source-layer": "vand",
       "type": "fill",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -675,7 +675,7 @@
       "source-layer": "vand",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -695,7 +695,7 @@
       "source-layer": "graenser",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -715,7 +715,7 @@
       "source-layer": "graenser",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -734,8 +734,8 @@
       "id": "veje-sti",
       "source-layer": "veje",
       "type": "line",
-      "minzoom": 12,
-      "maxzoom": 20,
+      "minzoom": 11,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -755,8 +755,8 @@
       "id": "veje-anden vej",
       "source-layer": "veje",
       "type": "line",
-      "minzoom": 12,
-      "maxzoom": 20,
+      "minzoom": 10,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -776,8 +776,8 @@
       "id": "veje-tertiærvej",
       "source-layer": "veje",
       "type": "line",
-      "minzoom": 12,
-      "maxzoom": 20,
+      "minzoom": 9,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -797,8 +797,8 @@
       "id": "veje-sekundærvej",
       "source-layer": "veje",
       "type": "line",
-      "minzoom": 12,
-      "maxzoom": 20,
+      "minzoom": 8,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -817,8 +817,8 @@
       "id": "veje-primærvej",
       "source-layer": "veje",
       "type": "line",
-      "minzoom": 10,
-      "maxzoom": 20,
+      "minzoom": 6,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -838,7 +838,7 @@
       "source-layer": "veje",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -858,7 +858,7 @@
       "source-layer": "veje",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -878,7 +878,7 @@
       "source-layer": "jernbane",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -899,7 +899,7 @@
       "source-layer": "jernbane",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -921,7 +921,7 @@
       "source-layer": "jernbane",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -943,7 +943,7 @@
       "source-layer": "jernbane",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -965,7 +965,7 @@
       "source-layer": "jernbane",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -987,7 +987,7 @@
       "source-layer": "graenser",
       "type": "line",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -1006,15 +1006,15 @@
       "id": "punkter-togstation",
       "source-layer": "punkter",
       "type": "symbol",
-      "minzoom": 11,
-      "maxzoom": 20,
+      "minzoom": 7,
+      "maxzoom": 16,
       "filter": [
         "all",
         [ "==", "type", "togstation" ]
       ],
       "layout": {
           "icon-image": "station",
-          "icon-size": 1.5,
+          "icon-size": {"stops": [[7,0.5], [9,0.5], [10,0.75], [11,1]]},
           "icon-offset": [1,1],
           "icon-padding": 10,
           "icon-allow-overlap": true,
@@ -1026,8 +1026,8 @@
       "id": "tekst_punkt-bygning-mindre lufthavn",
       "source-layer": "tekst_punkt",
       "type": "symbol",
-      "minzoom": 5,
-      "maxzoom": 20,
+      "minzoom": 1,
+      "maxzoom": 16,
       "filter": [
         "all",
         [ "==", "type", "lufthavn" ],
@@ -1035,7 +1035,7 @@
       ],
       "layout": {
           "icon-image": "mindre lufthavn",
-          "icon-size": 1.5,
+          "icon-size": 1,
           "icon-offset": [0,1],
           "icon-padding": 5,
           "icon-allow-overlap": true,
@@ -1047,8 +1047,8 @@
       "id": "tekst_punkt-bygning-større lufthavn",
       "source-layer": "tekst_punkt",
       "type": "symbol",
-      "minzoom": 3,
-      "maxzoom": 20,
+      "minzoom": 0,
+      "maxzoom": 16,
       "filter": [
         "all",
         [ "==", "type", "lufthavn" ],
@@ -1056,7 +1056,7 @@
       ],
       "layout": {
           "icon-image": "større lufthavn",
-          "icon-size": 1.5,
+          "icon-size": 1,
           "icon-offset": [0,1],
           "icon-padding": 5,
           "icon-allow-overlap": true,
@@ -1069,7 +1069,7 @@
       "source-layer": "tekst_punkt",
       "type": "symbol",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [ "==", "type", "bygning" ],
@@ -1077,7 +1077,7 @@
       ],
       "layout": {
           "icon-image": "slot",
-          "icon-size": 1.5,
+          "icon-size": 1,
           "icon-offset": [1,1],
           "icon-padding": 5,
           "icon-allow-overlap": true,
@@ -1090,7 +1090,7 @@
       "source-layer": "tekst_punkt",
       "type": "symbol",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [ "==", "type", "bygning" ],
@@ -1098,7 +1098,7 @@
       ],
       "layout": {
           "icon-image": "hospital",
-          "icon-size": 1.5,
+          "icon-size": 1,
           "icon-offset": [1,1],
           "icon-padding": 5,
           "icon-allow-overlap": true,
@@ -1111,7 +1111,7 @@
       "source-layer": "tekst_punkt",
       "type": "symbol",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [ "==", "type", "bygning" ],
@@ -1119,7 +1119,7 @@
       ],
       "layout": {
           "icon-image": "herregård",
-          "icon-size": 1.5,
+          "icon-size": 1,
           "icon-offset": [1,1],
           "icon-padding": 5,
           "icon-allow-overlap": true,
@@ -1132,7 +1132,7 @@
       "source-layer": "tekst_punkt",
       "type": "symbol",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [ "==", "type", "bygning" ],
@@ -1142,7 +1142,7 @@
       ],
       "layout": {
           "icon-image": "gård-lille",
-          "icon-size": 1.5,
+          "icon-size": 1,
           "icon-offset": [1,1],
           "icon-padding": 5,
           "icon-allow-overlap": true,
@@ -1155,7 +1155,7 @@
       "source-layer": "tekst_punkt",
       "type": "symbol",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [ "==", "type", "bygning" ],
@@ -1164,7 +1164,7 @@
       ],
       "layout": {
           "icon-image": "gård",
-          "icon-size": 1.5,
+          "icon-size": 1,
           "icon-offset": [1,1],
           "icon-padding": 5,
           "icon-allow-overlap": true,
@@ -1177,7 +1177,7 @@
       "source-layer": "tekst_punkt",
       "type": "symbol",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -1212,7 +1212,7 @@
       "source-layer": "tekst_punkt",
       "type": "symbol",
       "minzoom": 0,
-      "maxzoom": 10,
+      "maxzoom": 6,
       "filter": [
         "all",
         [ "==", "type", "landskabsform" ],
@@ -1246,8 +1246,8 @@
       "id": "tekst_punkt-landskabsform-100k",
       "source-layer": "tekst_punkt",
       "type": "symbol",
-      "minzoom": 9,
-      "maxzoom": 14,
+      "minzoom": 5,
+      "maxzoom": 10,
       "filter": [
         "all",
         [ "==", "type", "landskabsform" ],
@@ -1283,7 +1283,7 @@
       "source-layer": "tekst_punkt",
       "type": "symbol",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -1317,7 +1317,7 @@
       "source-layer": "tekst_punkt",
       "type": "symbol",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -1352,8 +1352,8 @@
       "id": "tekst_punkt-standsningssted",
       "source-layer": "tekst_punkt",
       "type": "symbol",
-      "minzoom": 5,
-      "maxzoom": 20,
+      "minzoom": 1,
+      "maxzoom": 16,
       "filter": [
         "all",
         [
@@ -1367,10 +1367,10 @@
         "text-font": [
           "Paytone One"
         ],
-        "text-size": 15,
+        "text-size": 11,
         "text-transform": "uppercase",
-        "text-anchor": "center",
-        "text-offset": [0, -2],
+        "text-anchor": "left",
+        "text-offset": [2, 0],
         "text-padding": 5,
         "text-allow-overlap": true,
         "text-ignore-placement": false
@@ -1386,8 +1386,8 @@
       "id": "tekst_punkt-bebyggelse<1000",
       "source-layer": "tekst_punkt",
       "type": "symbol",
-      "minzoom": 13,
-      "maxzoom": 20,
+      "minzoom": 9,
+      "maxzoom": 16,
       "filter": [
         "all",
         [ "==", "type", "bebyggelse" ],
@@ -1419,8 +1419,8 @@
       "id": "tekst_punkt-bebyggelse>1000",
       "source-layer": "tekst_punkt",
       "type": "symbol",
-      "minzoom": 12,
-      "maxzoom": 15,
+      "minzoom": 8,
+      "maxzoom": 11,
       "filter": [
         "all",
         [ "==", "type", "bebyggelse" ],
@@ -1455,8 +1455,8 @@
       "id": "tekst_punkt-bebyggelse>5000",
       "source-layer": "tekst_punkt",
       "type": "symbol",
-      "minzoom": 10,
-      "maxzoom": 13,
+      "minzoom": 6,
+      "maxzoom": 9,
       "filter": [
         "all",
         [ "==", "type", "bebyggelse" ],
@@ -1490,7 +1490,7 @@
       "source-layer": "tekst_punkt",
       "type": "symbol",
       "minzoom": 0,
-      "maxzoom": 20,
+      "maxzoom": 16,
       "filter": [
         "all",
         [ "==", "type", "bebyggelse" ],
@@ -1524,7 +1524,7 @@
       "source-layer": "tekst_punkt",
       "type": "symbol",
       "minzoom": 0,
-      "maxzoom": 12,
+      "maxzoom": 8,
       "filter": [
         "all",
         [ "==", "type", "bebyggelse" ],

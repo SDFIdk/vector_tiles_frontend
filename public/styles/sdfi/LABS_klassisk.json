@@ -233,7 +233,7 @@
                 "text-anchor": "top",
                 "text-size": 10,
                 "text-padding": 10,
-                "text-letter-spacing": 0.2,
+                "text-letter-spacing": 0.3,
                 "text-allow-overlap": false,
                 "text-ignore-placement": false,
                 "symbol-placement": "line",
@@ -1103,7 +1103,7 @@
         {
             "id": "tekst_punkt_sø<25000",
             "source-layer": "tekst_punkt",
-            "minzoom": 12,
+            "minzoom": 13,
             "type": "symbol",
             "filter": ["all", ["==", "type", "sø"], ["<=", "subsubtype", 25000]],
             "layout": {

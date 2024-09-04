@@ -2,7 +2,7 @@
   "version": 8,
   "name": "name",
   "glyphs": "{fontstack}{range}",
-  "sprite": "https://labs.dataforsyningen.dk/skaermkort_vector_tiles/sprites/rdr",
+  "sprite": "https://labs.dataforsyningen.dk/skaermkort_vector_tiles/sprites/custom/rdr",
   "sources": {
     "vector-source": {
       "type": "vector",

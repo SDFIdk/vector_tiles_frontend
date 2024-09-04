@@ -68,7 +68,7 @@ export class MapMenu extends HTMLElement {
         <p class="ds-logo small">
           <ds-logo></ds-logo>
           <strong>Vector Tiles - Skærmkort</strong>
-          <span>SDFI</span>
+          <span>Klimadatastyrelsen</span>
         </p>
         <article class="icon-wrapper" id="layer-selector-button">
           ${stackIcon}

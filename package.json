@@ -14,12 +14,12 @@
     },
     "keywords": [
       "vector tiles",
-      "SDFI"
+      "KDS"
     ],
     "author": {
-      "name": "Styrelsen for Dataforsyning og Infrastruktur",
-      "email": "support@sdfi.dk",
-      "url": "https://sdfi.dk/"
+      "name": "Klimadatastyrelsen",
+      "email": "support@kds.dk",
+      "url": "https://www.klimadatastyrelsen.dk/"
     },
     "license": "MIT",
     "bugs": {

@@ -45,7 +45,7 @@ vectorLayer.getSource().setTileLoadFunction((tile, src) => {
     const client = new XMLHttpRequest()
     client.open('GET', src)
     client.responseType = 'arraybuffer'
-    client.setRequestHeader('token', config.API_TOKEN)
+    if (config.API_TOKEN) client.setRequestHeader('token', config.API_TOKEN)
     client.onload = () => {
       try {
         const source = client.response

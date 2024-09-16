@@ -22,6 +22,17 @@
             "source": "vector-source"
         },
         {
+            "id": "tekst_linje_færgerute",
+            "source-layer": "tekst_linje",
+            "type": "line",
+            "filter": ["all", ["==", "type", "færgerute"]],
+            "paint": {
+                "line-color": "#808080",
+                "line-dasharray": [6.5, 6.5]
+            },
+            "source": "vector-source"
+        },	
+        {
             "id": "natur_udland",
             "source-layer": "natur",
             "type": "fill",

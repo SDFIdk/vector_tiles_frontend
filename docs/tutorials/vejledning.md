@@ -269,10 +269,12 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 
 > ## tekst_linje <b name="tekstl"></b>
 >
-> Dette lag indeholder tekster på linjer, fra Danske Stednavne. (For info om vejnavne se [veje](#veje))
+> Dette sourcelayer har en ekstra attribut der blot hedder 'navn'. Laget indeholder tekster på linjer, fra Danske Stednavne samt Færgeruter. (For info om vejnavne se [veje](#veje)).  
 
 - **vandløb**
-
+- **færgerute**
+  - helårs (beskriver at den pågældende færge sejler helle året rundt)
+  - sæson (beskriver at den pågældende færge har sæsonbetonet afgange)
   
 
 

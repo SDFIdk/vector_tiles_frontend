@@ -1,0 +1,51 @@
+{
+    "type": "FeatureCollection",
+    "name": "skib",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:EPSG::25832"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 10
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    662315.9390731137,
+                    6232168.450709225
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 11
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    419636.5857331641,
+                    6308551.340699317
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": 12
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    430111.95350323385,
+                    6118685.299866803
+                ]
+            }
+        }
+    ]
+}

@@ -6,7 +6,7 @@ import VectorTileSource from 'ol/source/VectorTile'
 import { get as getProjection } from 'ol/proj'
 import { register } from 'ol/proj/proj4'
 import proj4 from 'proj4/dist/proj4'
-import { applyStyle, applyBackground } from 'ol-mapbox-style'
+import { apply, applyStyle, applyBackground } from 'ol-mapbox-style'
 
 import { STYLE_FILES } from './constants'
 import { MapMenu } from './components/menu'
@@ -88,9 +88,18 @@ applyBackground(map, STYLE_FILES[0].style, { resolutions, updateSource: false })
 
 // Update the style when it's changed in the menu
 document.addEventListener('vt:change-style', event => {
-  if (event.detail.style) {
-    applyStyle(vectorLayer, event.detail.style, { resolutions, updateSource: false })
-    applyBackground(map, event.detail.style, { resolutions, updateSource: false })
+  const style = event.detail.style
+  if (style) {
+    console.log(style)
+    if (style.sources) {
+      const sourceArray = Object.keys(style.sources)
+      sourceArray.forEach(source => {
+        if (source !== 'skib') return
+        apply(map, style, { resolutions, projection: srs })
+        // applyStyle(vectorLayer, style, { resolutions, updateSource: false, source })
+      })
+    }
+    applyBackground(map, style, { resolutions, updateSource: false })
   }
 })
 

@@ -2,7 +2,7 @@
     "version": 8,
     "name": "name",
     "glyphs": "{fontstack}{range}",
-    "sprite": "http://localhost/sprites/custom/game",
+    "sprite": "https://labs.dataforsyningen.dk/skaermkort_vector_tiles/sprites/custom/game",
     "sources": {
         "vector-source": {
             "type": "vector",
@@ -169,7 +169,7 @@
             ],
             "paint": {
                 "line-color": "#f08c50",
-                "line-width": 5 
+                "line-width": 5
             },
             "source": "vector-source"
         },

@@ -34,7 +34,7 @@ const vectorLayer = new VectorTileLayer({
     format: format,
     crossOrigin: 'anonymous',
     projection: projection,
-    url: config.API_VECTOR_TILES_BASEURL + '/ogc/tiles/v1/collections/skaermkort_vector_tiles/tiles/EPSG:25832/EPSG:25832:{z}/{y}/{x}?f=application/vnd.mapbox-vector-tile'
+    url: config.API_VECTOR_TILES_BASEURL + '/EPSG:25832/EPSG:25832:{z}/{y}/{x}?f=application/vnd.mapbox-vector-tile'
   })
 })
 const resolutions = vectorLayer.getSource().getTileGrid().getResolutions()

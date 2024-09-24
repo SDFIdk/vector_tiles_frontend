@@ -900,6 +900,7 @@
                 "text-field": "{navn}",
                 "text-anchor": "center",
                 "text-size": {"stops": [[4, 10], [5, 11], [6, 10], [7, 13], [8, 15], [9, 17]]},
+                "text-font": ["Verdana"],
                 "text-padding": 5,
                 "text-allow-overlap": false,
                 "text-ignore-placement": false

@@ -161,7 +161,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 >
 > Dette lag indeholder objekter om forskellige vandflader. Geometritypen er polygon.
 
-- **basin**
+- **bassin**
   - andet (bruges ikke)
   - ikke tildelt (bruges ikke)
   - overløbsbassin (bruges ikke)

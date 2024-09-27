@@ -627,6 +627,7 @@
                 "text-field": "{navn}",
                 "text-anchor": "center",
                 "text-size": 13,
+				"text-font": ["Verdana"],
                 "text-padding": 10,
                 "text-allow-overlap": false,
                 "text-ignore-placement": false,

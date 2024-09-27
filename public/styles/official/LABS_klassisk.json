@@ -242,6 +242,7 @@
                 "text-field": "{navn}",
                 "text-transform": "uppercase",
                 "text-anchor": "top",
+				"text-font": ["Verdana Italic"],
                 "text-size": 10,
                 "text-padding": 10,
                 "text-letter-spacing": 0.3,
@@ -1486,7 +1487,8 @@
             "layout": {
                 "text-field": "{navn}",
                 "text-anchor": "center",
-                "text-size": 12,
+                "text-size": 13,
+				"text-font": ["Verdana"],
                 "text-padding": 10,
                 "text-allow-overlap": false,
                 "text-ignore-placement": false,

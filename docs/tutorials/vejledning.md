@@ -1,7 +1,7 @@
-# Vejledning til brug af Vector Tiles skærmkort på Dataforsyningen LABS
-Vector Tiles udgaven af skærmkortet kan tilgåes via [LABS](https://dataforsyningen.dk/labs/4933) eller direkte igennem [kortvisningen](https://labs.dataforsyningen.dk/skaermkort_vector_tiles). 
-Vector Tiles skærmkort udstilles i 4 forskellige styles, det klassiske skærmkort, det dæmpet skærmkort, det grå skærmkort og i en ny udgave; det mørke skærmkort. Stylefilerne for disse 4 kort er tilgængelige under [styles](https://github.com/SDFIdk/vector_tiles_frontend/tree/main/public/styles), og det er tiltænkt at brugeren kan hente disse ned, ændre i dem, og til sidst trække dem ind i [kortvisningen](https://labs.dataforsyningen.dk/skaermkort_vector_tiles) og få vist sit helt eget kort.
-Herunder følger en kort beskrivelse af datamodellen for Vector Tiles skærmkort samt en kort vejledning til hvordan du selv kan ændre i stylefilen, og få vist din egen udgave af skærmkortet, direkte i browseren. 
+# Vejledning til brug af Vector Tiles - Skærmkort på Dataforsyningen
+Vector Tiles udgaven af Skærmkortet kan tilgåes via [Dataforsyningen](https://dataforsyningen.dk/labs/4933) eller direkte igennem [kortvisningen](https://labs.dataforsyningen.dk/skaermkort_vector_tiles). 
+Vector Tiles Skærmkort udstilles i 4 forskellige styles, det klassiske skærmkort, det dæmpet skærmkort, det grå skærmkort og i en ny udgave; det mørke skærmkort. Stylefilerne for disse 4 kort er tilgængelige under [styles/official](https://github.com/SDFIdk/vector_tiles_frontend/tree/main/public/styles/official), hvorfra brugeren kan hente disse ned, ændre i dem, og til sidst trække dem ind i [kortvisningen](https://labs.dataforsyningen.dk/skaermkort_vector_tiles) og få vist sit helt eget kort.
+Herunder følger en kort beskrivelse af datamodellen for Vector Tiles Skærmkort samt en kort vejledning til hvordan du selv kan ændre i stylefilen, og få vist din egen udgave af skærmkortet, direkte i browseren. 
 
 
 [Datamodel](#datamodel)
@@ -28,10 +28,10 @@ Herunder følger en kort beskrivelse af datamodellen for Vector Tiles skærmkort
 ## Datamodel <a name="datamodel"></a>
 Nedenfor beskrives de objekttyper der er tilgængelige og hvilke der er brugt i de prædefinerede skærmkort. Derudover er der også data tilgængeligt som ikke optræder i nogen af kortene som de ser ud i dag. Fx ’plads’, disse er market med _bruges ikke_.
 
-Data stammer fra GeoDanmark Vektor, Danmarks Administrative Geografiske Inddeling (DAGI), Danske Stednavne og Danmarks Adresseregister (DAR). Hvis ikke andet er opgivet i listen nedenfor stammer data fra GeoDanmark Vektor. Data er selekteret for hvert zoom, Eks. Bygninger vil kun kunne medtages i de inderste levels/zoom. Datamodellen omfatter ikke generaliseret data, hvilket bl.a. kan ses ved at der i de yderste zoomniveau fortsat vises mange veje. 
+Data stammer fra GeoDanmark Vektor, Danmarks Administrative Geografiske Inddeling (DAGI), Danske Stednavne og Danmarks Adresseregister (DAR). Hvis ikke andet er opgivet i listen nedenfor stammer data fra GeoDanmark Vektor. Data er selekteret for hvert zoom, Eks. Bygninger vil kun kunne medtages i de inderste levels/zoom. Datamodellen omfatter endnu ikke generaliseret data, hvilket bl.a. kan ses ved at der i de yderste zoomniveau fortsat vises mange veje. 
 
-> [!NOTE]
-> Datasættet er pt. statisk med data hentet i april 2024. Når Vector Tiles idriftsættes på dataforsyningen vil data blive ajourført løbende.
+> [!Opdateringsfrekvens]
+> Data opdateres hver den 1. i måneden. 
 
 
 
@@ -316,6 +316,15 @@ Opbygning er således
 ```"paint"``` visualisering (farve, størrelse osv.) Farverne er defineret i HEX, men kan nemt ændres til RGB. 
 
 ```"fill-color": "#e6f3fc"```   eller   ```"fill-color": "RGB(230, 243, 252)"```
+
+
+Der er også en række andre elemeneter der kan defineres i style filen. Eksempelvis er der et element kaldet for **stops**. Stops definere forskellige 'regler' i forskellige zoom niveauer. Fx i forhold til at angive tekst størrelsen. Inden hvor hver klamme parentes er der først angivet zoomniveau og dernæst skriftstørrelse for det angivet zoomniveau. Det kan ekesempelvis så sådan ud:
+```
+                "text-size": {"stops": [[9, 12], [10, 13], [11, 13]]},
+```
+
+Stops kan også angive forskellige tykkelser på linjer i forskellige zoom niveauer mm. 
+
 
 
 ## Eksempler

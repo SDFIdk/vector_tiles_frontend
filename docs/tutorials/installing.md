@@ -14,7 +14,7 @@ The contents of `config.js` should be a single Javascript object defined like so
 const config = {
   // API TOKEN can be aquired from https://dataforsyningen.dk/
   API_TOKEN: '[ INSERT TOKEN ]',
-  API_VECTOR_TILES_BASEURL: 'https://api.dataforsyningen.dk/wmts/skaermkort_vector_tiles_labs/v1',
+  API_VECTOR_TILES_BASEURL: 'https://api.dataforsyningen.dk/rest/skaermkort_vector_tiles/v1.0',
 }
 ```
 You'll need to supply your own tokens for your particular configuration.

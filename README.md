@@ -8,7 +8,7 @@
 - [Guide to Vector Tiles skærmkort (in Danish)](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/docs/tutorials/vejledning.md)
 - [Vector Tiles in QGIS](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/docs/tutorials/qgis.md)
 - [Changelog](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/docs/CHANGELOG.md)
-- [Demo](https://labs.dataforsyningen.dk/skaermkort_vector_tiles/)
+- [Demo](https://vectortiles.dataforsyningen.dk/)
 
 ## Sharing your stylefile
 Have you created a cool new style that you want to share with others? Fork the repository, add your own stylefile to `public/styles/custom` and make a pull request!

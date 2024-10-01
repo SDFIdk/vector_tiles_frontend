@@ -6,6 +6,7 @@
 - [Instructions for adding a new style to the website](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/docs/tutorials/addStyle.md)
 - [Link to stylefiles](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/public/styles)
 - [Guide to Vector Tiles skærmkort (in Danish)](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/docs/tutorials/vejledning.md)
+- [Vector Tiles in QGIS](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/docs/tutorials/qgis.md)
 - [Changelog](https://github.com/SDFIdk/vector_tiles_frontend/blob/main/docs/CHANGELOG.md)
 - [Demo](https://labs.dataforsyningen.dk/skaermkort_vector_tiles/)
 

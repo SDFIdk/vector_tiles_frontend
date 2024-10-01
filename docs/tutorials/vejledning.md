@@ -1,6 +1,6 @@
 # Vejledning til brug af Vector Tiles - Skærmkort på Dataforsyningen
-Vector Tiles udgaven af Skærmkortet kan tilgåes via [Dataforsyningen](https://dataforsyningen.dk/labs/4933) eller direkte igennem [kortvisningen](https://labs.dataforsyningen.dk/skaermkort_vector_tiles). 
-Vector Tiles Skærmkort udstilles i 4 forskellige styles, det klassiske skærmkort, det dæmpet skærmkort, det grå skærmkort og i en ny udgave; det mørke skærmkort. Stylefilerne for disse 4 kort er tilgængelige under [styles/official](https://github.com/SDFIdk/vector_tiles_frontend/tree/main/public/styles/official), hvorfra brugeren kan hente disse ned, ændre i dem, og til sidst trække dem ind i [kortvisningen](https://labs.dataforsyningen.dk/skaermkort_vector_tiles) og få vist sit helt eget kort.
+Vector Tiles Skærmkortet kan tilgåes igennem [kortvisningen](https://vectortiles.dataforsyningen.dk), og gennem [Dataforsyningen](https://dataforsyningen.dk/data/4995) kan du læse mere om produktet, og den fremadrettet udvikling. 
+Vector Tiles Skærmkort udstilles i 4 forskellige styles, det klassiske skærmkort, det dæmpet skærmkort, det grå skærmkort og i en ny udgave; det mørke skærmkort. Stylefilerne for disse 4 kort er tilgængelige under [styles/official](https://github.com/SDFIdk/vector_tiles_frontend/tree/main/public/styles/official), hvorfra brugeren kan hente disse ned, ændre i dem, og til sidst trække dem ind i kortvisningen og få vist sit helt eget kort.
 Herunder følger en kort beskrivelse af datamodellen for Vector Tiles Skærmkort samt en kort vejledning til hvordan du selv kan ændre i stylefilen, og få vist din egen udgave af skærmkortet, direkte i browseren. 
 
 
@@ -28,9 +28,9 @@ Herunder følger en kort beskrivelse af datamodellen for Vector Tiles Skærmkort
 ## Datamodel <a name="datamodel"></a>
 Nedenfor beskrives de objekttyper der er tilgængelige og hvilke der er brugt i de prædefinerede skærmkort. Derudover er der også data tilgængeligt som ikke optræder i nogen af kortene som de ser ud i dag. Fx ’plads’, disse er market med _bruges ikke_.
 
-Data stammer fra GeoDanmark Vektor, Danmarks Administrative Geografiske Inddeling (DAGI), Danske Stednavne og Danmarks Adresseregister (DAR). Hvis ikke andet er opgivet i listen nedenfor stammer data fra GeoDanmark Vektor. Data er selekteret for hvert zoom, Eks. Bygninger vil kun kunne medtages i de inderste levels/zoom. Datamodellen omfatter endnu ikke generaliseret data, hvilket bl.a. kan ses ved at der i de yderste zoomniveau fortsat vises mange veje. 
+De fleste data stammer fra GeoDanmark Vektor, derudover bruges også Danske Stednavne, Danmarks Adresseregister (DAR) og en række øvrige mindre datasæt. Data er selekteret for hvert zoom, Eks. Bygninger vil kun kunne medtages i de inderste levels/zoom. Datamodellen omfatter endnu ikke generaliseret data, hvilket bl.a. kan ses ved at der i de yderste zoomniveau fortsat vises mange veje. 
 
-> [!Opdateringsfrekvens]
+> **Opdateringsfrekvens**
 > Data opdateres hver den 1. i måneden. 
 
 
@@ -51,7 +51,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 
 > ## bebygget <b name="bebygget"></b>
 >
-> Dette lag viser flere forskellige bebyggelsestyper. Geometritypen er polygon
+> Dette lag viser flere forskellige bebyggelsestyper, alle fra GeoDanmark, hvori by, er beriget med information vedr. indbyggertal. Geometritypen er polygon.
 
 - **begravelsesområde**
 - **by**
@@ -81,7 +81,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 
 > ## industri <b name="industri"></b>
 >
-> Dette lag indeholder industrielle områder. Samtlige lag vises kun i KL. Geometritypen er polygon
+> Dette lag indeholder industrielle områder. Samtlige lag vises kun i det klassiske skærmkort style. Geometritypen er polygon
 
 - **erhverv**
 - **gartneri**
@@ -155,7 +155,7 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 - **sandklit**
 - **skov**
 - **vådområde** (bruges ikke)
-- **udland**
+- **udland** (European Regional Map (ERM)) 
 
 > ## vand <b name="vand"></b>
 >
@@ -279,10 +279,10 @@ Nedenfor er hver enkekt sourcelayer og indhold af type, subtype og subsubtype be
 
 
 ## Generelt om stylefilerne <a name="stylefiles"></a>
-Stylefilen er bygget op, så det der ligger øverst bliver tegnet først og de efterfølgende objekttyper lægger sig oven på. Derfor vil rækkefølgen oftest være arealer øverst, dernæst linjer og til sidst punkter.
+Stylefilen er bygget op, så det er skrevet først i stylefilen bliver tegnet først og de efterfølgende objekttyper lægger sig oven på. Derfor vil rækkefølgen oftest være arealer først i filen, dernæst linjer og til sidst punkter.
 Teksterne har typen symbol og bliver altid visuelt lagt øverst uanset, hvor man placerer dem i stylefilen.
 
-Skalaer er i levels, hvor man populært kan sige at level 0 er verden og level 20 på bygningsniveau. 
+Skalaer er i levels, hvor man populært kan sige at level 0 er verden og level 16 på bygningsniveau. 
 
 Opbygning er således 
 
@@ -318,11 +318,12 @@ Opbygning er således
 ```"fill-color": "#e6f3fc"```   eller   ```"fill-color": "RGB(230, 243, 252)"```
 
 
-Der er også en række andre elemeneter der kan defineres i style filen. Eksempelvis er der et element kaldet for **stops**. Stops definere forskellige 'regler' i forskellige zoom niveauer. Fx i forhold til at angive tekst størrelsen. Inden hvor hver klamme parentes er der først angivet zoomniveau og dernæst skriftstørrelse for det angivet zoomniveau. Det kan ekesempelvis så sådan ud:
+Der er også en række andre elemeneter der kan defineres i style filen. Eksempelvis er der et element kaldet for **stops**. Stops definere forskellige 'regler' i forskellige zoom niveauer. Fx i forhold til at angive tekst størrelsen. Inden hvor hver klamme parentes er der først angivet zoomniveau (level 0-16) og dernæst skriftstørrelse for det angivet zoomniveau. Det kan ekesempelvis så sådan ud:
 ```
                 "text-size": {"stops": [[9, 12], [10, 13], [11, 13]]},
 ```
 
+Dvs. at for level 9, skal skriftstørelsen (i dette tilfælde) være 12, i level 10 skal skriftstørelsen være 13 osv.  
 Stops kan også angive forskellige tykkelser på linjer i forskellige zoom niveauer mm. 
 
 

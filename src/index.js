@@ -13,18 +13,13 @@ import { MapMenu } from './components/menu'
 
 customElements.define('map-menu', MapMenu)
 
-const srs = 'EPSG:25832'
-const extent = [120000, 5900000, 1000000, 6500000]
-const center = [590000, 6205000]
-const zoom = 7
-const maxZoom = 15
 const format = new MVT()
 
 // Create the projection
-proj4.defs(srs, '+proj=utm +zone=32 +ellps=GRS80 +units=m +no_defs')
+proj4.defs(config.PROJECTION_NAME, config.PROJECTION)
 register(proj4)
-const projection = getProjection('EPSG:25832')
-projection.setExtent(extent)
+const projection = getProjection(config.PROJECTION_NAME)
+projection.setExtent(config.EXTENT)
 
 // Create the vector Layer
 const vectorLayer = new VectorTileLayer({
@@ -34,7 +29,7 @@ const vectorLayer = new VectorTileLayer({
     format: format,
     crossOrigin: 'anonymous',
     projection: projection,
-    url: config.API_VECTOR_TILES_BASEURL + '/EPSG:25832/EPSG:25832:{z}/{y}/{x}?f=application/vnd.mapbox-vector-tile'
+    url: config.API_VECTOR_TILES_BASEURL + `/${config.PROJECTION_NAME}/${config.PROJECTION_NAME}:{z}/{y}/{x}?f=application/vnd.mapbox-vector-tile`
   })
 })
 const resolutions = vectorLayer.getSource().getTileGrid().getResolutions()
@@ -74,11 +69,11 @@ const map = new Map({
   layers: [vectorLayer],
   target: 'map',
   view: new View({
-    extent,
-    center,
-    zoom,
+    extent: config.EXTENT,
+    center: config.CENTER,
+    zoom: config.ZOOM,
     projection,
-    maxZoom
+    maxZoom: config.MAX_ZOOM
   }),
 })
 

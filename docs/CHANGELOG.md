@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [1.0.0] - 2024-10-07
+
+### Added
+
+- Moved projection, extent, center, zoom and maxZoom to the config file. Remember to update your local `config.js` with the new options.
+
+### Changed
+
+- Updated Openlayers from v9 to v10.
+
 ## [0.4.0] - 2024-09-13
 
 ### Changed

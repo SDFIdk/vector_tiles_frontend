@@ -7,9 +7,6 @@ import { register } from 'ol/proj/proj4'
 import proj4 from 'proj4/dist/proj4'
 import { apply } from 'ol-mapbox-style'
 
-import TileLayer from 'ol/layer/WebGLTile.js';
-import TileWMS from 'ol/source/TileWMS.js';
-
 import { STYLE_FILES } from './constants'
 import { MapMenu } from './components/menu'
 

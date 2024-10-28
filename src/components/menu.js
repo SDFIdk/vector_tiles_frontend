@@ -8,6 +8,8 @@ customElements.define('layer-selector', MapLayerSelector)
 
 export class MapMenu extends HTMLElement {
 
+  layers = []
+  bottomElement
   styles = /* css */`
     .map-menu-border {
       position: absolute;
@@ -96,6 +98,11 @@ export class MapMenu extends HTMLElement {
     })
   }
 
+  setLayers(layers) {
+    this.layers = layers
+    if (this.bottomElement && this.bottomElement.setLayers) this.bottomElement.setLayers(this.layers)
+  }
+
   toggleTab(tabName) {
     const selectedClass = 'selected'
     const menuElement = this.querySelector('.map-menu')
@@ -113,7 +120,9 @@ export class MapMenu extends HTMLElement {
         }
       }
       // Add the new tab
-      menuElement.appendChild(document.createElement(tabName))
+      this.bottomElement = document.createElement(tabName)
+      menuElement.appendChild(this.bottomElement)
+      this.bottomElement.setLayers && this.bottomElement.setLayers(this.layers)
       buttonElement.classList.add(selectedClass)
     }
   }

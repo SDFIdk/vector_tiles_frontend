@@ -1,12 +1,14 @@
 import Map from 'ol/Map'
 import View from 'ol/View'
 import MVT from 'ol/format/MVT'
-import VectorTileLayer from 'ol/layer/VectorTile'
-import VectorTileSource from 'ol/source/VectorTile'
+import LayerGroup from 'ol/layer/Group'
 import { get as getProjection } from 'ol/proj'
 import { register } from 'ol/proj/proj4'
 import proj4 from 'proj4/dist/proj4'
-import { applyStyle, applyBackground } from 'ol-mapbox-style'
+import { apply } from 'ol-mapbox-style'
+
+import TileLayer from 'ol/layer/WebGLTile.js';
+import TileWMS from 'ol/source/TileWMS.js';
 
 import { STYLE_FILES } from './constants'
 import { MapMenu } from './components/menu'
@@ -20,22 +22,10 @@ proj4.defs(config.PROJECTION_NAME, config.PROJECTION)
 register(proj4)
 const projection = getProjection(config.PROJECTION_NAME)
 projection.setExtent(config.EXTENT)
-
-// Create the vector Layer
-const vectorLayer = new VectorTileLayer({
-  declutter: true,
-  source: new VectorTileSource({
-    tileSize: 256,
-    format: format,
-    crossOrigin: 'anonymous',
-    projection: projection,
-    url: config.API_VECTOR_TILES_BASEURL + `/${config.PROJECTION_NAME}/${config.PROJECTION_NAME}:{z}/{y}/{x}?f=application/vnd.mapbox-vector-tile`
-  })
-})
-const resolutions = vectorLayer.getSource().getTileGrid().getResolutions()
+const resolutions = config.RESOLUTIONS
 
 // Custom setTileLoadFunction to add a header with a token
-vectorLayer.getSource().setTileLoadFunction((tile, src) => {
+const tileLoadFunctionWithTokenHeader = (tile, src) => {
   tile.setLoader((ext, res, proj) => {
     const client = new XMLHttpRequest()
     client.open('GET', src)
@@ -62,11 +52,11 @@ vectorLayer.getSource().setTileLoadFunction((tile, src) => {
     }
     client.send()
   })
-})
+}
 
 // Create the ol map
 const map = new Map({
-  layers: [vectorLayer],
+  layers: [],
   target: 'map',
   view: new View({
     extent: config.EXTENT,
@@ -74,18 +64,62 @@ const map = new Map({
     zoom: config.ZOOM,
     projection,
     maxZoom: config.MAX_ZOOM
-  }),
+  })
 })
 
-// Add the default style
-applyStyle(vectorLayer, STYLE_FILES[0].style, { resolutions, updateSource: false })
-applyBackground(map, STYLE_FILES[0].style, { resolutions, updateSource: false })
+const createStylefile = (stylefile, title, img) => {
+  return new Promise((resolve, reject) => {
+    const vectorLayerGroup = new LayerGroup()
+    vectorLayerGroup.set('img', img)
+    vectorLayerGroup.set('title', title)
+    apply(vectorLayerGroup, stylefile, { resolutions, projection: config.PROJECTION_NAME })
+    .then((layerGroup) => {
+      layerGroup.getLayers().forEach(layer => {
+        if (layer.getSource().constructor.name === 'VectorTile2') {
+          layer.getSource().setTileLoadFunction(tileLoadFunctionWithTokenHeader)
+        }
+      })
+      layerGroup.setVisible(false)
+      resolve(vectorLayerGroup)
+    }).catch((e) => {
+      reject(e)
+    })
+  })
+}
+
+// Add the default styles
+const stylePromises = []
+STYLE_FILES.forEach(style => {
+  stylePromises.push(createStylefile(style.style, style.title, style.img))
+})
+Promise.all(stylePromises).then((layerGroups) => {
+  layerGroups.forEach((lg, index) => {
+    if (index === 0) lg.setVisible(true)
+    map.addLayer(lg)
+  })
+  document.getElementById('map-menu').setLayers(map.getLayers())
+})
+
+const showLayer = (layer) => {
+  map.getLayers().forEach(layer => {
+    layer.setVisible(false)
+  })
+  layer.setVisible && layer.setVisible(true)
+}
 
 // Update the style when it's changed in the menu
 document.addEventListener('vt:change-style', event => {
-  if (event.detail.style) {
-    applyStyle(vectorLayer, event.detail.style, { resolutions, updateSource: false })
-    applyBackground(map, event.detail.style, { resolutions, updateSource: false })
+  showLayer(event.detail)
+})
+
+// Add a new stylefile on upload
+document.addEventListener('vt:add-style', event => {
+  if (event.detail.stylefile) {
+    createStylefile(event.detail.stylefile, event.detail.title).then(layerGroup => {
+      map.addLayer(layerGroup)
+      showLayer(layerGroup)
+      document.getElementById('map-menu').setLayers(map.getLayers())
+    })
   }
 })
 

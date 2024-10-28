@@ -5,6 +5,7 @@ const maxTitleLength = 11
 
 export class MapLayerSelector extends HTMLElement {
 
+  layers = []
   styles = /* css */`
     .header {
       width: 100%;
@@ -94,15 +95,7 @@ export class MapLayerSelector extends HTMLElement {
     const container = document.createElement('section')
     container.className = 'map-menu-bottom'
     container.innerHTML = this.template
-    const stylesElement = container.querySelector('.styles-container')
     const uploadElement = container.querySelector('.styles-upload')
-    
-    // Create the buttons for switching styles
-    STYLE_FILES.forEach((style, index) => {
-      const styleElement = this.createStyleElement(style, style.img, stylesElement)
-      if (!index) styleElement.classList.add(selectedClass)
-      stylesElement.appendChild(styleElement)
-    })
 
     // Create a drop zone for uploading your own styles
     const dropElement = document.createElement('article')
@@ -134,36 +127,53 @@ export class MapLayerSelector extends HTMLElement {
     uploadElement.appendChild(infoElement)
     
     this.appendChild(container)
+    this.createLayerButtons()
+  }
+
+
+  // Create the buttons for switching styles
+  createLayerButtons() {
+    const stylesElement = this.querySelector('.styles-container')
+    stylesElement.innerHTML = ''
+    this.layers.forEach(layer => {
+      const styleElement = this.createStyleElement(layer, stylesElement)
+      if (layer.getVisible()) styleElement.classList.add(selectedClass)
+      stylesElement.appendChild(styleElement)
+    })
   }
 
   connectedCallback() {
     this.createDOM()
   }
 
+  setLayers(layers) {
+    this.layers = layers
+    this.createLayerButtons()
+  }
+
   handleDrop(event) {
-    const stylesElement = this.querySelector('.styles-container')
     const fileList = event.dataTransfer.files
-      if (fileList.length !== 1) return // only single files allowed
-      const file = fileList[0]
-      const fileName = file.name.slice(0, -5)
-      const fileType = file.type
-      if (fileType !== 'application/json') return // only json files allowed
-      const reader = new FileReader()
-      reader.onload = (e) => {
-        const jsonFile = JSON.parse(e.target.result)
-        // Add new style element to the list
-        const styleElement = this.createStyleElement({
-          title: (fileName.length > maxTitleLength) ? fileName.slice(0, maxTitleLength-1) + '&hellip;' : fileName,
-          style: jsonFile
-        }, '', stylesElement)
-        stylesElement.appendChild(styleElement)
-        styleElement.click()
-      }
-      reader.readAsText(file)
+    if (fileList.length !== 1) return // only single files allowed
+    const file = fileList[0]
+    const fileName = file.name.slice(0, -5)
+    const title = (fileName.length > maxTitleLength) ? fileName.slice(0, maxTitleLength-1) + '&hellip;' : fileName
+    const fileType = file.type
+    if (fileType !== 'application/json') return // only json files allowed
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      const jsonFile = JSON.parse(e.target.result)
+      // Add new style element to the list
+      this.dispatchEvent(new CustomEvent('vt:add-style', { 
+        detail: { stylefile: jsonFile, title }, bubbles: true, composed: true 
+      }))
+    }
+    reader.readAsText(file)
   }
 
   // Create a style element
-  createStyleElement(style, img, stylesElement) {
+  createStyleElement(layer, stylesElement) {
+    const img = layer.get('img')
+    const title = layer.get('title') || ''
     const wrapperElement = document.createElement('article')
     const titleElement = document.createElement('h6')
     wrapperElement.classList.add('style')
@@ -178,9 +188,9 @@ export class MapLayerSelector extends HTMLElement {
       imgElement.appendChild(imgTextElement)
       wrapperElement.appendChild(imgElement)
     }
-    titleElement.innerHTML = style.title
+    titleElement.innerHTML = title
     wrapperElement.appendChild(titleElement)
-    // Add the event listener to switch style
+    // Add the event listener to switch layer
     wrapperElement.addEventListener('click', () => {
       if ([...wrapperElement.classList].includes(selectedClass)) return
       for (let i = 0; i < stylesElement.children.length; i++) {
@@ -191,7 +201,7 @@ export class MapLayerSelector extends HTMLElement {
       // Otherwise it does not update until the new style has also rendered.
       setTimeout(() => {
         this.dispatchEvent(new CustomEvent('vt:change-style', { 
-          detail: style, bubbles: true, composed: true 
+          detail: layer, bubbles: true, composed: true 
         }))
       }, 1)
     })

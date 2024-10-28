@@ -7,18 +7,9 @@ To install and build `vector_tiles_frontend` locally, run these commands:
 3. `npm install`
 
 ## Configuration (config.js)
-Vector tiles expects to find a `config.js` file in the root folder when hosted.
-
-The contents of `config.js` should be a single Javascript object defined like so:
-```
-const config = {
-  // API TOKEN can be aquired from https://dataforsyningen.dk/
-  API_TOKEN: '[ INSERT TOKEN ]',
-  API_VECTOR_TILES_BASEURL: 'https://api.dataforsyningen.dk/rest/skaermkort_vector_tiles/v1.0',
-}
-```
-You'll need to supply your own tokens for your particular configuration.
-You can copy and edit `config.js.example` to use as your own `config.js`.
+Vector tiles expects to find a `config.js` file in the root folder when hosted. 
+You'll need to supply your own token for your particular configuration.
+You can copy and edit `config.example.js` to use as your own `config.js`.
 
 ## Build for development
 Run `npm run dev` to start a development server running locally at `localhost:8000`

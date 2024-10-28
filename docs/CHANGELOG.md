@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [2.0.0] - 2024-10-28
+
+### Added
+
+- Added resolutions to the config to fix incorrect coordinates. Remember to update your local `config.js` with a resolutions option.
+
+### Changed
+
+- Changed how styles are added to the openlayers map. They no longer share a source, but instead read the source from the stylefile.
+
 ## [1.0.0] - 2024-10-07
 
 ### Added

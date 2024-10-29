@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [2.0.1] - 2024-10-29
+
+### Changed
+
+- Changed check for whether or not to add the custom tileloadfunction based on the URL containing `api.dataforsyningen.dk`.
+
 ## [2.0.0] - 2024-10-28
 
 ### Added

@@ -1,4 +1,4 @@
-import { STYLE_FILES } from '../constants'
+import { saveStyle } from '../modules/customstyle.js'
 
 const selectedClass = 'selected'
 const maxTitleLength = 11
@@ -162,6 +162,8 @@ export class MapLayerSelector extends HTMLElement {
     const reader = new FileReader()
     reader.onload = (e) => {
       const jsonFile = JSON.parse(e.target.result)
+      // Save style to localStorage
+      saveStyle(title, jsonFile)
       // Add new style element to the list
       this.dispatchEvent(new CustomEvent('vt:add-style', { 
         detail: { stylefile: jsonFile, title }, bubbles: true, composed: true 

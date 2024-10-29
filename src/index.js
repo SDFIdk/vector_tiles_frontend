@@ -72,7 +72,8 @@ const createStylefile = (stylefile, title, img) => {
     apply(vectorLayerGroup, stylefile, { resolutions, projection: config.PROJECTION_NAME })
     .then((layerGroup) => {
       layerGroup.getLayers().forEach(layer => {
-        if (layer.getSource().constructor.name === 'VectorTile2') {
+        const url = layer?.getSource()?.urls ? layer.getSource().urls[0] : ''
+        if (url?.includes('api.dataforsyningen.dk')) {
           layer.getSource().setTileLoadFunction(tileLoadFunctionWithTokenHeader)
         }
       })

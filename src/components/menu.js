@@ -2,7 +2,9 @@ import { DSLogo } from '@dataforsyningen/designsystem'
 import stackIcon from '@dataforsyningen/designsystem/assets/icons/icon_stack.svg'
 
 import { MapLayerSelector } from './layerSelector'
+import { StyleActions } from './styleActions.js'
 
+customElements.define('style-actions', StyleActions)
 customElements.define('ds-logo', DSLogo)
 customElements.define('layer-selector', MapLayerSelector)
 

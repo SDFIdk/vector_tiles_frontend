@@ -163,7 +163,7 @@ export class MapLayerSelector extends HTMLElement {
     reader.onload = (e) => {
       const jsonFile = JSON.parse(e.target.result)
       // Save style to localStorage
-      saveStyle(title, jsonFile)
+      saveStyle(jsonFile)
       // Add new style element to the list
       this.dispatchEvent(new CustomEvent('vt:add-style', { 
         detail: { stylefile: jsonFile, title }, bubbles: true, composed: true 
@@ -192,6 +192,9 @@ export class MapLayerSelector extends HTMLElement {
     }
     titleElement.innerHTML = title
     wrapperElement.appendChild(titleElement)
+    const actionsElement = document.createElement('style-actions')
+    actionsElement.dataset.key = title
+    wrapperElement.appendChild(actionsElement)
     // Add the event listener to switch layer
     wrapperElement.addEventListener('click', () => {
       if ([...wrapperElement.classList].includes(selectedClass)) return

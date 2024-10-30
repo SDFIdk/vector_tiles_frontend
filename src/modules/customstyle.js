@@ -1,3 +1,5 @@
+const localStorageKey = 'vt-styles'
+
 function loadData(key) {
   return JSON.parse(localStorage.getItem(key))
 }
@@ -6,30 +8,38 @@ function saveData(key, data) {
   localStorage.setItem(key, JSON.stringify(data))
 }
 
-function updateLocalStyleIndex(title) {
-  let styleIndex = loadData('vt-style-index')
-  if (!styleIndex) {
-    styleIndex = []
-  }
-  const storageKey = `vt-style-${title}-${styleIndex.length}`
-  styleIndex.push(storageKey)
-  saveData('vt-style-index', styleIndex)
-  return storageKey
-}
-
 export function loadStyles() {
-  const styleIndex = loadData('vt-style-index')
   const styleArr = []
-  styleIndex.forEach(storageKey => {
+  const styles = loadData(localStorageKey)
+  if (!styles) {
+    return []
+  }
+  for (const [key, value] of Object.entries(styles)) {
     styleArr.push({
-      style: loadData(storageKey),
-      title: storageKey
+      style: value,
+      title: key,
+      localStyle: true
     })
-  })
+  }
   return styleArr
 }
 
-export function saveStyle(title, style) {
-  const storageKey = updateLocalStyleIndex(title)
-  saveData(storageKey, style)
+export function saveStyle(style) {
+  const title = prompt('Giv din style et navn')
+  let styles = loadData(localStorageKey)
+  if (!styles) {
+    styles = {}
+  }
+  if (styles[title]) {
+    alert('Der findes allerede en style med samme navn.')
+    return
+  }
+  styles[title] = style
+  saveData(localStorageKey, styles)
+}
+
+export function deleteStyle(title) {
+  let styles = loadData(localStorageKey)
+  delete styles[title]
+  saveData(localStorageKey, styles)
 }

@@ -126,6 +126,11 @@ document.addEventListener('vt:add-style', event => {
   }
 })
 
+// (Hack) When a custom style was deleted, refresh the page to draw style buttons anew
+document.addEventListener('vt:delete-style', event => {
+  location.reload()
+})
+
 // Show zoom level
 const showZoom = (zoom) => {
   const zoomtext = "Zoomlevel: " + Math.round(currZoom * 100) / 100

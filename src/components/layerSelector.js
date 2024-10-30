@@ -186,14 +186,18 @@ export class MapLayerSelector extends HTMLElement {
     } else {
       const imgElement = document.createElement('section')
       const imgTextElement = document.createElement('p')
-      imgTextElement.innerHTML = 'Bruger defineret'
+      imgTextElement.innerHTML = 'Brugerdefineret'
       imgElement.appendChild(imgTextElement)
       wrapperElement.appendChild(imgElement)
+      wrapperElement.classList.add('custom-style')
     }
     titleElement.innerHTML = title
     wrapperElement.appendChild(titleElement)
     const actionsElement = document.createElement('style-actions')
     actionsElement.dataset.key = title
+    if (wrapperElement.classList.contains('custom-style')) { // Would be nicer to have as a property of layer
+      actionsElement.dataset.removable = true
+    }
     wrapperElement.appendChild(actionsElement)
     // Add the event listener to switch layer
     wrapperElement.addEventListener('click', () => {

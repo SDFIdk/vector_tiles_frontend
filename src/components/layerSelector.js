@@ -1,5 +1,3 @@
-import { STYLE_FILES } from '../constants'
-
 const selectedClass = 'selected'
 const maxTitleLength = 11
 

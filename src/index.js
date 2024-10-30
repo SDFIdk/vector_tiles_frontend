@@ -9,6 +9,7 @@ import { apply } from 'ol-mapbox-style'
 
 import { STYLE_FILES } from './constants'
 import { MapMenu } from './components/menu'
+import { saveStyle, loadStyles } from './modules/customstyle.js'
 
 customElements.define('map-menu', MapMenu)
 
@@ -90,6 +91,11 @@ const stylePromises = []
 STYLE_FILES.forEach(style => {
   stylePromises.push(createStylefile(style.style, style.title, style.img))
 })
+// And the styles stored in local storage
+const storedStyles = loadStyles()
+storedStyles.forEach(style => {
+  stylePromises.push(createStylefile(style.style, style.title))
+})
 Promise.all(stylePromises).then((layerGroups) => {
   layerGroups.forEach((lg, index) => {
     if (index === 0) lg.setVisible(true)
@@ -116,6 +122,8 @@ document.addEventListener('vt:add-style', event => {
     createStylefile(event.detail.stylefile, event.detail.title).then(layerGroup => {
       map.addLayer(layerGroup)
       showLayer(layerGroup)
+      // Save style to localStorage
+      saveStyle(event.detail.title, event.detail.stylefile)
       document.getElementById('map-menu').setLayers(map.getLayers())
     })
   }

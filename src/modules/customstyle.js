@@ -18,12 +18,13 @@ function updateLocalStyleIndex(title) {
 }
 
 export function loadStyles() {
-  const styleIndex = loadData('vt-style-index')
+  const styleIndex = loadData('vt-style-index') || []
   const styleArr = []
   styleIndex.forEach(storageKey => {
+    const title = storageKey.match(/^[^-]*-[^-]*-(.*)-[^-]*$/)[1] || storageKey
     styleArr.push({
       style: loadData(storageKey),
-      title: storageKey
+      title: title
     })
   })
   return styleArr

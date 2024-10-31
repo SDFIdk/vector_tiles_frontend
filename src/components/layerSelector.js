@@ -174,6 +174,7 @@ export class MapLayerSelector extends HTMLElement {
     const title = layer.get('title') || ''
     const wrapperElement = document.createElement('article')
     const titleElement = document.createElement('h6')
+    const actionsElement = document.createElement('vt-actions')
     wrapperElement.classList.add('style')
     if (img) {
       const imgElement = document.createElement('img')
@@ -182,12 +183,16 @@ export class MapLayerSelector extends HTMLElement {
     } else {
       const imgElement = document.createElement('section')
       const imgTextElement = document.createElement('p')
-      imgTextElement.innerHTML = 'Bruger defineret'
+      actionsElement.dataset.removable = true
+      imgTextElement.innerHTML = 'Brugerdefineret'
       imgElement.appendChild(imgTextElement)
+      wrapperElement.classList.add('custom-style') // We assume styles with no image are all custom/local styles
       wrapperElement.appendChild(imgElement)
     }
     titleElement.innerHTML = title
+    actionsElement.title = title
     wrapperElement.appendChild(titleElement)
+    wrapperElement.appendChild(actionsElement)
     // Add the event listener to switch layer
     wrapperElement.addEventListener('click', () => {
       if ([...wrapperElement.classList].includes(selectedClass)) return

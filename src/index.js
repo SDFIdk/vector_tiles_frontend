@@ -9,9 +9,11 @@ import { apply } from 'ol-mapbox-style'
 
 import { STYLE_FILES } from './constants'
 import { MapMenu } from './components/menu'
+import { LayerActions } from './components/layerActions.js'
 import { saveStyle, loadStyles } from './modules/customstyle.js'
 
 customElements.define('map-menu', MapMenu)
+customElements.define('vt-actions', LayerActions)
 
 const format = new MVT()
 

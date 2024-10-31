@@ -37,13 +37,19 @@ export class MapLayerSelector extends HTMLElement {
     .style.selected > h6 {
       color: var(--aktion);
     }
-    .style > img, .style > section {
+    .style > section {
+      position: relative;
       width: 8rem;
       min-width: 8rem;
       height: 5rem;
       border-radius: .5rem;
       background-color: var(--bg1);
       outline: 1px solid var(--bg3);
+      overflow: hidden;
+    }
+    .style > section > img {
+      height: 100%;
+      width: 100%;
       object-fit: cover;
     }
     .style > section, .drop-zone {
@@ -153,8 +159,7 @@ export class MapLayerSelector extends HTMLElement {
     const fileList = event.dataTransfer.files
     if (fileList.length !== 1) return // only single files allowed
     const file = fileList[0]
-    const fileName = file.name.slice(0, -5)
-    const title = (fileName.length > maxTitleLength) ? fileName.slice(0, maxTitleLength-1) + '&hellip;' : fileName
+    const title = file.name.slice(0, -5) // remove .json
     const fileType = file.type
     if (fileType !== 'application/json') return // only json files allowed
     const reader = new FileReader()
@@ -172,21 +177,27 @@ export class MapLayerSelector extends HTMLElement {
   createStyleElement(layer, stylesElement) {
     const img = layer.get('img')
     const title = layer.get('title') || ''
+    const displayTitle = (title.length > maxTitleLength) ? title.slice(0, maxTitleLength-1) + '&hellip;' : title
     const wrapperElement = document.createElement('article')
     const titleElement = document.createElement('h6')
+    const sectionElement = document.createElement('section')
     wrapperElement.classList.add('style')
     if (img) {
       const imgElement = document.createElement('img')
       imgElement.src = img
-      wrapperElement.appendChild(imgElement)
+      sectionElement.appendChild(imgElement)
     } else {
-      const imgElement = document.createElement('section')
       const imgTextElement = document.createElement('p')
-      imgTextElement.innerHTML = 'Bruger defineret'
-      imgElement.appendChild(imgTextElement)
-      wrapperElement.appendChild(imgElement)
+      const actionsElement = document.createElement('vt-actions')
+      actionsElement.dataset.removable = true
+      imgTextElement.innerHTML = 'Brugerdefineret'
+      actionsElement.title = title
+      sectionElement.appendChild(imgTextElement)
+      sectionElement.appendChild(actionsElement)
+      wrapperElement.appendChild(sectionElement)
     }
-    titleElement.innerHTML = title
+    titleElement.innerHTML = displayTitle
+    wrapperElement.appendChild(sectionElement)
     wrapperElement.appendChild(titleElement)
     // Add the event listener to switch layer
     wrapperElement.addEventListener('click', () => {

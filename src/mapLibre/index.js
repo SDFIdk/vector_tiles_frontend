@@ -7,10 +7,10 @@ import { register } from 'ol/proj/proj4'
 import proj4 from 'proj4/dist/proj4'
 import { apply } from 'ol-mapbox-style'
 
-import { STYLE_FILES } from './constants'
-import { MapMenu } from './components/menu'
-import { LayerActions } from './components/layerActions.js'
-import { saveStyle, loadStyles, deleteStyle } from './modules/customstyle.js'
+import { STYLE_FILES } from '../constants'
+import { MapMenu } from '../components/menu'
+import { LayerActions } from '../components/layerActions.js'
+import { saveStyle, loadStyles, deleteStyle } from '../modules/customstyle.js'
 
 customElements.define('map-menu', MapMenu)
 customElements.define('vt-actions', LayerActions)

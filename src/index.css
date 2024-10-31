@@ -43,3 +43,18 @@ main {
   z-index: 1;
   text-shadow: -1px -1px 0 var(--background-color), 1px -1px 0 var(--background-color), -1px 1px 0 var(--background-color), 1px 1px 0 var(--background-color);
 }
+
+/* Layer actions styles */
+article.style {
+  position: relative;
+}
+
+vt-actions {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  padding: 0.25rem;
+  border-radius: 0.5rem 0 0 0;
+}

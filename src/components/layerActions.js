@@ -1,6 +1,5 @@
 import downloadIcon from '@dataforsyningen/designsystem/assets/icons/hentdata_icon_download.svg'
 import deleteIcon from '@dataforsyningen/designsystem/assets/icons/icon_trash.svg'
-import { deleteStyle } from '../modules/customstyle.js'
 
 export class LayerActions extends HTMLElement {
 
@@ -37,12 +36,9 @@ export class LayerActions extends HTMLElement {
       deleteButton.addEventListener('click', (event) => {
         event.stopPropagation()
         if (confirm(`Vil du slette ${this.title}?`)) {
-          deleteStyle(this.title)
-          this.dispatchEvent(new CustomEvent('vt:delete-style', { 
-            bubbles: true, composed: true
+          this.dispatchEvent(new CustomEvent('vt:delete-style', {
+            detail: this.title, bubbles: true, composed: true
           }))
-          // For now, there is no action for `vt:delete-style`, so we just refresh the page
-          location.reload()
         }
       })
     }

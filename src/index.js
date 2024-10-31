@@ -10,7 +10,7 @@ import { apply } from 'ol-mapbox-style'
 import { STYLE_FILES } from './constants'
 import { MapMenu } from './components/menu'
 import { LayerActions } from './components/layerActions.js'
-import { saveStyle, loadStyles } from './modules/customstyle.js'
+import { saveStyle, loadStyles, deleteStyle } from './modules/customstyle.js'
 
 customElements.define('map-menu', MapMenu)
 customElements.define('vt-actions', LayerActions)
@@ -120,18 +120,34 @@ document.addEventListener('vt:change-style', event => {
 
 // Add a new stylefile on upload
 document.addEventListener('vt:add-style', event => {
-  if (event.detail.stylefile) {
-    createStylefile(event.detail.stylefile, event.detail.title).then(layerGroup => {
-      map.addLayer(layerGroup)
-      showLayer(layerGroup)
-      document.getElementById('map-menu').setLayers(map.getLayers())
-      // Save style to localStorage
-      const saveSuccess = saveStyle(event.detail.title, event.detail.stylefile)
-      if (!saveSuccess) {
-        return
-      }
-    })
+  const stylefile = event.detail.stylefile
+  const title = event.detail.title
+  if (!stylefile || !title) return
+  createStylefile(stylefile, title).then(layerGroup => {
+    map.addLayer(layerGroup)
+    showLayer(layerGroup)
+    document.getElementById('map-menu').setLayers(map.getLayers())
+    // Save style to localStorage
+    const saveSuccess = saveStyle(title, stylefile)
+    if (!saveSuccess) {
+      return
+    }
+  })
+})
+
+// Remove a style
+document.addEventListener('vt:delete-style', event => {
+  const title = event.detail
+  if (!title) return
+  deleteStyle(title)
+  const layerGroup = map.getLayers().getArray().find(lg => {
+    return lg.get('title') === title
+  })
+  if (layerGroup) {
+    if (layerGroup.getVisible()) showLayer(map.getLayers().getArray()[0])
+    map.removeLayer(layerGroup)
   }
+  document.getElementById('map-menu').setLayers(map.getLayers())
 })
 
 // Show zoom level

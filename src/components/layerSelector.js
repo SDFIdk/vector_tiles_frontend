@@ -37,13 +37,19 @@ export class MapLayerSelector extends HTMLElement {
     .style.selected > h6 {
       color: var(--aktion);
     }
-    .style > img, .style > section {
+    .style > section {
+      position: relative;
       width: 8rem;
       min-width: 8rem;
       height: 5rem;
       border-radius: .5rem;
       background-color: var(--bg1);
       outline: 1px solid var(--bg3);
+      overflow: hidden;
+    }
+    .style > section > img {
+      height: 100%;
+      width: 100%;
       object-fit: cover;
     }
     .style > section, .drop-zone {
@@ -174,25 +180,25 @@ export class MapLayerSelector extends HTMLElement {
     const displayTitle = (title.length > maxTitleLength) ? title.slice(0, maxTitleLength-1) + '&hellip;' : title
     const wrapperElement = document.createElement('article')
     const titleElement = document.createElement('h6')
-    const actionsElement = document.createElement('vt-actions')
+    const sectionElement = document.createElement('section')
     wrapperElement.classList.add('style')
     if (img) {
       const imgElement = document.createElement('img')
       imgElement.src = img
-      wrapperElement.appendChild(imgElement)
+      sectionElement.appendChild(imgElement)
     } else {
-      const imgElement = document.createElement('section')
       const imgTextElement = document.createElement('p')
+      const actionsElement = document.createElement('vt-actions')
       actionsElement.dataset.removable = true
       imgTextElement.innerHTML = 'Brugerdefineret'
-      imgElement.appendChild(imgTextElement)
-      wrapperElement.classList.add('custom-style') // We assume styles with no image are all custom/local styles
-      wrapperElement.appendChild(imgElement)
+      actionsElement.title = title
+      sectionElement.appendChild(imgTextElement)
+      sectionElement.appendChild(actionsElement)
+      wrapperElement.appendChild(sectionElement)
     }
     titleElement.innerHTML = displayTitle
-    actionsElement.title = displayTitle
+    wrapperElement.appendChild(sectionElement)
     wrapperElement.appendChild(titleElement)
-    wrapperElement.appendChild(actionsElement)
     // Add the event listener to switch layer
     wrapperElement.addEventListener('click', () => {
       if ([...wrapperElement.classList].includes(selectedClass)) return

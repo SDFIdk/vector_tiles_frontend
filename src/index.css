@@ -34,10 +34,9 @@ article.style {
 vt-actions {
   display: flex;
   position: absolute;
-  bottom: 1.8rem;
+  bottom: 0;
   right: 0;
   z-index: 2;
-  background-color: hsla(0,0%,0%,0.2);
   padding: 0.25rem;
   border-radius: 0.5rem 0 0 0;
 }

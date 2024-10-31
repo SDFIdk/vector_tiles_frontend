@@ -6,7 +6,7 @@
 ```
   {
     title: 'Klassisk', // The title displayed in the styling selector
-    img: 'img/klassisk.png', // File location of the image to be diplayed in the styling selector
-    style: 'styles/official/skaermkort_klassisk.json' // File location of the stylefile
+    img: '/img/klassisk.png', // File location of the image to be diplayed in the styling selector
+    style: '/styles/official/skaermkort_klassisk.json' // File location of the stylefile
   }
 ```

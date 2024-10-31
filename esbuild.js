@@ -3,9 +3,16 @@ import { sassPlugin } from 'esbuild-sass-plugin'
 
 const outdir = 'public'
 const entry_points = {
+  index: 'src/index.html',
   main: 'src/index.js',
   style: 'src/index.css',
+  'mapLibre/index': 'src/index.html',
   'mapLibre/main': 'src/mapLibre/index.js'
+}
+const loader = {
+  '.html': 'copy',
+  '.ttf': 'file',
+  '.svg': 'text'
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -18,10 +25,7 @@ if (process.env.NODE_ENV === 'production') {
     metafile: true,
     splitting: true,
     format: 'esm',
-    loader: {
-      '.ttf': 'file',
-      '.svg': 'text'
-    },
+    loader: loader,
     plugins: [
       sassPlugin()
     ]
@@ -42,10 +46,7 @@ if (process.env.NODE_ENV === 'production') {
     bundle: true,
     splitting: true,
     format: 'esm',
-    loader: {
-      '.ttf': 'file',
-      '.svg': 'text'
-    },
+    loader: loader,
     plugins: [
       sassPlugin()
     ]

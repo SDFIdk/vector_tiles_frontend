@@ -25,3 +25,18 @@
 .ol-rotate-reset {
   box-shadow: 0 0.15rem 0.3rem hsl(0, 0%, 50%, 0.5);
 }
+
+/* Layer actions styles */
+article.style {
+  position: relative;
+}
+
+vt-actions {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  padding: 0.25rem;
+  border-radius: 0.5rem 0 0 0;
+}

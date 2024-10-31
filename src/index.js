@@ -118,12 +118,15 @@ document.addEventListener('vt:change-style', event => {
 
 // Add a new stylefile on upload
 document.addEventListener('vt:add-style', event => {
+  // Save style to localStorage
+  const saveSuccess = saveStyle(event.detail.title, event.detail.stylefile)
+  if (!saveSuccess) {
+    return
+  }
   if (event.detail.stylefile) {
     createStylefile(event.detail.stylefile, event.detail.title).then(layerGroup => {
       map.addLayer(layerGroup)
       showLayer(layerGroup)
-      // Save style to localStorage
-      saveStyle(event.detail.title, event.detail.stylefile)
       document.getElementById('map-menu').setLayers(map.getLayers())
     })
   }

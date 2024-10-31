@@ -1,7 +1,8 @@
 /* CSS imports*/
 @import '@dataforsyningen/designsystem/index.scss';
+@import 'maplibre-gl/dist/maplibre-gl.css';
 
-/* Styling Openlayers */
+/* Openlayers styles */
 .ol-zoom {
   bottom: 2rem;
   right: 1rem;
@@ -26,7 +27,7 @@
   box-shadow: 0 0.15rem 0.3rem hsl(0, 0%, 50%, 0.5);
 }
 
-/* Shared styling */
+/* Shared styles */
 main {
   width: 100%;
   height: 100%;

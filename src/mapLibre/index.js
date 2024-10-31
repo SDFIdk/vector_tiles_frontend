@@ -1,11 +1,4 @@
-import Map from 'ol/Map'
-import View from 'ol/View'
-import MVT from 'ol/format/MVT'
-import LayerGroup from 'ol/layer/Group'
-import { get as getProjection } from 'ol/proj'
-import { register } from 'ol/proj/proj4'
-import proj4 from 'proj4/dist/proj4'
-import { apply } from 'ol-mapbox-style'
+import { Map, NavigationControl } from 'maplibre-gl'
 
 import { STYLE_FILES } from '../constants'
 import { MapMenu } from '../components/menu'
@@ -15,58 +8,36 @@ import { saveStyle, loadStyles, deleteStyle } from '../modules/customstyle.js'
 customElements.define('map-menu', MapMenu)
 customElements.define('vt-actions', LayerActions)
 
-const format = new MVT()
-
-// Create the projection
-proj4.defs(config.PROJECTION_NAME, config.PROJECTION)
-register(proj4)
-const projection = getProjection(config.PROJECTION_NAME)
-projection.setExtent(config.EXTENT)
 const resolutions = config.RESOLUTIONS
 
-// Custom setTileLoadFunction to add a header with a token
-const tileLoadFunctionWithTokenHeader = (tile, src) => {
-  tile.setLoader((ext, res, proj) => {
-    const client = new XMLHttpRequest()
-    client.open('GET', src)
-    client.responseType = 'arraybuffer'
-    if (config.API_TOKEN) client.setRequestHeader('token', config.API_TOKEN)
-    client.onload = () => {
-      try {
-        const source = client.response
-        tile.onLoad.bind(tile)(
-          (
-            format.readFeatures(source, {
-              extent: ext,
-              featureProjection: proj,
-            })
-          ),
-          format.readProjection(source)
-        )
-      } catch {
-        tile.onError.bind(tile)()
-      }
-    }
-    client.onerror = () => {
-      tile.onError.bind(tile)()
-    }
-    client.send()
-  })
+// Custom transformRequest to add a header with a token
+const transformRequest = (url, resourceType) => {
+  return {
+    url: url,
+    headers: { 'token': config.API_TOKEN }
+  }
 }
 
-// Create the ol map
+// Create the ml map
 const map = new Map({
-  layers: [],
-  target: 'map',
-  view: new View({
-    extent: config.EXTENT,
-    center: config.CENTER,
-    zoom: config.ZOOM,
-    projection,
-    maxZoom: config.MAX_ZOOM
-  })
+  container: 'map',
+  minZoom: 0,
+  maxZoom: 24,
+  style: 'http://localhost:8000/styles/official/skaermkort_klassisk_maplibre_test_font.json',
+  maxBounds: [
+    [ 3.3201605, 53.1136553 ],
+    [ 17.5577711, 58.3539706 ]
+  ],
+  center: [ 10.129395, 56.127184 ],
+  zoom: 11,
+  attributionControl: false,
+  transformRequest
 })
 
+map.dragRotate.disable() // Disable map rotation using right click + drag.
+map.touchZoomRotate.disableRotation() // Disable map rotation using touch rotation gesture.
+
+/*
 const createStylefile = (stylefile, title, img) => {
   return new Promise((resolve, reject) => {
     const vectorLayerGroup = new LayerGroup()
@@ -164,3 +135,4 @@ map.on('moveend', function(e) {
       showZoom(newZoom)
     }
 })
+*/

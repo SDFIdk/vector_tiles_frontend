@@ -4,7 +4,8 @@ import { sassPlugin } from 'esbuild-sass-plugin'
 const outdir = 'public'
 const entry_points = {
   main: 'src/index.js',
-  style: 'src/index.css'
+  style: 'src/index.css',
+  'mapLibre/main': 'src/mapLibre/index.js'
 }
 
 if (process.env.NODE_ENV === 'production') {

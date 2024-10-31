@@ -10,8 +10,6 @@ config.js
 # Generated files
 dist/
 public/*
-!public/index.html
-!public/mapLibre/index.html
 !public/img/
 !public/styles/
 !public/sprites/

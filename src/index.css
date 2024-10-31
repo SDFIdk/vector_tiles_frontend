@@ -25,3 +25,21 @@
 .ol-rotate-reset {
   box-shadow: 0 0.15rem 0.3rem hsl(0, 0%, 50%, 0.5);
 }
+
+/* Shared styling */
+main {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+}
+.map {
+  width: 100%;
+  height: 100%;
+}
+.zoom-level {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+  text-shadow: -1px -1px 0 var(--background-color), 1px -1px 0 var(--background-color), -1px 1px 0 var(--background-color), 1px 1px 0 var(--background-color);
+}

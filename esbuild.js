@@ -2,12 +2,14 @@ import esbuild from 'esbuild'
 import { sassPlugin } from 'esbuild-sass-plugin'
 
 const outdir = 'public'
-const entry_points = {
+const entryPoints = {
   index: 'src/index.html',
   main: 'src/index.js',
   style: 'src/index.css',
-  'mapLibre/index': 'src/index.html',
   'mapLibre/main': 'src/mapLibre/index.js'
+}
+const entryPointsML = {
+  'mapLibre/index': 'src/index.html'
 }
 const loader = {
   '.html': 'copy',
@@ -17,21 +19,28 @@ const loader = {
 
 if (process.env.NODE_ENV === 'production') {
   // Production build
-  esbuild.build({
-    entryPoints: entry_points,
-    outdir: outdir,
-    bundle: true,
-    minify: true,
-    metafile: true,
-    splitting: true,
-    format: 'esm',
-    loader: loader,
-    plugins: [
-      sassPlugin()
-    ]
-  })
-  .then((result) => {
-    esbuild.analyzeMetafile(result.metafile).then((analysis) => {
+  Promise.all([
+    esbuild.build({
+      entryPoints: entryPoints,
+      outdir: outdir,
+      bundle: true,
+      minify: true,
+      metafile: true,
+      splitting: true,
+      format: 'esm',
+      loader: loader,
+      plugins: [
+        sassPlugin()
+      ]
+    }),
+    esbuild.build({
+      entryPoints: entryPointsML,
+      outdir: outdir,
+      loader: loader
+    })
+  ])
+  .then((results) => {
+    esbuild.analyzeMetafile(results[0].metafile).then((analysis) => {
       console.log(analysis)
       console.log('Build finished 👍')
     })
@@ -40,23 +49,35 @@ if (process.env.NODE_ENV === 'production') {
 
 } else {
   // Development mode watches for file changes and rebuilds
-  esbuild.context({
-    entryPoints: entry_points,
-    outdir: outdir,
-    bundle: true,
-    splitting: true,
-    format: 'esm',
-    loader: loader,
-    plugins: [
-      sassPlugin()
-    ]
-  })
-  .then((result) => {
-    result.serve({
-      servedir: outdir,
-    }).then(({ host, port }) => {
-      console.log('Serving at localhost:' + port)
+  Promise.all([
+    esbuild.context({
+      entryPoints: entryPoints,
+      outdir: outdir,
+      bundle: true,
+      splitting: true,
+      format: 'esm',
+      loader: loader,
+      plugins: [
+        sassPlugin()
+      ]
+    }),
+    esbuild.context({
+      entryPoints: entryPointsML,
+      outdir: outdir,
+      loader: loader
+    }),
+  ])
+  .then((results) => {
+    results.forEach((res, index) => {
+      if (!index) {
+        res.serve({
+          servedir: outdir,
+        }).then(({ host, port }) => {
+          console.log('Serving at localhost:' + port)
+        })
+      } else {
+        res.watch()
+      }
     })
   })
-  
 }

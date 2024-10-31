@@ -153,8 +153,7 @@ export class MapLayerSelector extends HTMLElement {
     const fileList = event.dataTransfer.files
     if (fileList.length !== 1) return // only single files allowed
     const file = fileList[0]
-    const fileName = file.name.slice(0, -5)
-    const title = (fileName.length > maxTitleLength) ? fileName.slice(0, maxTitleLength-1) + '&hellip;' : fileName
+    const title = file.name.slice(0, -5) // remove .json
     const fileType = file.type
     if (fileType !== 'application/json') return // only json files allowed
     const reader = new FileReader()
@@ -172,6 +171,7 @@ export class MapLayerSelector extends HTMLElement {
   createStyleElement(layer, stylesElement) {
     const img = layer.get('img')
     const title = layer.get('title') || ''
+    const displayTitle = (title.length > maxTitleLength) ? title.slice(0, maxTitleLength-1) + '&hellip;' : title
     const wrapperElement = document.createElement('article')
     const titleElement = document.createElement('h6')
     const actionsElement = document.createElement('vt-actions')
@@ -189,8 +189,8 @@ export class MapLayerSelector extends HTMLElement {
       wrapperElement.classList.add('custom-style') // We assume styles with no image are all custom/local styles
       wrapperElement.appendChild(imgElement)
     }
-    titleElement.innerHTML = title
-    actionsElement.title = title
+    titleElement.innerHTML = displayTitle
+    actionsElement.title = displayTitle
     wrapperElement.appendChild(titleElement)
     wrapperElement.appendChild(actionsElement)
     // Add the event listener to switch layer

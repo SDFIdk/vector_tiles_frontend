@@ -56,18 +56,23 @@ const tileLoadFunctionWithTokenHeader = (tile, src) => {
   })
 }
 
-// Create the ol map
-const map = new Map({
-  layers: [],
-  target: 'map',
-  view: new View({
-    extent: config.EXTENT,
-    center: config.CENTER,
-    zoom: config.ZOOM,
-    projection,
-    maxZoom: config.MAX_ZOOM
+const showLayer = (id) => {
+  map.getLayers().forEach(layer => {
+    layer.setVisible(layer.get('id') === id)
   })
-})
+}
+
+const setLayers = () => {
+  const layers = map.getLayers().getArray().map(layer => {
+    return {
+      id: layer.get('id'),
+      title: layer.get('title'),
+      img: layer.get('img'),
+      visible: layer.getVisible()
+    }
+  })
+  document.getElementById('map-menu').setLayers(layers)
+}
 
 const createStylefile = (stylefile, title, img) => {
   return new Promise((resolve, reject) => {
@@ -91,6 +96,19 @@ const createStylefile = (stylefile, title, img) => {
   })
 }
 
+// Create the ol map
+const map = new Map({
+  layers: [],
+  target: 'map',
+  view: new View({
+    extent: config.EXTENT,
+    center: config.CENTER,
+    zoom: config.ZOOM,
+    projection,
+    maxZoom: config.MAX_ZOOM
+  })
+})
+
 // Add the default styles
 const stylePromises = []
 STYLE_FILES_OL.forEach(style => {
@@ -108,24 +126,6 @@ Promise.all(stylePromises).then((layerGroups) => {
   })
   setLayers()
 })
-
-const showLayer = (id) => {
-  map.getLayers().forEach(layer => {
-    layer.setVisible(layer.get('id') === id)
-  })
-}
-
-const setLayers = () => {
-  const layers = map.getLayers().getArray().map(layer => {
-    return {
-      id: layer.get('id'),
-      title: layer.get('title'),
-      img: layer.get('img'),
-      visible: layer.getVisible()
-    }
-  })
-  document.getElementById('map-menu').setLayers(layers)
-}
 
 // Update the style when it's changed in the menu
 document.addEventListener('vt:change-style', event => {

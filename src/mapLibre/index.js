@@ -24,6 +24,24 @@ const transformRequest = (url, resourceType) => {
   }
 }
 
+const showStyle = (style) => {
+  shownStyle = style
+  map.setStyle(style.style)
+}
+
+const setLayers = () => {
+  const layers = styles.map(style => {
+    console.log(style)
+    console.log(shownStyle)
+    return {
+      title: style.title,
+      img: style.img,
+      visible: style === shownStyle
+    }
+  })
+  document.getElementById('map-menu').setLayers(layers)
+}
+
 // Create the ml map
 const map = new Map({
   container: 'map',
@@ -40,23 +58,7 @@ const map = new Map({
   transformRequest
 })
 
-document.getElementById('map-menu').setLayers(styles)
-
-const showStyle = (style) => {
-  shownStyle = style
-  map.setStyle(style.style)
-}
-
-const setLayers = () => {
-  const layers = styles.map(style => {
-    return {
-      title: style.title,
-      img: style.img,
-      visible: style === selected[0]
-    }
-  })
-  document.getElementById('map-menu').setLayers(layers)
-}
+setLayers()
 
 // Update the style when it's changed in the menu
 document.addEventListener('vt:change-style', event => {
@@ -100,7 +102,7 @@ document.addEventListener('vt:delete-style', event => {
   if (style) {
     const index = styles.indexOf(style)
     styles.splice(index, 1)
-    if (selected === style) showStyle(styles[0])
+    if (shownStyle === style) showStyle(styles[0])
   }
   setLayers()
 })

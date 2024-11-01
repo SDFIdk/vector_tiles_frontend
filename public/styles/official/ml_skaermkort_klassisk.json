@@ -1,7 +1,7 @@
 {
     "version": 8,
     "name": "name",
-    "glyphs": "http://localhost:8000/glyphs/{fontstack}/{range}.pbf",
+    "glyphs": "/glyphs/{fontstack}/{range}.pbf",
     "sources": {
         "vector-source": {
             "type": "vector",

@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [3.0.0] - 2024-11-1
+
+### Added
+
+- Added a MapLibre version of the application, `/mapLibre`
+
 ## [2.2.0] - 2024-10-31
 
 ### Added

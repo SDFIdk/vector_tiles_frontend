@@ -1,7 +1,8 @@
 /* CSS imports*/
 @import '@dataforsyningen/designsystem/index.scss';
+@import 'maplibre-gl/dist/maplibre-gl.css';
 
-/* Styling Openlayers */
+/* Openlayers styles */
 .ol-zoom {
   bottom: 2rem;
   right: 1rem;
@@ -24,6 +25,25 @@
 
 .ol-rotate-reset {
   box-shadow: 0 0.15rem 0.3rem hsl(0, 0%, 50%, 0.5);
+}
+
+/* Shared styles */
+main {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+}
+.map {
+  width: 100%;
+  height: 100%;
+}
+.zoom-level {
+  position: absolute;
+  font-size: 1rem;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+  text-shadow: -1px -1px 0 var(--background-color), 1px -1px 0 var(--background-color), -1px 1px 0 var(--background-color), 1px 1px 0 var(--background-color);
 }
 
 /* Layer actions styles */

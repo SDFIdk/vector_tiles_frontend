@@ -70,6 +70,7 @@ const map = new Map({
 const createStylefile = (stylefile, title, img) => {
   return new Promise((resolve, reject) => {
     const vectorLayerGroup = new LayerGroup()
+    vectorLayerGroup.set('id', Math.random().toString(36).substring(2, 12))
     vectorLayerGroup.set('img', img)
     vectorLayerGroup.set('title', title)
     apply(vectorLayerGroup, stylefile, { resolutions, projection: config.PROJECTION_NAME })
@@ -103,19 +104,30 @@ Promise.all(stylePromises).then((layerGroups) => {
     if (index === 0) lg.setVisible(true)
     map.addLayer(lg)
   })
-  document.getElementById('map-menu').setLayers(map.getLayers())
+  setLayers()
 })
 
-const showLayer = (layer) => {
+const showLayer = (id) => {
   map.getLayers().forEach(layer => {
-    layer.setVisible(false)
+    layer.setVisible(layer.get('id') === id)
   })
-  layer.setVisible && layer.setVisible(true)
+}
+
+const setLayers = () => {
+  const layers = map.getLayers().getArray().map(layer => {
+    return {
+      id: layer.get('id'),
+      title: layer.get('title'),
+      img: layer.get('img'),
+      visible: layer.getVisible()
+    }
+  })
+  document.getElementById('map-menu').setLayers(layers)
 }
 
 // Update the style when it's changed in the menu
 document.addEventListener('vt:change-style', event => {
-  showLayer(event.detail)
+  showLayer(event.detail.id)
 })
 
 // Add a new stylefile on upload
@@ -125,8 +137,8 @@ document.addEventListener('vt:add-style', event => {
   if (!stylefile || !title) return
   createStylefile(stylefile, title).then(layerGroup => {
     map.addLayer(layerGroup)
-    showLayer(layerGroup)
-    document.getElementById('map-menu').setLayers(map.getLayers())
+    showLayer(layerGroup.get('id'))
+    setLayers()
     // Save style to localStorage
     const saveSuccess = saveStyle(title, stylefile)
     if (!saveSuccess) {
@@ -144,10 +156,10 @@ document.addEventListener('vt:delete-style', event => {
     return lg.get('title') === title
   })
   if (layerGroup) {
-    if (layerGroup.getVisible()) showLayer(map.getLayers().getArray()[0])
+    if (layerGroup.getVisible()) showLayer(map.getLayers().getArray()[0].get('id'))
     map.removeLayer(layerGroup)
   }
-  document.getElementById('map-menu').setLayers(map.getLayers())
+  setLayers()
 })
 
 // Show zoom level

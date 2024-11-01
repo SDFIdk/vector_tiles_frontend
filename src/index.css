@@ -39,6 +39,7 @@ main {
 }
 .zoom-level {
   position: absolute;
+  font-size: 1rem;
   bottom: 0.5rem;
   right: 0.5rem;
   z-index: 1;

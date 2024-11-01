@@ -141,7 +141,7 @@ export class MapLayerSelector extends HTMLElement {
     stylesElement.innerHTML = ''
     this.layers.forEach(layer => {
       const styleElement = this.createStyleElement(layer, stylesElement)
-      if (layer.getVisible()) styleElement.classList.add(selectedClass)
+      if (layer.visible) styleElement.classList.add(selectedClass)
       stylesElement.appendChild(styleElement)
     })
   }
@@ -175,8 +175,8 @@ export class MapLayerSelector extends HTMLElement {
 
   // Create a style element
   createStyleElement(layer, stylesElement) {
-    const img = layer.get('img')
-    const title = layer.get('title') || ''
+    const img = layer.img
+    const title = layer.title || ''
     const displayTitle = (title.length > maxTitleLength) ? title.slice(0, maxTitleLength-1) + '&hellip;' : title
     const wrapperElement = document.createElement('article')
     const titleElement = document.createElement('h6')

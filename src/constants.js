@@ -26,7 +26,7 @@ export const STYLE_FILES_ML = [
     title: 'Klassisk',
     img: '/img/klassisk.png',
     style: '/styles/official/ml_skaermkort_klassisk.json'
-  },
+  }, /*
   {
     title: 'Dæmpet',
     img: '/img/daempet.png',
@@ -41,5 +41,5 @@ export const STYLE_FILES_ML = [
     title: 'Mørkt',
     img: '/img/moerkt.png',
     style: '/styles/official/ml_skaermkort_moerkt.json'
-  }
+  } */
 ]

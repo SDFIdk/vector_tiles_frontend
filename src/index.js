@@ -10,10 +10,12 @@ import { apply } from 'ol-mapbox-style'
 import { STYLE_FILES } from './constants'
 import { MapMenu } from './components/menu'
 import { LayerActions } from './components/layerActions.js'
-import { saveStyle, loadStyles, deleteStyle } from './modules/customstyle.js'
+import { CustomStyleStorage } from './modules/customStyleStorage.js'
 
 customElements.define('map-menu', MapMenu)
 customElements.define('vt-actions', LayerActions)
+
+const styleStorage = new CustomStyleStorage('ol')
 
 const format = new MVT()
 
@@ -95,7 +97,7 @@ STYLE_FILES.forEach(style => {
   stylePromises.push(createStylefile(style.style, style.title, style.img))
 })
 // And the styles stored in local storage
-const storedStyles = loadStyles()
+const storedStyles = styleStorage.loadStyles()
 storedStyles.forEach(style => {
   stylePromises.push(createStylefile(style.style, style.title))
 })
@@ -140,7 +142,7 @@ document.addEventListener('vt:add-style', event => {
     showLayer(layerGroup.get('id'))
     setLayers()
     // Save style to localStorage
-    const saveSuccess = saveStyle(title, stylefile)
+    const saveSuccess = styleStorage.saveStyle(title, stylefile)
     if (!saveSuccess) {
       return
     }
@@ -151,7 +153,7 @@ document.addEventListener('vt:add-style', event => {
 document.addEventListener('vt:delete-style', event => {
   const title = event.detail
   if (!title) return
-  deleteStyle(title)
+  styleStorage.deleteStyle(title)
   const layerGroup = map.getLayers().getArray().find(lg => {
     return lg.get('title') === title
   })

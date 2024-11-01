@@ -3,12 +3,14 @@ import { Map, NavigationControl } from 'maplibre-gl'
 import { STYLE_FILES } from '../constants'
 import { MapMenu } from '../components/menu'
 import { LayerActions } from '../components/layerActions.js'
-import { saveStyle, loadStyles, deleteStyle } from '../modules/customstyle.js'
+import { CustomStyleStorage } from '../modules/customStyleStorage.js'
 
 customElements.define('map-menu', MapMenu)
 customElements.define('vt-actions', LayerActions)
 
-const styles = [...STYLE_FILES ,...loadStyles()]
+const styleStorage = new CustomStyleStorage('ml')
+
+const styles = [...STYLE_FILES ,...styleStorage.loadStyles()]
 styles.forEach(style => {
   style.id = Math.random().toString(36).substring(2, 12)
 })
@@ -81,7 +83,7 @@ document.addEventListener('vt:add-style', event => {
   showStyle(style)
   setLayers()
   // Save style to localStorage
-  const saveSuccess = saveStyle(title, stylefile)
+  const saveSuccess = styleStorage.saveStyle(title, stylefile)
   if (!saveSuccess) {
     return
   }
@@ -91,7 +93,7 @@ document.addEventListener('vt:add-style', event => {
 document.addEventListener('vt:delete-style', event => {
   const title = event.detail
   if (!title) return
-  deleteStyle(title)
+  styleStorage.deleteStyle(title)
   const style = styles.find(s => {
     return s.title === title
   })

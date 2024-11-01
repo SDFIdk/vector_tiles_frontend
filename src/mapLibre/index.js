@@ -31,8 +31,6 @@ const showStyle = (style) => {
 
 const setLayers = () => {
   const layers = styles.map(style => {
-    console.log(style)
-    console.log(shownStyle)
     return {
       title: style.title,
       img: style.img,

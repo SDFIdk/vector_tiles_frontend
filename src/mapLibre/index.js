@@ -1,6 +1,6 @@
-import { Map, NavigationControl } from 'maplibre-gl'
+import { Map } from 'maplibre-gl'
 
-import { STYLE_FILES } from '../constants'
+import { STYLE_FILES_ML } from '../constants'
 import { MapMenu } from '../components/menu'
 import { LayerActions } from '../components/layerActions.js'
 import { CustomStyleStorage } from '../modules/customStyleStorage.js'
@@ -10,7 +10,7 @@ customElements.define('vt-actions', LayerActions)
 
 const styleStorage = new CustomStyleStorage('ml')
 
-const styles = [...STYLE_FILES ,...styleStorage.loadStyles()]
+const styles = [...STYLE_FILES_ML ,...styleStorage.loadStyles()]
 styles.forEach(style => {
   style.id = Math.random().toString(36).substring(2, 12)
 })
@@ -29,7 +29,7 @@ const map = new Map({
   container: 'map',
   minZoom: 0,
   maxZoom: 24,
-  style: 'http://localhost:8000/styles/official/skaermkort_klassisk_maplibre_test_font.json',
+  style: shownStyle.style,
   maxBounds: [
     [ 3.3201605, 53.1136553 ],
     [ 17.5577711, 58.3539706 ]

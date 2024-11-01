@@ -7,7 +7,7 @@ import { register } from 'ol/proj/proj4'
 import proj4 from 'proj4/dist/proj4'
 import { apply } from 'ol-mapbox-style'
 
-import { STYLE_FILES } from './constants'
+import { STYLE_FILES_OL } from './constants'
 import { MapMenu } from './components/menu'
 import { LayerActions } from './components/layerActions.js'
 import { CustomStyleStorage } from './modules/customStyleStorage.js'
@@ -93,7 +93,7 @@ const createStylefile = (stylefile, title, img) => {
 
 // Add the default styles
 const stylePromises = []
-STYLE_FILES.forEach(style => {
+STYLE_FILES_OL.forEach(style => {
   stylePromises.push(createStylefile(style.style, style.title, style.img))
 })
 // And the styles stored in local storage

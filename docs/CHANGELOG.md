@@ -3,11 +3,17 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
-## [3.0.0] - 2024-11-1
+## [3.0.0] - 2024-11-07
 
 ### Added
 
-- Added a MapLibre version of the application, `/mapLibre`
+- Added a MapLibre version of the application, `/mapLibre`.
+
+## [2.2.1] - 2024-11-07
+
+### Fixed
+
+- No longer incorrectly adds a new layer if one with the same name already exists.
 
 ## [2.2.0] - 2024-10-31
 

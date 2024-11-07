@@ -79,14 +79,14 @@ document.addEventListener('vt:add-style', event => {
     style: stylefile,
     id: Math.random().toString(36).substring(2, 12)
   }
-  styles.push(style)
-  showStyle(style)
-  setLayers()
   // Save style to localStorage
   const saveSuccess = styleStorage.saveStyle(title, stylefile)
   if (!saveSuccess) {
     return
   }
+  styles.push(style)
+  showStyle(style)
+  setLayers()
 })
 
 // Remove a style

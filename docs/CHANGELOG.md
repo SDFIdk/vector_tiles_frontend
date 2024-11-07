@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [2.2.1] - 2024-11-07
+
+### Fixed
+
+- No longer incorrectly adds a new layer if one with the same name already exists.
+
 ## [2.2.0] - 2024-10-31
 
 ### Added

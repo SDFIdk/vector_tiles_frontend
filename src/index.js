@@ -124,14 +124,14 @@ document.addEventListener('vt:add-style', event => {
   const title = event.detail.title
   if (!stylefile || !title) return
   createStylefile(stylefile, title).then(layerGroup => {
-    map.addLayer(layerGroup)
-    showLayer(layerGroup)
-    document.getElementById('map-menu').setLayers(map.getLayers())
     // Save style to localStorage
     const saveSuccess = saveStyle(title, stylefile)
     if (!saveSuccess) {
       return
     }
+    map.addLayer(layerGroup)
+    showLayer(layerGroup)
+    document.getElementById('map-menu').setLayers(map.getLayers())
   })
 })
 

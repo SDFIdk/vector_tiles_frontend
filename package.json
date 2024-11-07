@@ -1,6 +1,6 @@
 {
     "name": "vector-tiles-frontend",
-    "version": "2.2.1",
+    "version": "3.0.0",
     "description": "Webapplikation til at vise vector tiles med forskellige styles.",
     "main": "./public/index.html",
     "type": "module",
@@ -30,7 +30,8 @@
       "@dataforsyningen/designsystem": "^6.1.0",
       "ol": "^10.2.1",
       "proj4": "^2.12.1",
-      "ol-mapbox-style": "^12.3.5"
+      "ol-mapbox-style": "^12.3.5",
+      "maplibre-gl": "^4.7.1"
     },
     "devDependencies": {
       "esbuild": "^0.20.2",

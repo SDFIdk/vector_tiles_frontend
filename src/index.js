@@ -64,6 +64,7 @@ const showLayer = (id) => {
 
 const setLayers = () => {
   const layers = map.getLayers().getArray().map(layer => {
+    console.log(layer.get('id'), layer.getVisible())
     return {
       id: layer.get('id'),
       title: layer.get('title'),
@@ -144,8 +145,8 @@ document.addEventListener('vt:add-style', event => {
       return
     }
     map.addLayer(layerGroup)
-    showLayer(layerGroup)
-    document.getElementById('map-menu').setLayers(map.getLayers())
+    showLayer(layerGroup.get('id'))
+    setLayers()
   })
 })
 

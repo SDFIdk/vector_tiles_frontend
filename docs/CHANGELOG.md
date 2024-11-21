@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [4.0.1] - 2024-11-21
+
+### Changed
+
+- Stylefiles and glyphs are now imported from `@dataforsyningen/vector_tiles_assets`.
+
 ## [3.0.1] - 2024-11-07
 
 ### Fixed

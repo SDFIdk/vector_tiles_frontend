@@ -1,6 +1,6 @@
 # Adding a new style to the website
 
-- Add the `.json` stylefile to `public/styles/official`
+- The stylefile should exist in the https://github.com/SDFIdk/vector_tiles_assets repo.
 - Add the image file for displaying a preview of the style to `src/assets/img`
 - In `src/constants.js` add a configuration object to the `STYLE_FILES_OL` (Openlayers) or `STYLE_FILES_ML` (MapLibre) array. For instance:
 ```

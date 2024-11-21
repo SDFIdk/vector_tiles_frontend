@@ -1,5 +1,5 @@
 const selectedClass = 'selected'
-const maxTitleLength = 11
+const maxTitleLength = 15
 
 export class MapLayerSelector extends HTMLElement {
 
@@ -35,7 +35,7 @@ export class MapLayerSelector extends HTMLElement {
       margin: 0.5rem 0 0 0;
     }
     .style.selected > h6 {
-      color: var(--aktion);
+      color: var(--highlight);
     }
     .style > section {
       position: relative;
@@ -44,7 +44,7 @@ export class MapLayerSelector extends HTMLElement {
       height: 5rem;
       border-radius: .5rem;
       background-color: var(--bg1);
-      outline: 1px solid var(--bg3);
+      outline: 1px solid var(--border-color);
       overflow: hidden;
     }
     .style > section > img {
@@ -59,7 +59,7 @@ export class MapLayerSelector extends HTMLElement {
       text-align: center;
     }
     .style.selected > img, .style.selected > section {
-      outline: 4px solid var(--aktion);
+      outline: 4px solid var(--highlight);
     }
     .drop-zone {
       width: 13rem;
@@ -73,7 +73,7 @@ export class MapLayerSelector extends HTMLElement {
       max-width: 20rem;
     }
     .drop-zone[drop-active=true] {
-      outline: dotted var(--aktion);
+      outline: dotted var(--highlight);
     }
   `
   template = /* html */`

@@ -12,7 +12,6 @@ customElements.define('vt-actions', LayerActions)
 const styleStorage = new CustomStyleStorage('ml')
 
 // get defaults from config
-const mapElement = document.getElementById('map')
 const projConfig = projectionDefaults['3857']
 const projConfigLatLong = projectionDefaults['4326']
 const extent = projConfigLatLong.extent

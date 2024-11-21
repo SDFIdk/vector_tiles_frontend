@@ -8,7 +8,7 @@ export class MapLayerSelector extends HTMLElement {
     .header {
       width: 100%;
       background-color: var(--bg1);
-      padding: 0.5rem 1rem;
+      padding: var(--space-sm) var(--space);
     }
     .header > h5 {
       margin: 0;
@@ -20,11 +20,11 @@ export class MapLayerSelector extends HTMLElement {
     .styles-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      padding: 1rem;
+      gap: var(--space-sm);
+      padding: var(--space);
     }
     .styles-upload {
-      padding: 0 1rem 1rem 1rem;
+      padding: 0 var(--space) var(--space) var(--space);
       display: flex;
       flex-wrap: wrap;
     }
@@ -32,7 +32,7 @@ export class MapLayerSelector extends HTMLElement {
       cursor: pointer;
     }
     .style > h6 {
-      margin: 0.5rem 0 0 0;
+      margin: var(--space-sm) 0 0 0;
     }
     .style.selected > h6 {
       color: var(--highlight);
@@ -42,7 +42,7 @@ export class MapLayerSelector extends HTMLElement {
       width: 8rem;
       min-width: 8rem;
       height: 5rem;
-      border-radius: .5rem;
+      border-radius: var(--space-sm);
       background-color: var(--bg1);
       outline: 1px solid var(--border-color);
       overflow: hidden;
@@ -64,12 +64,12 @@ export class MapLayerSelector extends HTMLElement {
     .drop-zone {
       width: 13rem;
       height: 8rem;
-      padding: 1rem;
-      border-radius: .5rem;
+      padding: var(--space);
+      border-radius: var(--space-sm);
       background-color: var(--bg1);
     }
     .info {
-      padding: 1rem;
+      padding: var(--space);
       max-width: 20rem;
     }
     .drop-zone[drop-active=true] {

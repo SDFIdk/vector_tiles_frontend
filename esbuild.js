@@ -29,7 +29,17 @@ if (process.env.NODE_ENV === 'production') {
       metafile: true,
       splitting: true,
       format: 'esm',
-      loader: loader
+      loader: loader,
+      plugins: [
+        copy({
+          assets: [
+            {
+              from: ['./src/assets/img/*'],
+              to: ['./img']
+            }
+          ]
+        })
+      ]
     }),
     esbuild.build({
       entryPoints: entryPointsML,
@@ -61,6 +71,10 @@ if (process.env.NODE_ENV === 'production') {
             {
               from: ['./config.js'],
               to: ['./config.js']
+            },
+            {
+              from: ['./src/assets/img/*'],
+              to: ['./img']
             }
           ]
         })

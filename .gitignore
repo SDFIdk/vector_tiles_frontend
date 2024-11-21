@@ -10,7 +10,3 @@ config.js
 # Generated files
 dist/
 public/*
-!public/img/
-!public/styles/
-!public/sprites/
-!public/glyphs/

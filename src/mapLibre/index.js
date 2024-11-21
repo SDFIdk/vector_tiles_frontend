@@ -1,4 +1,5 @@
 import { Map } from 'maplibre-gl'
+import { projectionDefaults } from '@dataforsyningen/vector_tiles_assets/src/test/constants'
 
 import { STYLE_FILES_ML } from '../constants'
 import { MapMenu } from '../components/menu'
@@ -10,6 +11,11 @@ customElements.define('vt-actions', LayerActions)
 
 const styleStorage = new CustomStyleStorage('ml')
 
+// get defaults from config
+const projConfig = projectionDefaults['3857']
+const projConfigLatLong = projectionDefaults['4326']
+const extent = projConfigLatLong.extent
+
 const styles = [...STYLE_FILES_ML ,...styleStorage.loadStyles()]
 styles.forEach(style => {
   style.id = Math.random().toString(36).substring(2, 12)
@@ -18,9 +24,10 @@ let shownStyle = styles[0]
 
 // Custom transformRequest to add a header with a token
 const transformRequest = (url, resourceType) => {
+  const headers = resourceType === 'Tile' ? { 'token': config.API_TOKEN } : {}
   return {
-    url: url,
-    headers: { 'token': config.API_TOKEN }
+    url,
+    headers
   }
 }
 
@@ -44,14 +51,11 @@ const setLayers = () => {
 const map = new Map({
   container: 'map',
   minZoom: 0,
-  maxZoom: 24,
+  maxZoom: projConfig.maxZoom,
   style: shownStyle.style,
-  maxBounds: [
-    [ 3.3201605, 53.1136553 ],
-    [ 17.5577711, 58.3539706 ]
-  ],
-  center: [ 10.129395, 56.127184 ],
-  zoom: 11,
+  maxBounds: [[extent[0], extent[1]], [extent[2], extent[3]]],
+  center: projConfigLatLong.center,
+  zoom: projConfig.zoom,
   attributionControl: false,
   transformRequest
 })

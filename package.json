@@ -1,12 +1,13 @@
 {
   "name": "vector-tiles-frontend",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "Webapplikation til at vise vector tiles med forskellige styles.",
   "main": "./public/index.html",
   "type": "module",
   "scripts": {
-    "dev": "export NODE_ENV=development && cp config.js public/config.js || : && node esbuild.js",
-    "build": "export NODE_ENV=production && node esbuild.js"
+    "import-assets": "node escopy.js",
+    "dev": "export NODE_ENV=development && node esbuild.js",
+    "build": "node escopy.js && export NODE_ENV=production && node esbuild.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,8 @@
   },
   "homepage": "https://github.com/SDFIdk/vector_tiles_frontend#readme",
   "dependencies": {
-    "@dataforsyningen/designsystem": "^6.1.0",
+    "@dataforsyningen/designsystem": "^8.3.0",
+    "@dataforsyningen/vector_tiles_assets": "^0.2.1",
     "ol": "^10.2.1",
     "proj4": "^2.12.1",
     "ol-mapbox-style": "^12.3.5",
@@ -35,7 +37,7 @@
   },
   "devDependencies": {
     "esbuild": "^0.20.2",
-    "esbuild-sass-plugin": "^3.2.0"
+    "esbuild-plugin-copy": "^2.1.1"
   }
 }
   

@@ -1,5 +1,5 @@
 /* CSS imports*/
-@import '@dataforsyningen/designsystem/index.scss';
+@import '@dataforsyningen/designsystem/index.css';
 @import 'maplibre-gl/dist/maplibre-gl.css';
 
 /* Openlayers styles */

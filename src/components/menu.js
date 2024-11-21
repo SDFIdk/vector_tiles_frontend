@@ -1,9 +1,8 @@
-import { DSLogo } from '@dataforsyningen/designsystem'
-import stackIcon from '@dataforsyningen/designsystem/assets/icons/icon_stack.svg'
+import logo from '@dataforsyningen/designsystem/assets/logo-medium.svg'
+import stackIcon from '@dataforsyningen/designsystem/assets/icons/stack.svg'
 
 import { MapLayerSelector } from './layerSelector'
 
-customElements.define('ds-logo', DSLogo)
 customElements.define('layer-selector', MapLayerSelector)
 
 export class MapMenu extends HTMLElement {
@@ -13,52 +12,37 @@ export class MapMenu extends HTMLElement {
   styles = /* css */`
     .map-menu-border {
       position: absolute;
-      top: 1.5rem;
-      left: 5vw;
-      max-width: calc(min(90vw, 50rem));
-      max-height: calc(100vh - 4rem);
-      border-radius: 2.25rem;
-      background-color: rgba(62, 221, 198, 0.33);
-      padding: .25rem;
+      top: var(--gap);
+      left: var(--gap-lg);
+      max-width: calc(min(94vw, 50rem));
+      max-height: 94vh;
       z-index: 2;
     }
     .map-menu {
       border-radius: 2rem;
-      border: 1px solid var(--border-color);
+      border: 2px solid var(--border-color);
       background-color: var(--background-color);
-      max-height: calc(100vh - 4.5rem);
+      max-height: 94vh;
       overflow: hidden;
     }
     .map-menu-top {
+      padding: var(--space-sm);
       display: flex;
-      padding: .5rem;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+    .logo-title {
+      width: 17rem;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
     }
     .ds-logo {
-      width: 17rem;
+      width: 45px;
+      flex-shrink: 0;
     }
-    .icon-wrapper {
-      position: relative;
-      height: 3rem;
-      border-radius: 3rem;
-      overflow: hidden;
-    }
-    .selected > .icon-arrow {
-      position: absolute;
-      left: 1rem;
-      bottom: -1rem;
-      background-color: var(--bg1);
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      width: .75rem;
-      height: .75rem;
-    }
-    .selected > svg {
-      background-color: var(--aktion);
-    }
-    svg {
-      width: 3rem;
-      height: 3rem;
-      cursor: pointer;
+    button.secondary.selected {
+      background-color: var(--primary);
     }
   `
   template = /* html */`
@@ -67,15 +51,16 @@ export class MapMenu extends HTMLElement {
     </style>
     <article class="map-menu">
       <section class="map-menu-top">
-        <p class="ds-logo small">
-          <ds-logo></ds-logo>
-          <strong>Vector Tiles - Skærmkort</strong>
-          <span>Klimadatastyrelsen</span>
-        </p>
-        <article class="icon-wrapper" id="layer-selector-button">
+        <div class="logo-title">
+          ${logo}
+          <span>
+            <strong>Vector Tiles - Skærmkort</strong>
+            <small>Klimadatastyrelsen</small>
+          <span>
+        </div>
+        <button title="Styles" class="secondary" id="layer-selector-button">
           ${stackIcon}
-          <div class="icon-arrow"></div>
-        </article>
+        </button>
       </section>
     </article>
   `

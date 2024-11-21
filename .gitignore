@@ -10,4 +10,3 @@ config.js
 # Generated files
 dist/
 public/*
-!public/img/

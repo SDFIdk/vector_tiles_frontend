@@ -1,5 +1,5 @@
 import esbuild from 'esbuild'
-import { sassPlugin } from 'esbuild-sass-plugin'
+import { copy } from 'esbuild-plugin-copy'
 
 const outdir = 'public'
 const entryPoints = {
@@ -14,7 +14,8 @@ const entryPointsML = {
 const loader = {
   '.html': 'copy',
   '.ttf': 'file',
-  '.svg': 'text'
+  '.svg': 'text',
+  '.png': 'file'
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -28,10 +29,7 @@ if (process.env.NODE_ENV === 'production') {
       metafile: true,
       splitting: true,
       format: 'esm',
-      loader: loader,
-      plugins: [
-        sassPlugin()
-      ]
+      loader: loader
     }),
     esbuild.build({
       entryPoints: entryPointsML,
@@ -58,7 +56,14 @@ if (process.env.NODE_ENV === 'production') {
       format: 'esm',
       loader: loader,
       plugins: [
-        sassPlugin()
+        copy({
+          assets: [
+            {
+              from: ['./config.js'],
+              to: ['./config.js']
+            }
+          ]
+        })
       ]
     }),
     esbuild.context({

@@ -1,5 +1,5 @@
 import { DSLogo } from '@dataforsyningen/designsystem'
-import stackIcon from '@dataforsyningen/designsystem/assets/icons/icon_stack.svg'
+import stackIcon from '@dataforsyningen/designsystem/assets/icons/stack.svg'
 
 import { MapLayerSelector } from './layerSelector'
 

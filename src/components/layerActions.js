@@ -1,5 +1,5 @@
-import downloadIcon from '@dataforsyningen/designsystem/assets/icons/hentdata_icon_download.svg'
-import deleteIcon from '@dataforsyningen/designsystem/assets/icons/icon_trash.svg'
+import downloadIcon from '@dataforsyningen/designsystem/assets/icons/download.svg'
+import deleteIcon from '@dataforsyningen/designsystem/assets/icons/trash.svg'
 
 export class LayerActions extends HTMLElement {
 

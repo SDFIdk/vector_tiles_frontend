@@ -12,7 +12,8 @@ You'll need to supply your own token for your particular configuration.
 You can copy and edit `config.example.js` to use as your own `config.js`.
 
 ## Build for development
+Run `npm run import-assets` to copy the assets from vector_tiles_assets into your `/public` folder. You only need to do this once after running `npm install`.
 Run `npm run dev` to start a development server running locally at `localhost:8000`
 
 ## Build for production
-Run `npm run build` to make a production build. The built resources are saved in `dist/` folder; ready to be hosted along with the static assets in the `public` folder.
+Run `npm run build` to make a production build. The build files are created in the `/public` folder ready to be hosted.

@@ -1,6 +1,6 @@
 {
   "name": "vector-tiles-frontend",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Webapplikation til at vise vector tiles med forskellige styles.",
   "main": "./public/index.html",
   "type": "module",

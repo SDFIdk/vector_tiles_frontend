@@ -43,6 +43,7 @@ export class MapMenu extends HTMLElement {
     }
     button.secondary.selected {
       background-color: var(--primary);
+      --ds-icon-color: var(--white);
     }
   `
   template = /* html */`

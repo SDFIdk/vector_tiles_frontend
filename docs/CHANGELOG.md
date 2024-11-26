@@ -3,7 +3,17 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
-## [4.0.1] - 2024-11-21
+## [4.0.1] - 2024-11-26
+
+### Added
+
+- Added a link to `https://github.com/SDFIdk/vector_tiles_assets` in the layer selector.
+
+### Fixed
+
+- Fixed some incorrect colors in light mode.
+
+## [4.0.0] - 2024-11-21
 
 ### Changed
 

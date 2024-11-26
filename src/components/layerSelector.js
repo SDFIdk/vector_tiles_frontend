@@ -35,7 +35,7 @@ export class MapLayerSelector extends HTMLElement {
       margin: var(--space-sm) 0 0 0;
     }
     .style.selected > h6 {
-      color: var(--highlight);
+      color: var(--link);
     }
     .style > section {
       position: relative;
@@ -59,7 +59,7 @@ export class MapLayerSelector extends HTMLElement {
       text-align: center;
     }
     .style.selected > img, .style.selected > section {
-      outline: 4px solid var(--highlight);
+      outline: 4px solid var(--link);
     }
     .drop-zone {
       width: 13rem;
@@ -73,7 +73,7 @@ export class MapLayerSelector extends HTMLElement {
       max-width: 20rem;
     }
     .drop-zone[drop-active=true] {
-      outline: dotted var(--highlight);
+      outline: dotted var(--link);
     }
   `
   template = /* html */`
@@ -126,7 +126,7 @@ export class MapLayerSelector extends HTMLElement {
     const infoElement = document.createElement('article')
     const infoText = document.createElement('p')
     infoElement.classList.add('info')
-    infoText.innerHTML = 'Se dokumentation, stylefiles og kode eksempel på <a target="_blank" href="https://github.com/SDFIdk/vector_tiles_frontend">Github</a>.'
+    infoText.innerHTML = 'Se dokumentation og stylefiles på <a target="_blank" href="https://github.com/SDFIdk/vector_tiles_assets">Assets Github</a> og Implementeringen af denne side på <a href="https://github.com/SDFIdk/vector_tiles_frontend">Frontend Github</a>.'
     infoElement.appendChild(infoText)
     uploadElement.appendChild(infoElement)
     

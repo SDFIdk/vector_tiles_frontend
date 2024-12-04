@@ -29,7 +29,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Added
 
-- Added a MapLibre version of the application, `/mapLibre`.
+- Added a MapLibre version of the application, `/maplibre`.
 
 ## [2.2.1] - 2024-11-07
 

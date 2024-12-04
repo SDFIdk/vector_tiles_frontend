@@ -6,10 +6,10 @@ const entryPoints = {
   index: 'src/index.html',
   main: 'src/index.js',
   style: 'src/index.css',
-  'mapLibre/main': 'src/mapLibre/index.js'
+  'maplibre/main': 'src/mapLibre/index.js'
 }
 const entryPointsML = {
-  'mapLibre/index': 'src/index.html'
+  'maplibre/index': 'src/index.html'
 }
 const loader = {
   '.html': 'copy',

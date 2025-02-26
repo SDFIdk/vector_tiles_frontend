@@ -24,7 +24,11 @@ let shownStyle = styles[0]
 
 // Custom transformRequest to add a header with a token
 const transformRequest = (url, resourceType) => {
-  const headers = resourceType === 'Tile' ? { 'token': config.API_TOKEN } : {}
+  const headers = {}
+  if (resourceType === 'Tile' && config.API_TOKEN &&
+    url.includes('api.dataforsyningen.dk') && !url.includes('token')) {
+    headers.token = config.API_TOKEN
+  }
   return {
     url,
     headers

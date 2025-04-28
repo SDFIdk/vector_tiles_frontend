@@ -15,6 +15,10 @@ await esbuild.build({
         {
           from: ['./node_modules/@dataforsyningen/vector_tiles_assets/glyphs/**/*'],
           to: ['./glyphs']
+        },
+        {
+          from: ['./node_modules/@dataforsyningen/vector_tiles_assets/sprites/**/*'],
+          to: ['./sprites']
         }
       ]
     })

@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
  
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [4.2.0] - 2025-04-28
+
+### Added
+
+- Added support for sprites and updated @dataforsyningen/vector_tiles_assets version.
+
 ## [4.1.0] - 2025-02-26
 
 ### Fixed

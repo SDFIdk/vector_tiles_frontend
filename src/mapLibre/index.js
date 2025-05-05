@@ -37,7 +37,7 @@ const transformRequest = (url, resourceType) => {
 
 const showStyle = (style) => {
   shownStyle = style
-  map.setStyle(style.style)
+  map.setStyle(style.style, { diff: false})
 }
 
 const setLayers = () => {
